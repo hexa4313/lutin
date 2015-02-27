@@ -1,5 +1,5 @@
 Grammaire et Langage - TD intro Projet
-==============================================
+======================================
 
 Grammaire
 ---------
@@ -33,10 +33,9 @@ Grammaire
 * id
 * val
 
-
 ----------------
 
-* P → DL IL
+* P  → DL IL
 * DL → DL D pv
 * DL → ε
 * IL → IL I pv
@@ -62,18 +61,29 @@ Grammaire
 * opM → div
 
 * aff → ':='
-* pv → ';'
-* vg → ','
-* eq → '='
+* pv  → ';'
+* vg  → ','
+* eq  → '='
 * add → '+'
 * sub → '-'
 * mul → '*'
 * div → '/'
-* po → '('
-* pf → ')'
+* po  → '('
+* pf  → ')'
 * var → 'var'
 * cst → 'const'
-* w → 'ecrire'
-* r → 'lire'
+* w   → 'ecrire'
+* r   → 'lire'
 * id
 * val
+
+----------------
+
+Les expressions regulieres
+--------------------------
+
+* keyword → 'var ' | 'const ' | 'ecrire ' | 'lire '
+* id  → \[a-z A-Z] \[a-z A-z 0-9]*
+* val → [0-9]+
+* pv  → ';'
+* aff → ':='
