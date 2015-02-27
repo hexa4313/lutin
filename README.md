@@ -36,48 +36,44 @@ Grammaire
 
 ----------------
 
-Defactorisé et simplifié
-
 * P -> DL IL
-* DL -> DL D
-* DL -> D
+* DL -> DL D pv
 * DL -> ε
-* IL -> IL I
-* IL -> I
+* IL -> IL I pv
 * IL -> ε
 
-* D -> var V pv
-* D -> const C pv
+* D -> var V
+* D -> cst C
 * V -> V vg id
 * V -> id
-* C -> C vg id eg val
-* C -> id eg val
-* I -> ecrire E pv
-* I -> lire id pv
-* I -> id affect E pv
-* E -> E opM E pv
-* E -> E opA E pv
-* E -> po E pf pv
-* E -> id pv
-* E -> val pv
+* C -> C vg id eq val
+* C -> id eq val
+* I -> w E
+* I -> r id
+* I -> id aff E
+* E -> E opM E
+* E -> E opA E
+* E -> po E pf
+* E -> id
+* E -> val
 * opA -> add
 * opA -> sub
-* opM -> mult
+* opM -> mul
 * opM -> div
 
-* affect -> ':='
+* aff -> ':='
 * pv -> ';'
 * vg -> ','
-* eg -> '='
+* eq -> '='
 * add -> '+'
 * sub -> '-'
-* mult -> '*'
+* mul -> '*'
 * div -> '/'
 * po -> '('
 * pf -> ')'
 * var -> 'var'
-* const -> 'const'
-* ecrire -> 'ecrire'
-* lire -> 'lire'
+* cst -> 'const'
+* w -> 'ecrire'
+* r -> 'lire'
 * id
 * val
