@@ -1,3 +1,6 @@
+#IFNDEF AUTOMATE_H
+#DEFINE AUTOMATE_H
+
 class Automate {
 	class State * s;
   	public:
@@ -5,3 +8,5 @@ class Automate {
 	private:
     		void lecture();
 };
+
+#ENDIF
