@@ -1,0 +1,3 @@
+class ConstantNum : public Expression {
+
+};
