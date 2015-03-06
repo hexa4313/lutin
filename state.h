@@ -1,3 +1,6 @@
+#IFNDEF STATE_H
+#DEFINE STATE_H
+
 #include "automate.h"
 #include "symbol.h"
 
@@ -14,3 +17,5 @@ class State {
   protected:
     string name;
 }
+
+#ENDIF

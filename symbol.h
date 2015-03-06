@@ -1,3 +1,6 @@
+#IFNDEF SYMBOL_H
+#DEFINE SYMBOL_H
+
 class Symbol {
   protected:
     int ident;
@@ -7,3 +10,5 @@ class Symbol {
     void print();
     operator int() const { return ident; }
 };
+
+#ENDIF

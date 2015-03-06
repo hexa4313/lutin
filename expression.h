@@ -1,3 +1,6 @@
+#IFNDEF EXPRESSION_H
+#DEFINE EXPRESSION_H
+
 #include "Symbol.h"
 
 class Expression : public Symbol {
@@ -6,3 +9,5 @@ class Expression : public Symbol {
     virtual ~Expression() {}
     virtual double eval(const map<string, double> & valeurs) = 0;
 };
+
+#ENDIF
