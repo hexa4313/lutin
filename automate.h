@@ -1,7 +1,7 @@
 class Automate {
 	class State * s;
   	public:
-		void setState(State * s);
+		void setState(Symbole * symbole, State * state);
 	private:
     		void lecture();
 };
