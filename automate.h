@@ -1,0 +1,4 @@
+class Automate {
+  private:
+    lecture();
+};
