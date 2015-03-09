@@ -1,3 +1,6 @@
+#IFNDEF LEXER_H
+#DEFINE LEXER_H
+
 #include "symbol.h"
 #include <string>
 
@@ -12,3 +15,5 @@ class Lexer {
     void next();
 
 };
+
+#ENDIF
