@@ -1,1 +1,0 @@
-/usr/bin/c++    -std=c++11    CMakeFiles/lutinc.dir/lexer.cpp.o CMakeFiles/lutinc.dir/states/e1.cpp.o  -o lutinc -rdynamic 
