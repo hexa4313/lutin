@@ -1,14 +1,13 @@
-Grammaire et Langage - TD intro Projet
+Grammaire et Langage - Lutin
 ======================================
 
-Grammaire
+Les non-terminaux
 ---------
 * P  → DL IL
 * DL → DL D pv
 * DL → ε
 * IL → IL I pv
 * IL → ε
-
 * D → var V
 * D → cst C
 * V → V vg id
@@ -28,30 +27,22 @@ Grammaire
 * opM → mul
 * opM → div
 
-* aff → ':='
-* pv  → ';'
-* vg  → ','
-* eq  → '='
-* add → '+'
-* sub → '-'
-* mul → '*'
-* div → '/'
-* po  → '('
-* pf  → ')'
-* var → 'var'
-* cst → 'const'
-* w   → 'ecrire'
-* r   → 'lire'
-* id
-* val
+Les terminaux
+---------
 
-----------------
-
-Les expressions regulieres
---------------------------
-
-* keyword → 'var ' | 'const ' | 'ecrire ' | 'lire '
-* id  → \[a-z A-Z] \[a-z A-z 0-9]*
-* val → [0-9]+
-* pv  → ';'
-* aff → ':='
+* aff → ^:=
+* pv  → ^;
+* vg  → ^,
+* eq  → ^=
+* add → ^+
+* sub → ^-
+* mul → ^*
+* div → ^/
+* po  → ^(
+* pf  → ^)
+* var → ^var
+* cst → ^const
+* w   → ^ecrire
+* r   → ^lire
+* id  → ^[a-zA-Z][a-zA-Z0-9]*
+* val → ^[0-9]+
