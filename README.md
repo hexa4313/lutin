@@ -30,19 +30,19 @@ Les non-terminaux
 Les terminaux
 ---------
 
-* aff → ^:=
-* pv  → ^;
-* vg  → ^,
-* eq  → ^=
-* add → ^+
-* sub → ^-
-* mul → ^*
-* div → ^/
-* po  → ^(
-* pf  → ^)
-* var → ^var
-* cst → ^const
-* w   → ^ecrire
-* r   → ^lire
-* id  → ^[a-zA-Z][a-zA-Z0-9]*
-* val → ^[0-9]+
+* aff → :=
+* pv  → ;
+* vg  → ,
+* eq  → =
+* add → +
+* sub → -
+* mul → *
+* div → /
+* po  → (
+* pf  → )
+* var → var
+* cst → const
+* w   → ecrire
+* r   → lire
+* id  → [a-zA-Z][a-zA-Z0-9]*
+* val → [0-9]+
