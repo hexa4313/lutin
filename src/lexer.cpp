@@ -1,12 +1,26 @@
 #include <regex>
 #include <fstream>
 #include "lexer.h"
+#include "symboltype.h"
 
-static std::regex keyword("^(var|const|ecrire|lire)");
-static std::regex id("^[a-zA-Z][a-zA-Z0-9]*");
-static std::regex val("^[0-9]+");
-static std::regex pv("^;");
-static std::regex aff(":=");
+static std::pair<SymbolType, std::regex> regexes[] = {
+    std::pair(SymbolType::AFF, std::regex("^:=")),
+    std::pair(SymbolType::PV,  std::regex("^;")),
+    std::pair(SymbolType::VG,  std::regex("^,")),
+    std::pair(SymbolType::EQ,  std::regex("^=")),
+    std::pair(SymbolType::ADD, std::regex("^+")),
+    std::pair(SymbolType::SUB, std::regex("^-")),
+    std::pair(SymbolType::MUL, std::regex("^*")),
+    std::pair(SymbolType::DIV, std::regex("^/")),
+    std::pair(SymbolType::PO,  std::regex("^(")),
+    std::pair(SymbolType::PF,  std::regex("^)")),
+    std::pair(SymbolType::VAR, std::regex("^var")),
+    std::pair(SymbolType::CST, std::regex("^const")),
+    std::pair(SymbolType::W,   std::regex("^ecrire")),
+    std::pair(SymbolType::R,   std::regex("^lire")),
+    std::pair(SymbolType::ID,  std::regex("^[a-zA-Z][a-zA-Z0-9]*")),
+    std::pair(SymbolType::VAL, std::regex("^[0-9]+"))
+};
 
 Lexer::Lexer(std::string path) {
   std::ifstream f;
@@ -14,48 +28,33 @@ Lexer::Lexer(std::string path) {
 
   std::stringstream stream;
   stream << f.rdbuf();
-  content = stream.str();
+  m_content = stream.str();
 
   f.close();
 }
 
-Symbol Lexer::getSymbol() {
+std::shared_ptr<Symbol> Lexer::getSymbol() {
+
+  if(m_curSymbol) {
+    return m_curSymbol;
+  }
+
   std::smatch sm;
-  std::regex_match(content, sm, keyword);
 
-  if(sm.size() > 0) {
-    if(sm[0] == "var") {
-    
-    }
-    else if(sm[0] == "const") {
+  for(const auto& reg: regexes) {
+    if(std::regex_match(m_content, sm, reg.second)) {
 
-    }
-    else if(sm[0] == "ecrire") {
+      auto symbol = std::make_shared<Symbol>(reg.first, sm[0]);
+      m_curSymbol = symbol;
 
-    }
-    else if(sm[0] == "lire") {
+      m_content.erase(0, sm[0].length());
 
+      return m_curSymbol;
     }
   }
 
-  std::regex_match(content, sm, id);
-  if(sm.size() > 0) {
-  
-  }
-  
-  std::regex_match(content, sm, val);
-  if(sm.size() > 0) {
-  
-  }
-  
-  std::regex_match(content, sm, pv);
-  if(sm.size() > 0) {
-  
-  }
-  
-  std::regex_match(content, sm, aff);
-  if(sm.size() > 0) {
-  
-  }
+}
 
+void Lexer::next() {
+  m_curSymbol = nullptr;
 }

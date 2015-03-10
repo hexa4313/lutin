@@ -3,15 +3,17 @@
 
 #include "symbol.h"
 #include <string>
+#include <memory>
 
 class Lexer {
   
   private:
-    std::string content;
+    std::string m_content;
+    std::shared_ptr<Symbol> m_curSymbol;
 
   public:
     Lexer(std::string path);
-    Symbol getSymbol();
+    std::shared_ptr<Symbol> getSymbol();
     void next();
 
 };
