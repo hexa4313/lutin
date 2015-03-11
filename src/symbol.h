@@ -2,27 +2,22 @@
 #define SYMBOL_H
 
 #include <string>
-#include <memory>
+#include <boost/variant.hpp>
 #include "symboltype.h"
 
 class Symbol {
 
-  union SymbolValue {
-    std::string id;
-    long value;
-  };
-
   protected:
     SymbolType m_type;
-    SymbolValue m_value;
+    boost::variant<int, std::string> m_value;
 
   public:
-    Symbol(SymbolType type) : m_type(type) {}
-    Symbol(SymbolType type, int value) : Symbol(type), m_value(value) {}
-    Symbol(SymbolType type, std::string id) : Symbol(type), m_value(id) {}
+    Symbol(SymbolType type) : m_type(type), m_value(nullptr) {}
+    Symbol(SymbolType type, long num) : Symbol(type) { m_value = num; }
+  Symbol(SymbolType type, std::string id) : Symbol(type) { m_value = id; }
     virtual ~Symbol() {}
     void print();
-    SymbolValue GetValue();
+    boost::variant<int, std::string> GetValue();
     operator int() const { return static_cast<int>(m_type); }
 };
 

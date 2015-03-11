@@ -1,8 +1,14 @@
-cmake_minimum_required(VERSION 2.8.4)
-project(lutin)
+cmake_minimum_required(VERSION 2.8)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+set (PROJECT_NAME lutin)
+set (EXECUTABLE_NAME lutinc)
 
+project(${PROJECT_NAME})
+
+find_package(Boost 1.50.0)
+if(Boost_FOUND)
+  include_directories(${Boost_INCLUDE_DIRS})
+endif()
 
 SET (root_SRCS
   symboltype.h
@@ -26,4 +32,7 @@ SET (ALL_SRCS
 )
 
 
-add_executable(lutinc ${ALL_SRCS})
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+
+add_executable(${EXECUTABLE_NAME} ${ALL_SRCS})
+target_link_libraries(${EXECUTABLE_NAME} ${Boost_LIBRARIES})

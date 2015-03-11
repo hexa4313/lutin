@@ -2,7 +2,7 @@
 
 #include <assert.h>
 
-Symbol::SymbolValue Symbol::GetValue() {
+boost::variant<int, std::string>  Symbol::GetValue() {
   assert(m_type == SymbolType::ID || m_type != SymbolType::VAL);
 
   return m_value;
