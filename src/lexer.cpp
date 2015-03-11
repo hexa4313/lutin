@@ -4,22 +4,22 @@
 #include "symboltype.h"
 
 static std::pair<SymbolType, std::regex> regexes[] = {
-    std::pair(SymbolType::AFF, std::regex("^:=")),
-    std::pair(SymbolType::PV,  std::regex("^;")),
-    std::pair(SymbolType::VG,  std::regex("^,")),
-    std::pair(SymbolType::EQ,  std::regex("^=")),
-    std::pair(SymbolType::ADD, std::regex("^+")),
-    std::pair(SymbolType::SUB, std::regex("^-")),
-    std::pair(SymbolType::MUL, std::regex("^*")),
-    std::pair(SymbolType::DIV, std::regex("^/")),
-    std::pair(SymbolType::PO,  std::regex("^(")),
-    std::pair(SymbolType::PF,  std::regex("^)")),
-    std::pair(SymbolType::VAR, std::regex("^var")),
-    std::pair(SymbolType::CST, std::regex("^const")),
-    std::pair(SymbolType::W,   std::regex("^ecrire")),
-    std::pair(SymbolType::R,   std::regex("^lire")),
-    std::pair(SymbolType::ID,  std::regex("^[a-zA-Z][a-zA-Z0-9]*")),
-    std::pair(SymbolType::VAL, std::regex("^[0-9]+"))
+    make_pair(SymbolType::AFF, std::regex("^:=")),
+    make_pair(SymbolType::PV,  std::regex("^;")),
+    make_pair(SymbolType::VG,  std::regex("^,")),
+    make_pair(SymbolType::EQ,  std::regex("^=")),
+    make_pair(SymbolType::ADD, std::regex("^+")),
+    make_pair(SymbolType::SUB, std::regex("^-")),
+    make_pair(SymbolType::MUL, std::regex("^*")),
+    make_pair(SymbolType::DIV, std::regex("^/")),
+    make_pair(SymbolType::PO,  std::regex("^(")),
+    make_pair(SymbolType::PF,  std::regex("^)")),
+    make_pair(SymbolType::VAR, std::regex("^var")),
+    make_pair(SymbolType::CST, std::regex("^const")),
+    make_pair(SymbolType::W,   std::regex("^ecrire")),
+    make_pair(SymbolType::R,   std::regex("^lire")),
+    make_pair(SymbolType::ID,  std::regex("^[a-zA-Z][a-zA-Z0-9]*")),
+    make_pair(SymbolType::VAL, std::regex("^[0-9]+"))
 };
 
 Lexer::Lexer(std::string path) {
