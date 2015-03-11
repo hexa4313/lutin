@@ -55,6 +55,6 @@ std::shared_ptr<Symbol> Lexer::getSymbol() {
 
 }
 
-void Lexer::next() {
+void Lexer::shift() {
   m_curSymbol = nullptr;
 }

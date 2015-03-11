@@ -14,7 +14,7 @@ class Lexer {
   public:
     Lexer(std::string path);
     std::shared_ptr<Symbol> getSymbol();
-    void next();
+    void shift();
 
 };
 
