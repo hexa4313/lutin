@@ -5,6 +5,8 @@
 #include "statemachine.h"
 #include "symbol.h"
 
+class StateMachine;
+
 class State {
   public:
     State(std::string name);
