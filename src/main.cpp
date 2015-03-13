@@ -7,6 +7,7 @@
 
 #define ERROR_NOT_ENOUGH_ARGS 1
 #define ERROR_TOO_MANY_ARGS 2
+#define ERROR_BAD_INPUT 3
 
 void show_usage() {
   std::cout << "\n" << "usage: lutinc [-paeo] <input>" << '\n';
@@ -15,6 +16,15 @@ void show_usage() {
   std::cout << "-a :\tStatic analisis and error extraction." << '\n';
   std::cout << "-e :\tInteractive execution of the program." << '\n';
   std::cout << "-o :\tOptimizes the program representation." << '\n';
+}
+
+inline bool file_exists (const std::string& name) {
+    if (FILE *file = fopen(name.c_str(), "r")) {
+        fclose(file);
+        return true;
+    } else {
+        return false;
+    }
 }
 
 int main(int argc, char ** argv) {
@@ -36,7 +46,6 @@ int main(int argc, char ** argv) {
   // Arguments reading
 
   for (int i = 1; i < argc; i++) {
-    std::cout << argv[i] << '\n';
     std::string arg = argv[i];
     if ((arg == "-h") || (arg == "--help")) {
       show_usage();
@@ -61,6 +70,11 @@ int main(int argc, char ** argv) {
   }
 
   // Check if file exists
+
+  if(!file_exists(input_path)) {
+    std::cerr << "Unable to open file: " << input_path << '\n';
+    exit(ERROR_BAD_INPUT);
+  }
 
   // My little state machine
   StateMachine state_machine = StateMachine(input_path);
