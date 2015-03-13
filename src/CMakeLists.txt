@@ -21,6 +21,8 @@ SET (root_SRCS
 
   lexer.h
   lexer.cpp
+
+  main.cpp
 )
 
 SET (states_SRCS
