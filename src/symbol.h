@@ -17,6 +17,7 @@ class Symbol {
     Symbol(SymbolType type, std::string id) : Symbol(type) { m_value = id; }
     virtual ~Symbol() {}
     void print();
+    SymbolType getType() { return m_type; }
     boost::variant<int, std::string> GetValue();
     operator int() const { return static_cast<int>(m_type); }
 };
