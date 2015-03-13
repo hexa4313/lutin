@@ -53,7 +53,7 @@ std::shared_ptr<Symbol> Lexer::getSymbol() {
       return m_curSymbol;
     }
   }
-
+  return NULL;
 }
 
 void Lexer::shift() {
