@@ -1,12 +1,12 @@
-#include "e31.h"
+#include "e40.h"
 #include "../state.h"
 
-E31::E31 (std::string name) : State(name)
+E40::E40 (std::string name) : State(name)
 {
 
 }
 
-bool E31::transition (StateMachine & stateMachine, Symbol * s) {
+bool E40::transition (StateMachine & stateMachine, Symbol * s) {
 
   switch(*s) {
     /*case "$" : 

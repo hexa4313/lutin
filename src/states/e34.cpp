@@ -1,16 +1,16 @@
-#include "e30.h"
+#include "e34.h"
 #include "../state.h"
 
-E30::E30 (std::string name) : State(name)
+E34::E34 (std::string name) : State(name)
 {
 
 }
 
-bool E30::transition (StateMachine & stateMachine, Symbol * s) {
+bool E34::transition (StateMachine & stateMachine, Symbol * s) {
 
   switch(*s) {
-    case VAL :
-      stateMachine.setState(s, new E31);
+    case EQ :
+      stateMachine.setState(s, new E39);
       break;
     /*case "$" : 
       stateMachine.setState(s, ??);
