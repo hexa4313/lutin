@@ -28,6 +28,8 @@ SET (root_SRCS
 SET (states_SRCS
   states/e1.h
   states/e1.cpp
+  states/e6.h
+  states/e6.cpp
 )
 
 
@@ -39,5 +41,5 @@ SET (ALL_SRCS
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-add_executable(${EXECUTABLE_NAME} ${ALL_SRCS} states/e6.h states/e6.cpp)
+add_executable(${EXECUTABLE_NAME} ${ALL_SRCS})
 target_link_libraries(${EXECUTABLE_NAME} ${Boost_LIBRARIES})
