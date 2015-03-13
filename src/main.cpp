@@ -80,7 +80,7 @@ int main(int argc, char ** argv) {
   StateMachine state_machine = StateMachine(input_path);
 
 
-  /*                THERE BE DRAGONS :
+  /*       Grrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
                          ^\    ^
                         / \\  / \
                        /.  \\/   \      |\___/|
