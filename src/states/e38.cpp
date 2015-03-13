@@ -9,9 +9,9 @@ E38::E38 (std::string name) : State(name)
 bool E38::transition (StateMachine & stateMachine, Symbol * s) {
 
   switch(*s) {
-    /*case "$" : 
-      stateMachine.setState(s, ??);
-      break;*/
+    case E : 
+      stateMachine.setState(s, new E9);
+      break;
     default :
     // TODO : gerer les erreurs
       break;

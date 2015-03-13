@@ -27,9 +27,9 @@ bool E36::transition (StateMachine & stateMachine, Symbol * s) {
     case OPA :
       stateMachine.setState(s, new E30);
       break;
-    /*case "$" : 
-      stateMachine.setState(s, ??);
-      break;*/
+    case E : 
+      stateMachine.setState(s, new E9);
+      break;
     default :
     // TODO : gerer les erreurs
       break;
