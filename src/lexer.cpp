@@ -1,5 +1,6 @@
 #include <regex>
 #include <fstream>
+#include <sstream>
 #include "lexer.h"
 #include "symboltype.h"
 
@@ -12,7 +13,7 @@ static std::pair<SymbolType, std::regex> regexes[] = {
     make_pair(SymbolType::SUB, std::regex("^-")),
     make_pair(SymbolType::MUL, std::regex("^*")),
     make_pair(SymbolType::DIV, std::regex("^/")),
-    make_pair(SymbolType::PO,  std::regex("^(")),
+    make_pair(SymbolType::PO,  std::regex("^\\(")),
     make_pair(SymbolType::PF,  std::regex("^)")),
     make_pair(SymbolType::VAR, std::regex("^var")),
     make_pair(SymbolType::CST, std::regex("^const")),
@@ -52,7 +53,7 @@ std::shared_ptr<Symbol> Lexer::getSymbol() {
       return m_curSymbol;
     }
   }
-
+  return NULL;
 }
 
 void Lexer::shift() {
