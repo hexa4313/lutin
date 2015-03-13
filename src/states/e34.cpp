@@ -12,9 +12,6 @@ bool E34::transition (StateMachine & stateMachine, Symbol * s) {
     case EQ :
       stateMachine.setState(s, new E39);
       break;
-    /*case "$" : 
-      stateMachine.setState(s, ??);
-      break;*/
     default :
     // TODO : gerer les erreurs
       break;

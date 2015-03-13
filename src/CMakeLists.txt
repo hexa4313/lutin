@@ -13,6 +13,9 @@ endif()
 SET (root_SRCS
   symboltype.h
 
+  statemachine.h
+  statemachine.cpp
+
   symbol.h
   symbol.cpp
 
@@ -36,5 +39,5 @@ SET (ALL_SRCS
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-add_executable(${EXECUTABLE_NAME} ${ALL_SRCS})
+add_executable(${EXECUTABLE_NAME} ${ALL_SRCS} states/e6.h states/e6.cpp)
 target_link_libraries(${EXECUTABLE_NAME} ${Boost_LIBRARIES})

@@ -1,5 +1,4 @@
 #include "e6.h"
-#include "../state.h"
 
 E6::E6 (std::string name) : State(name)
 {

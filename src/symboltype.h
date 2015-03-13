@@ -2,6 +2,18 @@
 #define SYMBOLTYPE_H
 
 enum class SymbolType {
+
+  P,
+  DL,
+  IL,
+  D,
+  V,
+  C,
+  I,
+  E,
+  OP_A,
+  OP_M,
+
   AFF,
   PV,
   VG,
@@ -17,7 +29,9 @@ enum class SymbolType {
   W,
   R,
   ID,
-  VAL
+  VAL,
+
+  $
 };
 
 #endif
