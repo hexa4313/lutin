@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 #include "statemachine.h"
 
 #include "declaration/declarationlist.h"
@@ -24,5 +25,39 @@ void StateMachine::read() {
 
 void StateMachine::setState(std::shared_ptr<Symbol> symbol, std::shared_ptr<State> state) {
   m_symbols.push(symbol);
+  m_states.push(state);
+}
+
+std::vector<std::shared_ptr<Symbol>> StateMachine::popSymbols(int count) {
+  std::vector<std::shared_ptr<Symbol>> symbols;
+  for(int i = 0; i < count; i++) {
+    symbols.push_back(m_symbols.top());
+    m_symbols.pop();
+  }
+  return symbols;
+}
+
+std::vector<std::shared_ptr<State>> StateMachine::popStates(int count) {
+  std::vector<std::shared_ptr<State>> states;
+  for(int i = 0; i < count; i++) {
+    states.push_back(m_states.top());
+    m_states.pop();
+  }
+  return states;
+}
+
+std::shared_ptr<State> StateMachine::lastState() {
+  return m_states.top();
+}
+
+std::shared_ptr<Symbol> StateMachine::lastSymbol() {
+  return m_symbols.top();
+}
+
+void StateMachine::pushSymbol(std::shared_ptr<Symbol> symbol) {
+  m_symbols.push(symbol);
+}
+
+void StateMachine::pushState(std::shared_ptr<State> state) {
   m_states.push(state);
 }

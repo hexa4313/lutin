@@ -11,7 +11,7 @@ class StateMachine;
 class State {
   public:
     State(std::string name) : m_name(name) {};
-    virtual ~State();
+    virtual ~State() {};
 
     //Fonction de transitions entre les états de la transition
     //Doit set le nouvel état de l'automate
