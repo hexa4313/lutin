@@ -1,11 +1,14 @@
 #ifndef VARDECLIST_H
 #define VARDECLIST_H
 
-#import <list>
+#include <vector>
 
 class VarDecList : public Declaration {
   private:
-    std::list<VarDec> vars;
+    std::vector<VarDec> m_vars;
+
+  public:
+    void addVarDec(VarDec v) { m_vars.push_back(v); };
 };
 
 #endif

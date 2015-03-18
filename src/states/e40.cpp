@@ -6,15 +6,16 @@ E40::E40 (std::string name) : State(name)
 
 }
 
-bool E40::transition (StateMachine & stateMachine, Symbol * s) {
+bool E40::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
-  switch(*s) {
-    case C : 
-      stateMachine.setState(s, new E5);
-      break;
-    default :
-    // TODO : gerer les erreurs
-      break;
-  }
-  return false;
+  auto states = stateMachine.popStates(5);
+  auto symbols = stateMachine.popSymbols(5);
+
+  auto id = boost::get<std::string>(symbols[2]->getValue());
+  auto value = boost::get<int>(symbols[0]->getValue());
+  auto constDec = std::make_shared(new ConstDec(id, value));
+
+  auto c = std::dynamic_pointer_cast<ConstDecList>(stateMachine.lastSymbol());
+  c->addConstDec(constDec);
+  stateMachine.lastState()->transition(stateMachine, stateMachine.lastSymbol());
 }

@@ -6,7 +6,7 @@ E32::E32 (std::string name) : State(name)
 
 }
 
-bool E32::transition (StateMachine & stateMachine, Symbol * s) {
+bool E32::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
   switch(*s) {
     case MUL :

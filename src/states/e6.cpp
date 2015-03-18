@@ -1,19 +1,18 @@
+#include <vector>
 #include "e6.h"
+#include "../declaration/declarationlist.h"
 
-E6::E6 (std::string name) : State(name)
-{
+bool E6::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> type) {
 
-}
+  auto symbols = stateMachine.popSymbols(3);
+  auto states = stateMachine.popStates(3);
 
-bool E6::transition (StateMachine & stateMachine, Symbol * s) {
+  auto e0 = stateMachine.lastState();
+  auto dl = std::dynamic_pointer_cast<DeclarationList>(symbols[2]);
+  auto d = symbols[1];
+  dl->addDeclaration(d);
+  e0->transition(stateMachine, symbols[2]);
 
-  switch(*s) {
-    case DL : 
-      stateMachine.setState(s, E0);
-      break;
-    default :
-    // TODO : gerer les erreurs
-      break;
-  }
-  return false;
+  return true;
+
 }

@@ -6,7 +6,7 @@ E34::E34 (std::string name) : State(name)
 
 }
 
-bool E34::transition (StateMachine & stateMachine, Symbol * s) {
+bool E34::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
   switch(*s) {
     case EQ :

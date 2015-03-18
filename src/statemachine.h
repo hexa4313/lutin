@@ -1,11 +1,15 @@
 #ifndef STATEMACHINE_H
 #define STATEMACHINE_H
 
+#include <stack>
+#include <memory>
+#include <vector>
+
 #include "symbol.h"
 #include "state.h"
 #include "lexer.h"
-#include <stack>
-#include <memory>
+
+class State;
 
 class StateMachine {
 	private:
@@ -15,9 +19,15 @@ class StateMachine {
 		void read();
 	public:
 		StateMachine(std::string filepath) : m_lexer(new Lexer(filepath)) {}
-		std::shared_ptr<Symbol> pop_symbol();
-		std::shared_ptr<State> pop_state();
-		void setState(Symbol * symbol, State * state);
+
+		std::vector<std::shared_ptr<Symbol>> popSymbols(int count);
+		std::vector<std::shared_ptr<State>> popStates(int count);
+		std::shared_ptr<State> lastState();
+		std::shared_ptr<Symbol> lastSymbol();
+		void pushSymbol(std::shared_ptr<Symbol> symbol);
+		void pushState(std::shared_ptr<State> state);
+
+		void setState(std::shared_ptr<Symbol> symbol, std::shared_ptr<State> state);
 };
 
 #endif

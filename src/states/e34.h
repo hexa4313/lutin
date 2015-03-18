@@ -9,7 +9,7 @@
 class E34 : public State {
   public:
     E34(std::string name);
-    bool transition(StateMachine & stateMachine, Symbol * s);
+    bool transition(StateMachine & stateMachine, std::shared_ptr<Symbol> s);
 };
 
 #endif

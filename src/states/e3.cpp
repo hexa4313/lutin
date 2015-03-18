@@ -1,12 +1,7 @@
 #include "e3.h"
 #include "../state.h"
 
-E3::E3 (std::string name) : State(name)
-{
-
-}
-
-bool E3::transition (StateMachine & stateMachine, Symbol * s) {
+bool E3::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
   switch(*s) {
     case I :

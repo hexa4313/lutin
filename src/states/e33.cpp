@@ -6,15 +6,14 @@ E33::E33 (std::string name) : State(name)
 
 }
 
-bool E33::transition (StateMachine & stateMachine, Symbol * s) {
+bool E33::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
-  switch(*s) {
-      case V :
-        stateMachine.setState(s, new E4);
-        break;
-    default :
-    // TODO : gerer les erreurs
-      break;
-  }
-  return false;
+  auto states = stateMachine.popStates(3);
+  auto symbols = stateMachine.popSymbols(3);
+
+  auto varDec = std::make_shared(new VarDec(boost::get<std::string>(symbols[0]->getValue())));
+  auto v = std::dynamic_pointer_cast<VarDecList>(stateMachine.lastSymbol());
+  v->addVarDec(varDec);
+  stateMachine.lastState()->transition(stateMachine, stateMachine.lastSymbol());
+
 }

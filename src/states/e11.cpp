@@ -6,7 +6,7 @@ E11::E11 (std::string name) : State(name)
 
 }
  
-bool E11::transition (StateMachine & stateMachine, Symbol * s) {
+bool E11::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
   switch(*s) {
     case AFF :

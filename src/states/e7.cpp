@@ -1,12 +1,8 @@
 #include "e7.h"
 #include "../state.h"
 
-E7::E7 (std::string name) : State(name)
-{
 
-}
-
-bool E7::transition (StateMachine & stateMachine, Symbol * s) {
+bool E7::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
 //TODO ACC ?
   return false;

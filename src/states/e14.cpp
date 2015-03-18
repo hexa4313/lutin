@@ -6,19 +6,14 @@ E14::E14 (std::string name) : State(name)
 
 }
  
-bool E14::transition (StateMachine & stateMachine, Symbol * s) {
+bool E14::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
-  switch(*s) {
-    case VG :
-      stateMachine.setState(s, new E23);
-      break;
-    case D :
-      stateMachine.setState(s, new E1);
-      break;
-      
-    default :
-    // TODO : gerer les erreurs
-      break;
+  if(s->getType() == SymbolType::VG) {
+    stateMachine.setState(s, new E23);
   }
-  return false;
+  else {
+    stateMachine.popStates(2);
+    stateMachine.popSymbols(2);
+    stateMachine.lastState()->transition(stateMachine, s);
+  }
 }

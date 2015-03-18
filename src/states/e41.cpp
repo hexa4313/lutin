@@ -6,7 +6,7 @@ E41::E41 (std::string name) : State(name)
 
 }
 
-bool E41::transition (StateMachine & stateMachine, Symbol * s) {
+bool E41::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
   switch(*s) {
     case ID : 

@@ -1,22 +1,17 @@
 #include "e4.h"
 #include "../state.h"
-
-E4::E4 (std::string name) : State(name)
-{
-
-}
  
-bool E4::transition (StateMachine & stateMachine, Symbol * s) {
+bool E4::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
-  switch(*s) {
-    case V :
+  switch(s->getType()) {
+    case SymbolType::V :
       stateMachine.setState(s, new E12);
       break;
-    case id :
+    case SymbolType::ID :
       stateMachine.setState(s, new E13);
       break;
     default :
-    // TODO : gerer les erreurs
+      // TODO : gerer les erreurs
       break;
   }
   return false;

@@ -1,11 +1,14 @@
 #ifndef CONSTDECLIST_H
 #define CONSTDECLIST_H
 
-#import <list>
+#include <vector>
 
 class ConstDecList : public Declaration {
   private:
-    std::list<ConstDec> consts;
+    std::vector<ConstDec> m_consts;
+
+  public:
+    void addConstDec(ConstDec c) { m_consts.push_back(c); };
 };
 
 #endif

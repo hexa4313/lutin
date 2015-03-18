@@ -6,7 +6,7 @@ E38::E38 (std::string name) : State(name)
 
 }
 
-bool E38::transition (StateMachine & stateMachine, Symbol * s) {
+bool E38::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
   switch(*s) {
     case E : 

@@ -28,8 +28,12 @@ SET (root_SRCS
 SET (states_SRCS
   states/e1.h
   states/e1.cpp
+  states/e4.h
+  states/e4.cpp
   states/e6.h
   states/e6.cpp
+  states/e13.h
+  states/e13.cpp
 )
 
 

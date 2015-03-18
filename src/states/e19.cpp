@@ -6,7 +6,7 @@ E19::E19 (std::string name) : State(name)
 
 }
  
-bool E19::transition (StateMachine & stateMachine, Symbol * s) {
+bool E19::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 /*
     depiler E9
   switch(*s) {

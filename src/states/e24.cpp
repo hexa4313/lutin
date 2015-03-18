@@ -6,7 +6,7 @@ E24::E24 (std::string name) : State(name)
 
 }
 
-bool E24::transition (StateMachine & stateMachine, Symbol * s) {
+bool E24::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
   switch(*s) {
     case VAL :

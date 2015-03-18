@@ -12,8 +12,8 @@
 
 class E6 : public State {
 public:
-  E6(std::string name);
-  bool transition(StateMachine & stateMachine, Symbol * s);
+  E6() : State("E6") {};;
+  bool transition(StateMachine & stateMachine, std::shared_ptr<Symbol> s);
 };
 
 #endif //_LUTIN_E6_H_
