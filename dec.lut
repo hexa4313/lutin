@@ -1,4 +1,0 @@
-var x;
-var x, y, z;
-const m=54;
-const n=10, n2=100, n3=200;
