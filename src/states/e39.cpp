@@ -6,7 +6,7 @@ bool E39::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
   switch(*s) {
     case VAL :
-      stateMachine.setState(s, new E40);
+      stateMachine.setState(s, std::make_shared<E40>());
       break;
     /*case "$" : 
       stateMachine.setState(s, ??);
