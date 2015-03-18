@@ -12,7 +12,7 @@ class Symbol {
     boost::variant<int, std::string> m_value;
 
   public:
-    Symbol(SymbolType type) : m_type(type), m_value(nullptr) {}
+    Symbol(SymbolType type) : m_type(type) {}
     Symbol(SymbolType type, long num) : Symbol(type) { m_value = num; }
     Symbol(SymbolType type, std::string id) : Symbol(type) { m_value = id; }
     virtual ~Symbol() {}
