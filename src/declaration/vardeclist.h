@@ -10,6 +10,7 @@ class VarDecList : public Declaration {
   public:
     VarDecList();
     VarDecList(std::vector<VarDec> varVector): m_vars(varVector) {};
+    void addVarDec(VarDec v) { m_vars.push_back(v); };
 };
 
 #endif
