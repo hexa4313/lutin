@@ -1,19 +1,23 @@
 #include "e3.h"
 #include "../state.h"
+#include "e7.h"
+#include "e8.h"
+#include "e10.h"
+#include "e9.h"
 
 bool E3::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
   switch(s->getType()) {
-    case I :
+    case SymbolType::I :
       stateMachine.setState(s, std::make_shared<E7>());
       break;
-    case W :
+    case SymbolType::W :
       stateMachine.setState(s, std::make_shared<E8>());
       break;
-    case R :
+    case SymbolType::R :
       stateMachine.setState(s, std::make_shared<E9>());
       break;
-    case ID :
+    case SymbolType::ID :
       stateMachine.setState(s, std::make_shared<E10>());
       break;
     /*case "$" : 
