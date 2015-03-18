@@ -1,10 +1,6 @@
 #include "e40.h"
 #include "../state.h"
 
-E40::E40 (std::string name) : State(name)
-{
-
-}
 
 bool E40::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 

@@ -5,11 +5,6 @@
 #include "../declaration/constdeclist.h"
 #include <boost/variant.hpp>
 
-E35::E35 (std::string name) : State(name)
-{
-
-}
-
 bool E35::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
   auto states = stateMachine.popStates(3);
