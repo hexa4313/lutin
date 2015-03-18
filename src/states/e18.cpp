@@ -5,10 +5,10 @@ bool E18::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
   switch(*s) {
     case PO :
-      stateMachine.setState(s, new E18);
+      stateMachine.setState(s, std::make_shared<E18>());
       break;
     case E :
-      stateMachine.setState(s, new E31);
+      stateMachine.setState(s, std::make_shared<E31>());
       break;
       
     default :

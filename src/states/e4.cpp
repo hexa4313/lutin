@@ -5,10 +5,10 @@ bool E4::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
   switch(s->getType()) {
     case SymbolType::V :
-      stateMachine.setState(s, new E12);
+      stateMachine.setState(s, std::make_shared<E12>());
       break;
     case SymbolType::ID :
-      stateMachine.setState(s, new E13);
+      stateMachine.setState(s, std::make_shared<E13>());
       break;
     default :
       // TODO : gerer les erreurs

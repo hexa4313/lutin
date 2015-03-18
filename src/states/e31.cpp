@@ -6,25 +6,25 @@ bool E31::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
   switch(*s) {
     case "PF" :
-      stateMachine.setState(s, new E38);
+      stateMachine.setState(s, std::make_shared<E38>());
       break;
     case MUL :
-      stateMachine.setState(s, new E25);
+      stateMachine.setState(s, std::make_shared<E25>());
       break;
     case DIV :
-      stateMachine.setState(s, new E26);
+      stateMachine.setState(s, std::make_shared<E26>());
       break;
     case SUB :
-      stateMachine.setState(s, new E27);
+      stateMachine.setState(s, std::make_shared<E27>());
       break;
     case ADD :
-      stateMachine.setState(s, new E28);
+      stateMachine.setState(s, std::make_shared<E28>());
       break;
     case OPM :
-      stateMachine.setState(s, new E29);
+      stateMachine.setState(s, std::make_shared<E29>());
       break;
     case OPA :
-      stateMachine.setState(s, new E30);
+      stateMachine.setState(s, std::make_shared<E30>());
       break;
     default :
     // TODO : gerer les erreurs
