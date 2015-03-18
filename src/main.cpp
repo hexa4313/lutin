@@ -13,7 +13,7 @@ void show_usage() {
   std::cout << "\n" << "usage: lutinc [-paeo] <input>" << '\n';
   std::cout << "options:" << '\n';
   std::cout << "-p :\tPrint the code memory representation." << '\n';
-  std::cout << "-a :\tStatic analisis and error extraction." << '\n';
+  std::cout << "-a :\tStatic analysis and error extraction." << '\n';
   std::cout << "-e :\tInteractive execution of the program." << '\n';
   std::cout << "-o :\tOptimizes the program representation." << '\n';
 }
