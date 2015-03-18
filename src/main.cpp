@@ -102,21 +102,21 @@ int main(int argc, char ** argv) {
     exit(ERROR_BAD_INPUT);
   }
 
-  std::cout << "\n" << "                ___,@"
-  std::cout << "\n" << "             /  <"
-  std::cout << "\n" << "        ,_  /    \\  _,"
-  std::cout << "\n" << "    ?    \\`/______\\`/"
-  std::cout << "\n" << " ,_(_).  |; (e  e) ;|"
-  std::cout << "\n" << "  \\___ \\ \\/\\   7  /\\/    _\\8/_"
-  std::cout << "\n" << "      \\/\\   \'=='/      | /| /|"
-  std::cout << "\n" << "       \\ \\___)--(_______|//|//|"
-  std::cout << "\n" << "        \\___  ()  _____/|/_|/_|"
-  std::cout << "\n" << "           /  ()  \\    `----'"
-  std::cout << "\n" << "          /   ()   \\"
-  std::cout << "\n" << "         '-.______.-'\""
-  std::cout << "\n" << "       _    |_||_|    _"
-  std::cout << "\n" << "      (@____) || (____@)"
-  std::cout << "\n" << "       \______||______/"
+  std::cout << "\n" << "                ___,@";
+  std::cout << "\n" << "             /  <";
+  std::cout << "\n" << "        ,_  /    \\  _,";
+  std::cout << "\n" << "    ?    \\`/______\\`/";
+  std::cout << "\n" << " ,_(_).  |; (e  e) ;|";
+  std::cout << "\n" << "  \\___ \\ \\/\\   7  /\\/    _\\8/_";
+  std::cout << "\n" << "      \\/\\   \\'=='/      | /| /|";
+  std::cout << "\n" << "       \\ \\___)--(_______|//|//|";
+  std::cout << "\n" << "        \\___  ()  _____/|/_|/_|";
+  std::cout << "\n" << "           /  ()  \\    `----'";
+  std::cout << "\n" << "          /   ()   \\";
+  std::cout << "\n" << "         '-.______.-'\"";
+  std::cout << "\n" << "       _    |_||_|    _";
+  std::cout << "\n" << "      (@____) || (____@)";
+  std::cout << "\n" << "       \\______||______/\n";
 
   // My little state machine
   StateMachine stateMachine = StateMachine(input_path);
