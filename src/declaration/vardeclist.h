@@ -7,11 +7,10 @@
 
 class VarDecList : public Declaration {
   private:
-    std::vector<VarDec> m_vars;
+    std::vector<std::shared_ptr<VarDec>> m_vars;
   public:
     VarDecList() : Declaration(SymbolType::V) {};
-    VarDecList(std::vector<VarDec> varVector) : Declaration(SymbolType::V), m_vars(varVector) {};
-    void addVarDec(VarDec v) { m_vars.push_back(v); };
+    void addVarDec(std::shared_ptr<VarDec> v) { m_vars.push_back(v); };
 };
 
 #endif

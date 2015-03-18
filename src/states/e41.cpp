@@ -14,7 +14,7 @@ bool E41::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
       stateMachine.setState(s, std::make_shared<E18>());
       break;
     case PO : 
-      stateMachine.setState(s, std::make_shared<E18>());
+      stateMachine.setState(s, std::make_shared<E20>());
       break;
     default :
     // TODO : gerer les erreurs

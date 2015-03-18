@@ -1,5 +1,7 @@
 #include "e4.h"
-#include "../state.h"
+
+#include "e12.h"
+#include "e13.h"
  
 bool E4::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 

@@ -19,16 +19,18 @@ bool E1::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
     case SymbolType::IL :
       stateMachine.setState(s, std::make_shared<E3>());
       break;
-    case SymbolType::VAR :
+    case SymbolType::VAR : {
       stateMachine.setState(s, std::make_shared<E4>());
       auto declVar = std::make_shared<VarDecList>();
       stateMachine.pushSymbol(declVar);
       break;
-    case SymbolType::CST :
+    }
+    case SymbolType::CST : {
       stateMachine.setState(s, std::make_shared<E5>());
       auto declConst = std::make_shared<ConstDecList>();
       stateMachine.pushSymbol(declConst);
       break;
+    }
     default :
       // TODO : gerer les erreurs
       break;

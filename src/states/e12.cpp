@@ -1,6 +1,8 @@
 #include "e12.h"
 #include "../state.h"
 
+#include "e22.h"
+
 bool E12::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
   if(s->getType() == SymbolType::VG) {
