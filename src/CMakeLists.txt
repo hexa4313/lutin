@@ -30,6 +30,8 @@ SET (root_SRCS
 )
 
 SET (states_SRCS
+  states/e0.h
+  states/e0.cpp
   states/e1.h
   states/e1.cpp
   states/e2.h

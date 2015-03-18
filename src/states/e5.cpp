@@ -3,7 +3,7 @@
  
 bool E5::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
-  switch(*s) {
+  switch(s->getType()) {
     case C :
       stateMachine.setState(s, std::make_shared<E14>());
       break;

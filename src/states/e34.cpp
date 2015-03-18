@@ -4,7 +4,7 @@
 
 bool E34::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
-  switch(*s) {
+  switch(s->getType()) {
     case EQ :
       stateMachine.setState(s, std::make_shared<E39>());
       break;
