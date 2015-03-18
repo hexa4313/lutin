@@ -116,10 +116,37 @@ SET (states_SRCS
   states/e41.cpp
 )
 
+SET (instruction_SRCS
+  instruction/assign.h
+  instruction/binaryexp.h
+  instruction/expadd.h
+  instruction/expdiv.h
+  instruction/expmult.h
+  instruction/exppar.h
+  instruction/expression.h
+  instruction/expsub.h
+  instruction/instruction.h
+  instruction/instructionlist.h
+  instruction/read.h
+  instruction/variable.h
+  instruction/write.h
+)
+
+SET (declaration_SRCS
+  declaration/constdec.h
+  declaration/constdeclist.h
+  declaration/declaration.h
+  declaration/declarationlist.h
+  declaration/vardec.h
+  declaration/vardeclist.h
+)
+
 
 SET (ALL_SRCS
   ${root_SRCS}
   ${states_SRCS}
+  ${declaration_SRCS}
+  ${instruction_SRCS}
 )
 
 

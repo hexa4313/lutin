@@ -10,8 +10,8 @@ bool E41::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
     case E : 
       stateMachine.setState(s, std::make_shared<E32>());
       break;
-    case VAL : 
-      stateMachine.setState(s, std::make_shared<E18>());
+    case VAL :
+      stateMachine.setState(s, std::make_shared<E20>());
       break;
     case PO : 
       stateMachine.setState(s, std::make_shared<E20>());

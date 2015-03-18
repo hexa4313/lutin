@@ -1,6 +1,7 @@
 #ifndef PROGRAM_H
 #define PROGRAM_H
 
+#include "symboltype.h"
 #include "symbol.h"
 #include "declaration/declarationlist.h"
 #include "instruction/instructionlist.h"
@@ -10,8 +11,8 @@ class Program : public Symbol {
     DeclarationList m_decList;
     InstructionList m_instList;
   public:
-    Program();
-    Program(DeclarationList dec, InstructionList inst): m_decList(dec), m_instList(inst);
+    Program() : Symbol(SymbolType::P) {}
+    Program(DeclarationList dec, InstructionList inst) : Symbol(SymbolType::P), m_decList(dec), m_instList(inst) {}
     checkVarDec();
 };
 
