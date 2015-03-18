@@ -5,7 +5,7 @@ set (EXECUTABLE_NAME lutinc)
 
 project(${PROJECT_NAME})
 
-find_package(Boost 1.50.0)
+find_package(Boost 1.50.0 COMPONENTS regex)
 if(Boost_FOUND)
   include_directories(${Boost_INCLUDE_DIRS})
 endif()
