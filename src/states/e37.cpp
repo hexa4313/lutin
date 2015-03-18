@@ -31,7 +31,7 @@ bool E37::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
       break;
     case SymbolType::E : 
       stateMachine.setState(s, std::make_shared<E9>());
-      break;*/
+      break;
     default :
     // TODO : gerer les erreurs
       break;
