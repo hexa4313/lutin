@@ -1,15 +1,18 @@
 #ifndef PROGRAM_H
 #define PROGRAM_H
 
-#import "declaration/declarationlist.h"
-#import "instruction/instructionlist.h"
+#include "symbol.h"
+#include "declaration/declarationlist.h"
+#include "instruction/instructionlist.h"
 
 class Program : public Symbol {
-  public:
-    check_var_dec();
   private:
-    DeclarationList dec_list;
-    InstructionList inst_list;
+    DeclarationList m_decList;
+    InstructionList m_instList;
+  public:
+    Program();
+    Program(DeclarationList dec, InstructionList inst): m_decList(dec), m_instList(inst);
+    checkVarDec();
 };
 
 #endif

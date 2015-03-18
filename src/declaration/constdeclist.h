@@ -1,11 +1,16 @@
 #ifndef CONSTDECLIST_H
 #define CONSTDECLIST_H
 
-#import <list>
+#include <vector>
+#include <string>
+#include "declaration.h"
 
 class ConstDecList : public Declaration {
   private:
-    std::list<ConstDec> consts;
+    std::vector<ConstDec> m_consts;
+  public:
+    ConstDecList();
+    ConstDecList(std::vector<ConstDec> constVector): m_consts(constVector);
 };
 
 #endif

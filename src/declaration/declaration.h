@@ -1,8 +1,11 @@
 #ifndef DECLARATION_H
 #define DECLARATION_H
 
-class Declaration : public Symbol {
+#include "../symbol.h"
 
+class Declaration : public Symbol {
+  public:
+    Declaration();
 };
 
 #endif
