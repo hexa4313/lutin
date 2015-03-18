@@ -5,7 +5,7 @@ bool E19::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 /*
     depiler E9
   switch(s->getType()) {
-    case E :
+    case SymbolType::E :
       stateMachine.setState(s, std::make_shared<E17>());
       break;
       
