@@ -1,8 +1,11 @@
 #ifndef INSTRUCTION_H
 #define INSTRUCTION_H
 
-class Instruction : public Symbol {
+#include "../symbol.h"
 
+class Instruction : public Symbol {
+  public:
+    Instruction();
 };
 
 #endif

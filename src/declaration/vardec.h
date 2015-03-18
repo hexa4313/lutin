@@ -1,15 +1,17 @@
 #ifndef VARDEC_H
 #define VARDEC_H
 
+#include <string>
+#include "../symbol.h"
+
 class VarDec : public Symbol {
-
-  public:
-    VarDec(std::string name) : m_name(name), m_assigned(false) {};
-
   private:
     std::string m_name;
-    int m_value;
+    std::string m_value;
     bool m_assigned;
+  public:
+    VarDec(std::string name, std::string value): m_name(name), m_value(value), m_assigned(true) {};
+    VarDec(std::string name): m_name(name), m_assigned(false) {};
 };
 
 #endif

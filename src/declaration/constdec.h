@@ -1,12 +1,15 @@
 #ifndef CONSTDEC_H
 #define CONSTDEC_H
 
+#include <string>
+#include "../symbol.h"
+
 class ConstDec : public Symbol {
-  public:
-    ConstDec(std::string name, int value) : m_name(name), m_value(value) {}
   private:
     std::string m_name;
-    int m_value;
+    std::string m_value;
+  public:
+    ConstDec(std::string name, std::string value): m_name(name), m_value(value) {};
 };
 
 #endif

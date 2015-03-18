@@ -2,13 +2,14 @@
 #define VARDECLIST_H
 
 #include <vector>
+#include "declaration.h"
 
 class VarDecList : public Declaration {
   private:
     std::vector<VarDec> m_vars;
-
   public:
-    void addVarDec(VarDec v) { m_vars.push_back(v); };
+    VarDecList();
+    VarDecList(std::vector<VarDec> varVector): m_vars(varVector) {};
 };
 
 #endif
