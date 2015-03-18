@@ -10,7 +10,7 @@ class StateMachine;
 
 class State {
   public:
-    State(std::string name);
+    State(std::string name) : m_name(name) {};
     virtual ~State();
 
     //Fonction de transitions entre les états de la transition
@@ -19,7 +19,7 @@ class State {
     virtual bool transition(StateMachine & stateMachine, std::shared_ptr<Symbol> s) = 0;
 
   protected:
-    std::string name;
+    std::string m_name;
 };
 
 #endif
