@@ -17,8 +17,8 @@ Les non-terminaux
 * I → w E
 * I → r id
 * I → id aff E
-* E → E opM E
-* E → E opA E
+* E → E OpM E
+* E → E OpA E
 * E → po E pf
 * E → id
 * E → val
