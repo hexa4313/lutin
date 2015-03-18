@@ -8,8 +8,8 @@ class VarDecList : public Declaration {
   private:
     std::vector<VarDec> m_vars;
   public:
-    VarDecList();
-    VarDecList(std::vector<VarDec> varVector): m_vars(varVector) {};
+    VarDecList() : Symbol(SymbolType::V) {};
+    VarDecList(std::vector<VarDec> varVector): VarDecList(), m_vars(varVector) {};
     void addVarDec(VarDec v) { m_vars.push_back(v); };
 };
 
