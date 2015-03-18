@@ -16,9 +16,9 @@ class StateMachine {
 		std::unique_ptr<Lexer> m_lexer;
 		std::stack<std::shared_ptr<Symbol>> m_symbols;
 		std::stack<std::shared_ptr<State>> m_states;
-		void read();
 	public:
 		StateMachine(std::string filepath) : m_lexer(new Lexer(filepath)) {}
+		void read();
 
 		std::vector<std::shared_ptr<Symbol>> popSymbols(int count);
 		std::vector<std::shared_ptr<State>> popStates(int count);

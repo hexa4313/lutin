@@ -103,5 +103,6 @@ int main(int argc, char ** argv) {
   }
 
   // My little state machine
-  StateMachine state_machine = StateMachine(input_path);
+  StateMachine stateMachine = StateMachine(input_path);
+  stateMachine.read();
 }
