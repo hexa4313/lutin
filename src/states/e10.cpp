@@ -1,10 +1,5 @@
 #include "e10.h"
 #include "../state.h"
-
-E10::E10 (std::string name) : State(name)
-{
-
-}
  
 bool E10::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 

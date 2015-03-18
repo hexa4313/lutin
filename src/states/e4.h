@@ -8,7 +8,7 @@
 
 class E4 : public State {
   public:
-    E4() : State("E4") {};;
+    E4() : State("E4") {};
     bool transition(StateMachine & stateMachine, std::shared_ptr<Symbol> s);
 };
 

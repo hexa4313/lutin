@@ -1,11 +1,6 @@
 #include "e22.h"
 #include "../state.h"
 
-E22::E22 (std::string name) : State(name)
-{
-
-}
-
 bool E22::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
   switch(*s) {

@@ -1,11 +1,6 @@
 #include "e18.h"
 #include "../state.h"
 
-E18::E18 (std::string name) : State(name)
-{
-
-}
- 
 bool E18::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
   switch(*s) {

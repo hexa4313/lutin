@@ -12,7 +12,7 @@
 
 class E6 : public State {
 public:
-  E6() : State("E6") {};;
+  E6() : State("E6") {};
   bool transition(StateMachine & stateMachine, std::shared_ptr<Symbol> s);
 };
 

@@ -1,11 +1,6 @@
 #include "e14.h"
 #include "../state.h"
 
-E14::E14 (std::string name) : State(name)
-{
-
-}
- 
 bool E14::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
   if(s->getType() == SymbolType::VG) {

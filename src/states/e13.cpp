@@ -5,11 +5,6 @@
 #include "../declaration/vardeclist.h"
 #include <boost/variant.hpp>
 
-E13::E13 (std::string name) : State(name)
-{
-
-}
- 
 bool E13::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
   auto states = stateMachine.popStates(1);

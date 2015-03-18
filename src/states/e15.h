@@ -8,7 +8,7 @@
 
 class E15 : public State {
   public:
-    E15(std::string name);
+    E15() : State("E15") {};
     bool transition(StateMachine & stateMachine, std::shared_ptr<Symbol> s);
 };
 
