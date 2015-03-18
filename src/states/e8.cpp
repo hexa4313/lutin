@@ -5,7 +5,7 @@ bool E8::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
   switch(*s) {
     case PV :
-      stateMachine.setState(s, new E16);
+      stateMachine.setState(s, std::make_shared<E16>());
       break;
     default :
     // TODO : gerer les erreurs

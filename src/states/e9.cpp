@@ -5,16 +5,16 @@ bool E9::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
   switch(*s) {
     case E :
-      stateMachine.setState(s, new E17);
+      stateMachine.setState(s, std::make_shared<E17>());
       break;
     case PO :
-      stateMachine.setState(s, new E18);
+      stateMachine.setState(s, std::make_shared<E18>());
       break;
     case ID :
-      stateMachine.setState(s, new E19);
+      stateMachine.setState(s, std::make_shared<E19>());
       break;
     case VAL :
-      stateMachine.setState(s, new E20);
+      stateMachine.setState(s, std::make_shared<E20>());
       break;
       
     default :

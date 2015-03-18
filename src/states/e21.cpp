@@ -5,7 +5,7 @@ bool E21::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
   switch(*s) {
     case I :
-      stateMachine.setState(s, new E3);
+      stateMachine.setState(s, std::make_shared<E3>());
       break;
     default :
     // TODO : gerer les erreurs

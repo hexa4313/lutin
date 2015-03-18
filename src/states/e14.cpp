@@ -4,7 +4,7 @@
 bool E14::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
   if(s->getType() == SymbolType::VG) {
-    stateMachine.setState(s, new E23);
+    stateMachine.setState(s, std::make_shared<E23>());
   }
   else {
     stateMachine.popStates(2);

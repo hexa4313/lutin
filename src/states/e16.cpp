@@ -9,7 +9,7 @@ bool E16::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
   depiler E1
   switch(*s) {
     case IL :
-      stateMachine.setState(s, new E3);
+      stateMachine.setState(s, std::make_shared<E3>());
       break;
       
     default :
