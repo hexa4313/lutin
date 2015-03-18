@@ -9,7 +9,7 @@ class ConstDec : public Symbol {
     std::string m_name;
     std::string m_value;
   public:
-    ConstDec(std::string name, std::string value):  Symbol(SymbolType::CST), m_name(name), m_value(value) {};
+    ConstDec(std::string name, std::string value) : Symbol(SymbolType::CST), m_name(name), m_value(value) {};
 };
 
 #endif

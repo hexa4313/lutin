@@ -10,7 +10,7 @@ class DeclarationList : public Symbol {
     std::vector<Declaration> m_decs;
   public:
     DeclarationList() : Symbol(SymbolType::DL) {};
-    DeclarationList(std::vector<Declaration> decList): DeclarationList(), m_decs(decList) {};
+    DeclarationList(std::vector<Declaration> decList) : Symbol(SymbolType::DL), m_decs(decList) {};
     void addDeclaration(Declaration d) { m_decs.push_back(d); };
 };
 

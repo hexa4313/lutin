@@ -5,7 +5,7 @@
 
 class Declaration : public Symbol {
   public:
-    Declaration();
+    Declaration(SymbolType symbolType) : Symbol(symbolType) {};
 };
 
 #endif

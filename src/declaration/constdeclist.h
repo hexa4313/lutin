@@ -10,8 +10,8 @@ class ConstDecList : public Declaration {
   private:
     std::vector<ConstDec> m_consts;
   public:
-    ConstDecList() : Symbol(SymbolType::C) {};
-    ConstDecList(std::vector<ConstDec> constVector): ConstDecList(), m_consts(constVector) {};
+    ConstDecList() : Declaration(SymbolType::C) {};
+    ConstDecList(std::vector<ConstDec> constVector) : Declaration(SymbolType::C), m_consts(constVector) {};
     void addConstDec(ConstDec c) { m_consts.push_back(c); };
 };
 
