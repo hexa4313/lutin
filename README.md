@@ -22,10 +22,10 @@ Les non-terminaux
 * E → po E pf
 * E → id
 * E → val
-* opA → add
-* opA → sub
-* opM → mul
-* opM → div
+* OpA → add
+* OpA → sub
+* OpM → mul
+* OpM → div
 
 Les terminaux
 ---------
