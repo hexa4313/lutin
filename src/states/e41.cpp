@@ -4,16 +4,16 @@
 bool E41::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
   switch(s->getType()) {
-    case ID : 
+    case SymbolType::ID : 
       stateMachine.setState(s, std::make_shared<E19>());
       break;
-    case E : 
+    case SymbolType::E : 
       stateMachine.setState(s, std::make_shared<E32>());
       break;
-    case VAL :
+    case SymbolType::VAL :
       stateMachine.setState(s, std::make_shared<E20>());
       break;
-    case PO : 
+    case SymbolType::PO : 
       stateMachine.setState(s, std::make_shared<E20>());
       break;
     default :

@@ -4,25 +4,25 @@
 bool E37::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
   switch(s->getType()) {
-    case MUL :
+    case SymbolType::MUL :
       stateMachine.setState(s, std::make_shared<E25>());
       break;
-    case DIV :
+    case SymbolType::DIV :
       stateMachine.setState(s, std::make_shared<E26>());
       break;
-    case SUB :
+    case SymbolType::SUB :
       stateMachine.setState(s, std::make_shared<E27>());
       break;
-    case ADD :
+    case SymbolType::ADD :
       stateMachine.setState(s, std::make_shared<E28>());
       break;
-    case OPM :
+    case SymbolType::OPM :
       stateMachine.setState(s, std::make_shared<E29>());
       break;
-    case OPA :
+    case SymbolType::OPA :
       stateMachine.setState(s, std::make_shared<E30>());
       break;
-    case E : 
+    case SymbolType::E : 
       stateMachine.setState(s, std::make_shared<E9>());
       break;*/
     default :
