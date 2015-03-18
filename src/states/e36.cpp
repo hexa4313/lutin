@@ -1,10 +1,6 @@
 #include "e36.h"
 #include "../state.h"
 
-E36::E36 (std::string name) : State(name)
-{
-
-}
 
 bool E36::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 

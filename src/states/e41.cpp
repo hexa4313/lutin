@@ -1,11 +1,6 @@
 #include "e41.h"
 #include "../state.h"
 
-E41::E41 (std::string name) : State(name)
-{
-
-}
-
 bool E41::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
   switch(*s) {

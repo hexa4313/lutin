@@ -1,10 +1,6 @@
 #include "e32.h"
 #include "../state.h"
 
-E32::E32 (std::string name) : State(name)
-{
-
-}
 
 bool E32::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
