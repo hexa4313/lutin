@@ -9,6 +9,8 @@ bool E9::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
   switch(s->getType()) {
     case SymbolType::E :
+    case SymbolType::E_CNUM:
+    case SymbolType::E_VAL:
       stateMachine.setState(s, std::make_shared<E17>());
       break;
     case SymbolType::PO :

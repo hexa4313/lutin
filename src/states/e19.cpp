@@ -1,18 +1,17 @@
 #include "e19.h"
 #include "../state.h"
 
+#include "../instruction/variable.h"
+
 bool E19::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
-/*
-    depiler E9
-  switch(s->getType()) {
-    case SymbolType::E :
-      stateMachine.setState(s, std::make_shared<E17>());
-      break;
-      
-    default :
-    // TODO : gerer les erreurs
-      break;
-  }
+
+  auto states = stateMachine.popStates(1);
+  auto symbols = stateMachine.popSymbols(1);
+
+  auto var = std::make_shared<Variable>(boost::get<std::string>(symbols[0]->getValue()));
+
+
+  stateMachine.lastState()->transition(stateMachine, var);
   return false;
-  */
+
 }

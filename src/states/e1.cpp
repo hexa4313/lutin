@@ -39,25 +39,25 @@ bool E1::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
     case SymbolType::R : {
       auto instList = std::make_shared<InstructionList>();
       stateMachine.pushSymbol(instList);
+      stateMachine.pushState(std::make_shared<E3>());
       stateMachine.setState(s, std::make_shared<E10>());
       return true;
     }
     case SymbolType::W : {
       auto instList = std::make_shared<InstructionList>();
       stateMachine.pushSymbol(instList);
+      stateMachine.pushState(std::make_shared<E3>());
       stateMachine.setState(s, std::make_shared<E9>());
       return true;
     }
     case SymbolType::ID : {
       auto instList = std::make_shared<InstructionList>();
       stateMachine.pushSymbol(instList);
+      stateMachine.pushState(std::make_shared<E3>());
       stateMachine.setState(s, std::make_shared<E11>());
       return true;
     }
-    //?? $ case
     default :
-      // TODO : gerer les erreurs
-      break;
+      return false;
   }
-  return false;
 }

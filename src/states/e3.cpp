@@ -8,23 +8,23 @@ bool E3::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
   switch(s->getType()) {
     case SymbolType::I :
+    case SymbolType::I_W:
+    case SymbolType::I_R:
       stateMachine.setState(s, std::make_shared<E8>());
-      break;
+      return true;
     case SymbolType::W :
       stateMachine.setState(s, std::make_shared<E9>());
-      break;
+      return true;
     case SymbolType::R :
       stateMachine.setState(s, std::make_shared<E10>());
-      break;
+      return true;
     case SymbolType::ID :
       stateMachine.setState(s, std::make_shared<E11>());
-      break;
+      return true;
     /*case "$" : 
       stateMachine.setState(s, ??);
-      break;*/
+      return true;*/
     default :
-    // TODO : gerer les erreurs
-      break;
+      return false;
   }
-  return false;
 }
