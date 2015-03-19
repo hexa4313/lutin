@@ -11,8 +11,8 @@ class Read : public Instruction {
     bool m_has_value;
     Variable m_destination;
   public:
-    Read() : Instruction(), m_type(SymbolType::R) {}
-    Read(Variable destination) : Instruction(), m_type(SymbolType::R), m_destination(destination) {}
+    Read() : Instruction(), m_type(SymbolType::I_R) {}
+    Read(Variable destination) : Instruction(), m_type(SymbolType::I_R), m_destination(destination) {}
 };
 
 #endif

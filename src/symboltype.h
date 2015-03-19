@@ -28,6 +28,8 @@ enum class SymbolType {
   CST,
   W,
   R,
+  I_R,
+  I_W,
   ID,
   VAL,
 

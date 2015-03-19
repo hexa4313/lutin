@@ -8,7 +8,7 @@
 class Variable : public Expression {
   private:
     std::string m_name;
-    std::string m_value;
+    int m_value;
   public:
     Variable() : Instruction(), m_type(SymbolType::V) {}
     Variable(std::string name) : Instruction(), m_type(SymbolType::V), m_name(name) {}

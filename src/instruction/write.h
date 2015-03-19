@@ -9,8 +9,8 @@ class Write : public Instruction {
   private:
     std::string m_buffer;
   public:
-    Write() : Instruction(), m_type(SymbolType::W) {}
-    Write(std::string buffer) : Instruction(), m_type(SymbolType::W), m_buffer(buffer) {}
+    Write() : Instruction(), m_type(SymbolType::I_W) {}
+    Write(std::string buffer) : Instruction(), m_type(SymbolType::I_W), m_buffer(buffer) {}
 };
 
 #endif
