@@ -1,13 +1,18 @@
-#include "e1.h"
 #include "../state.h"
-
-#include "../declaration/vardeclist.h"
-#include "../declaration/constdeclist.h"
-
+#include "e1.h"
 #include "e2.h"
 #include "e3.h"
 #include "e4.h"
 #include "e5.h"
+#include "e9.h"
+#include "e10.h"
+#include "e11.h"
+
+
+#include "../declaration/vardeclist.h"
+#include "../declaration/constdeclist.h"
+#include <memory>
+
 
 
 bool E1::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
@@ -31,6 +36,26 @@ bool E1::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
       stateMachine.pushSymbol(declConst);
       break;
     }
+    // implicite end of declarations, jump to instructions
+    case SymbolType::R : {
+	  auto instList = std::make_shared<InstructionList>();
+      stateMachine.pushSymbol(instList);
+      stateMachine.setState(s, std::make_shared<E10>());
+      break;
+    }
+    case SymbolType::W : {
+	  auto instList = std::make_shared<InstructionList>();
+      stateMachine.pushSymbol(instList);
+      stateMachine.setState(s, std::make_shared<E9>());
+      break;
+    }
+    case SymbolType::ID : {
+	  auto instList = std::make_shared<InstructionList>();
+      stateMachine.pushSymbol(instList);
+      stateMachine.setState(s, std::make_shared<E11>());
+      break;
+    }
+    //?? $ case
     default :
       // TODO : gerer les erreurs
       break;
