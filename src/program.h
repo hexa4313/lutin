@@ -6,14 +6,16 @@
 #include "declaration/declarationlist.h"
 #include "instruction/instructionlist.h"
 
+class InstructionList;
+
 class Program : public Symbol {
   private:
-    DeclarationList m_decList;
-    InstructionList m_instList;
+    std::shared_ptr<DeclarationList> m_decList;
+    std::shared_ptr<InstructionList> m_instList;
   public:
     Program() : Symbol(SymbolType::P) {}
-    Program(DeclarationList dec, InstructionList inst) : Symbol(SymbolType::P), m_decList(dec), m_instList(inst) {}
-    checkVarDec();
+    Program(std::shared_ptr<DeclarationList> dec, std::shared_ptr<InstructionList> inst) : Symbol(SymbolType::P), m_decList(dec), m_instList(inst) {}
+    //checkVarDec();
 };
 
 #endif

@@ -11,7 +11,7 @@ class Expression : public Symbol {
   public:
     Expression() : Symbol(SymbolType::E) {}
     virtual ~Expression() {}
-    virtual double eval(const map<string, double> & valeurs) = 0;
+    virtual double eval(const std::map<std::string, double> & valeurs) = 0;
 };
 
 #endif
