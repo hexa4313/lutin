@@ -10,6 +10,8 @@ class BinaryExp : public Expression {
   public:
     BinaryExp() : Expression() {}
     BinaryExp(Expression l, Expression r) : Expression(), m_left(l), m_right(r) {}
+    void setLeftExpression(Expression l) : m_left(l) {}
+    void setRightExpression(Expression r) : m_right(r) {}
 };
 
 #endif
