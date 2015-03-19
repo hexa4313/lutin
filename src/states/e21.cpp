@@ -18,7 +18,7 @@ bool E21::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
   auto read = std::make_shared<Read>(std::make_shared<Variable>(id));
 
   il->addInstruction(read);
-  stateMachine.lastState()->transition(stateMachine, read->getType());
+  stateMachine.lastState()->transition(stateMachine, read);
 
   return false;
 }

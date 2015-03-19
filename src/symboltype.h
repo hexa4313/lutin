@@ -32,6 +32,8 @@ enum class SymbolType {
   I_W,
   ID,
   VAL,
+  E_VAL,
+  E_CNUM,
 
   $
 };

@@ -7,8 +7,8 @@
 
 class ExpMult : public BinaryExp {
   public:
-    ExpMult() : BinaryExp(), m_type(SymbolType::MUL) {}
-    ExpMult(Expression l, Expression r) : BinaryExp(l, r), m_type(SymbolType::MUL) {}
+    ExpMult() : BinaryExp(), m_type(SymbolType::OP_M) {}
+    ExpMult(Expression l, Expression r) : BinaryExp(l, r), m_type(SymbolType::OP_M) {}
 };
 
 #endif

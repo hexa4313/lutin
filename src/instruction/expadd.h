@@ -7,8 +7,8 @@
 
 class ExpAdd : public BinaryExp {
   public:
-    ExpAdd() : BinaryExp(), m_type(SymbolType::ADD) {}
-    ExpAdd(Expression l, Expression r) : BinaryExp(l, r), m_type(SymbolType::ADD) {}
+    ExpAdd() : BinaryExp(), m_type(SymbolType::OP_A) {}
+    ExpAdd(Expression l, Expression r) : BinaryExp(l, r), m_type(SymbolType::OP_A) {}
 };
 
 #endif
