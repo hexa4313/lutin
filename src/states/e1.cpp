@@ -11,8 +11,7 @@
 
 #include "../declaration/vardeclist.h"
 #include "../declaration/constdeclist.h"
-#include <memory>
-
+#include "../instruction/instructionlist.h"
 
 
 bool E1::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
@@ -36,27 +35,27 @@ bool E1::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
       stateMachine.pushSymbol(declConst);
       break;
     }
-    // implicite end of declarations, jump to instructions
+    // implicit end of declarations, jump to instructions
     case SymbolType::R : {
-	  auto instList = std::make_shared<InstructionList>();
+      auto instList = std::make_shared<InstructionList>();
       stateMachine.pushSymbol(instList);
       stateMachine.pushState(std::make_shared<E3>());
       stateMachine.setState(s, std::make_shared<E10>());
       break;
     }
     case SymbolType::W : {
-	  auto instList = std::make_shared<InstructionList>();
-      stateMachine.pushSymbol(instList);
-      stateMachine.pushState(std::make_shared<E3>());
-      stateMachine.setState(s, std::make_shared<E9>());
-      break;
+        auto instList = std::make_shared<InstructionList>();
+        stateMachine.pushSymbol(instList);
+        stateMachine.pushState(std::make_shared<E3>());
+        stateMachine.setState(s, std::make_shared<E9>());
+        break;
     }
     case SymbolType::ID : {
-	  auto instList = std::make_shared<InstructionList>();
-      stateMachine.pushSymbol(instList);
-      stateMachine.pushState(std::make_shared<E3>());
-      stateMachine.setState(s, std::make_shared<E11>());
-      break;
+        auto instList = std::make_shared<InstructionList>();
+        stateMachine.pushSymbol(instList);
+        stateMachine.pushState(std::make_shared<E3>());
+        stateMachine.setState(s, std::make_shared<E11>());
+        break;
     }
     //?? $ case
     default :
