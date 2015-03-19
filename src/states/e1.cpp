@@ -19,40 +19,40 @@ bool E1::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
   switch(s->getType()) {
     case SymbolType::D :
       stateMachine.setState(s, std::make_shared<E2>());
-      break;
+      return true;
     case SymbolType::IL :
       stateMachine.setState(s, std::make_shared<E3>());
-      break;
+      return true;
     case SymbolType::VAR : {
       stateMachine.setState(s, std::make_shared<E4>());
       auto declVar = std::make_shared<VarDecList>();
       stateMachine.pushSymbol(declVar);
-      break;
+      return true;
     }
     case SymbolType::CST : {
       stateMachine.setState(s, std::make_shared<E5>());
       auto declConst = std::make_shared<ConstDecList>();
       stateMachine.pushSymbol(declConst);
-      break;
+      return true;
     }
     // implicit end of declarations, jump to instructions
     case SymbolType::R : {
       auto instList = std::make_shared<InstructionList>();
-        stateMachine.pushSymbol(instList);
-        stateMachine.setState(s, std::make_shared<E10>());
-        break;
+      stateMachine.pushSymbol(instList);
+      stateMachine.setState(s, std::make_shared<E10>());
+      return true;
     }
     case SymbolType::W : {
       auto instList = std::make_shared<InstructionList>();
-        stateMachine.pushSymbol(instList);
-        stateMachine.setState(s, std::make_shared<E9>());
-        break;
+      stateMachine.pushSymbol(instList);
+      stateMachine.setState(s, std::make_shared<E9>());
+      return true;
     }
     case SymbolType::ID : {
       auto instList = std::make_shared<InstructionList>();
-        stateMachine.pushSymbol(instList);
-        stateMachine.setState(s, std::make_shared<E11>());
-        break;
+      stateMachine.pushSymbol(instList);
+      stateMachine.setState(s, std::make_shared<E11>());
+      return true;
     }
     //?? $ case
     default :

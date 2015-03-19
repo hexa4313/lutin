@@ -16,9 +16,10 @@ void StateMachine::read() {
 
     std::shared_ptr<State> lastState = m_states.top();
     if(!lastState->transition(*this, symbol)) {
-      std::cout << "Error in transition!";
+      std::cout << "Error in transition!" << std::endl;
     }
 
+    m_lexer->shift();
     symbol = m_lexer->getSymbol();
   }
 }

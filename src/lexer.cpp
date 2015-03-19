@@ -1,26 +1,24 @@
 #include <boost/regex.hpp>
 #include <fstream>
-#include <sstream>
 #include "lexer.h"
-#include "symboltype.h"
 
 static std::pair<SymbolType, boost::regex> regexes[] = {
-    std::make_pair(SymbolType::AFF, boost::regex("^:=")),
-    std::make_pair(SymbolType::PV,  boost::regex("^;")),
-    std::make_pair(SymbolType::VG,  boost::regex("^,")),
-    std::make_pair(SymbolType::EQ,  boost::regex("^=")),
-    std::make_pair(SymbolType::ADD, boost::regex("^\\+")),
-    std::make_pair(SymbolType::SUB, boost::regex("^-")),
-    std::make_pair(SymbolType::MUL, boost::regex("^\\*")),
-    std::make_pair(SymbolType::DIV, boost::regex("^/")),
-    std::make_pair(SymbolType::PO,  boost::regex("^\\(")),
-    std::make_pair(SymbolType::PF,  boost::regex("^\\)")),
-    std::make_pair(SymbolType::VAR, boost::regex("^var")),
-    std::make_pair(SymbolType::CST, boost::regex("^const")),
-    std::make_pair(SymbolType::W,   boost::regex("^ecrire")),
-    std::make_pair(SymbolType::R,   boost::regex("^lire")),
-    std::make_pair(SymbolType::ID,  boost::regex("^[a-zA-Z][a-zA-Z0-9]*")),
-    std::make_pair(SymbolType::VAL, boost::regex("^[0-9]+"))
+    std::make_pair(SymbolType::AFF, boost::regex("\\A\\s*(:=)\\s*")),
+    std::make_pair(SymbolType::PV,  boost::regex("\\A\\s*(;)\\s*")),
+    std::make_pair(SymbolType::VG,  boost::regex("\\A\\s*(,)\\s*")),
+    std::make_pair(SymbolType::EQ,  boost::regex("\\A\\s*(=)\\s*")),
+    std::make_pair(SymbolType::ADD, boost::regex("\\A\\s*(\\+)\\s*")),
+    std::make_pair(SymbolType::SUB, boost::regex("\\A\\s*(-)\\s*")),
+    std::make_pair(SymbolType::MUL, boost::regex("\\A\\s*(\\*)\\s*")),
+    std::make_pair(SymbolType::DIV, boost::regex("\\A\\s*(/)\\s*")),
+    std::make_pair(SymbolType::PO,  boost::regex("\\A\\s*(\\()\\s*")),
+    std::make_pair(SymbolType::PF,  boost::regex("\\A\\s*(\\))\\s*")),
+    std::make_pair(SymbolType::VAR, boost::regex("\\A\\s*(var)\\s+")),
+    std::make_pair(SymbolType::CST, boost::regex("\\A\\s*(const)\\s+")),
+    std::make_pair(SymbolType::W,   boost::regex("\\A\\s*(ecrire)\\s+")),
+    std::make_pair(SymbolType::R,   boost::regex("\\A\\s*(lire)\\s+")),
+    std::make_pair(SymbolType::ID,  boost::regex("\\A\\s*([a-zA-Z][a-zA-Z0-9]*)\\s*")),
+    std::make_pair(SymbolType::VAL, boost::regex("\\A\\s*([0-9]+)\\s*"))
 };
 
 Lexer::Lexer(std::string path) {
@@ -43,9 +41,9 @@ std::shared_ptr<Symbol> Lexer::getSymbol() {
   boost::smatch sm;
 
   for(const auto& reg: regexes) {
-    if(boost::regex_match(m_content, sm, reg.second)) {
+    if(boost::regex_search(m_content, sm, reg.second)) {
 
-      auto symbol = std::make_shared<Symbol>(reg.first, sm[0]);
+      auto symbol = std::make_shared<Symbol>(reg.first, sm[1]);
       m_curSymbol = symbol;
 
       m_content.erase(0, sm[0].length());

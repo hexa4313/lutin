@@ -17,6 +17,7 @@ class State {
     //Doit set le nouvel état de l'automate
     //Et renvoyer un booléen pour la réussite de la transition
     virtual bool transition(StateMachine & stateMachine, std::shared_ptr<Symbol> s) = 0;
+    std::string name() { return m_name; }
 
   protected:
     std::string m_name;
