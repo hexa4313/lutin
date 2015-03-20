@@ -41,14 +41,14 @@ static std::map<SymbolType, std::string> typeNames = {
 };
 
 boost::variant<int, std::string>  Symbol::getValue() const {
-  assert(m_type == SymbolType::ID || m_type != SymbolType::VAL);
+  assert(m_type == SymbolType::ID || m_type == SymbolType::VAL);
 
   return m_value;
 }
 
 std::ostream& operator<<(std::ostream& o, const Symbol& s) {
   o << "Symbol(" << typeNames[s.getType()];
-  if(s.m_type == SymbolType::ID || s.m_type != SymbolType::VAL) {
+  if(s.m_type == SymbolType::ID || s.m_type == SymbolType::VAL) {
     o << ", " << s.getValue();
   }
   o << ")";
