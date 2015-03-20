@@ -1,6 +1,9 @@
 #include "e30.h"
-#include "../state.h"
+
 #include "e37.h"
+#include "e18.h"
+#include "e19.h"
+#include "e20.h"
 
 
 bool E30::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {

@@ -1,10 +1,8 @@
 #include <assert.h>
 #include <map>
-#include <string>
-#include <pair>
+#include <memory>
 #include <vector>
 #include "../symbol.h"
-#include "../symboltype.h"
 #include "symboltable.h"
 
 void SymbolTable::appendVar(const std::string name, const int value) {
@@ -16,14 +14,13 @@ void SymbolTable::appendConst(const std::string name, const int value) {
 }
 
 void SymbolTable::appendList(std::vector<std::shared_ptr<Symbol>> decsList) {
-  std::vector<shared_ptr<Symbol>>::const_iterator it;
-  for(it = decsList.begin(); it != decsList.end(); ++it) {
-    switch(*it->getType()) {
+  for(auto symbol : decsList) {
+    switch(*symbol->getType()) {
       case SymbolType::CST:
-        appendConst(*it->getName(), *it->getValue());
+        appendConst(*symbol->getName(), *symbol->getValue());
         break;
       case SymbolType::VAR:
-        appendVar(*it->getName(), *it->getValue());
+        appendVar(*symbol->getName(), *symbol->getValue());
         break;
     }
   }
