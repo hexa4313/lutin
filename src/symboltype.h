@@ -1,6 +1,7 @@
 #ifndef SYMBOLTYPE_H
 #define SYMBOLTYPE_H
 
+// En cas de changement ici, ne pas oublier de changer dans Symbol.cpp la variable typeNames
 enum class SymbolType {
 
   P,

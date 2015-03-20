@@ -44,6 +44,9 @@ std::shared_ptr<Symbol> Lexer::getSymbol() {
     if(boost::regex_search(m_content, sm, reg.second)) {
 
       auto symbol = std::make_shared<Symbol>(reg.first, sm[1]);
+
+      std::cout << "Lecture de " << *symbol << std::endl;
+
       m_curSymbol = symbol;
 
       m_content.erase(0, sm[0].length());
