@@ -10,6 +10,8 @@ class ConstDec : public Symbol {
     int m_value;
   public:
     ConstDec(std::string name, int value) : Symbol(SymbolType::CST), m_name(name), m_value(value) {};
+    std::string getName() const {return m_name;}
+    int getValue() const {return m_value;}
 };
 
 #endif

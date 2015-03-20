@@ -1,7 +1,7 @@
 #include "interpreter.h"
 
 void Interpreter::init() {
-  m_decList.getDeclarationTable(m_table);
+  m_program->getDecList()->getDeclarationTable(m_table);
 
 }
 

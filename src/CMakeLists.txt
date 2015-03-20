@@ -154,6 +154,7 @@ SET (ALL_SRCS
   ${states_SRCS}
   ${declaration_SRCS}
   ${instruction_SRCS}
+  ${interpreter_SRCS}
 )
 
 

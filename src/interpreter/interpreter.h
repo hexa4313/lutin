@@ -6,14 +6,14 @@
 
 class Interpreter {
   private:
-    Program m_program;
+    std::shared_ptr<Program> m_program;
     SymbolTable m_table;
   public:
     Interpreter() {}
-    Interpreter(Program prog) : m_program(prog), m_table(new SymbolTable()) {}
+    Interpreter(std::shared_ptr<Program> prog) : m_program(prog) {}
 
     void init();
-    void step();
+    bool step();
     void run();
 };
 
