@@ -26,12 +26,14 @@ bool E17::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
       return true;
       
     default :
-    /*
-    depiler E9
-    depiler E3
-    stateMachine.setState(s, std::make_shared<E8>());
-    */
-    // TODO : gerer les erreurs
-      return false;
+      stateMachine.popStates(2);
+      stateMachine.popSymbols(2);
+      auto il = std::dynamic_pointer_cast<InstructionList>(stateMachine.lastSymbol());
+
+      auto write = std::make_shared<Write>(symbols[0]);
+      il->addInstruction(write);
+
+      stateMachine.lastState()->transition(stateMachine, write);
+      return true;
   }
 }

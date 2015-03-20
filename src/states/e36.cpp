@@ -13,6 +13,7 @@ bool E36::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
   switch(s->getType()) {
     case SymbolType::MUL :
+
       stateMachine.setState(s, std::make_shared<E25>());
       return true;
     case SymbolType::DIV :

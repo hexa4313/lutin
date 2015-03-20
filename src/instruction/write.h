@@ -7,10 +7,11 @@
 
 class Write : public Instruction {
   private:
-    std::string m_buffer;
+    Expression m_exp;
   public:
     Write() : Instruction(), m_type(SymbolType::I_W) {}
-    Write(std::string buffer) : Instruction(), m_type(SymbolType::I_W), m_buffer(buffer) {}
+    Write(Expression exp) : Instruction(), m_type(SymbolType::I_W), m_exp(exp) {}
+    //void eval() {m_exp.eval()};
 };
 
 #endif
