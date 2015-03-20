@@ -7,10 +7,10 @@
 
 class Write : public Instruction {
   private:
-    Expression m_exp;
+    std::shared_ptr<Expression> m_exp;
   public:
-    Write() : Instruction(), m_type(SymbolType::I_W) {}
-    Write(Expression exp) : Instruction(), m_type(SymbolType::I_W), m_exp(exp) {}
+    Write() : Instruction(SymbolType::I_W) {}
+    Write(std::shared_ptr<Expression> exp) : Instruction(SymbolType::I_W), m_exp(exp) {}
     //void eval() {m_exp.eval()};
 };
 

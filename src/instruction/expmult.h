@@ -7,8 +7,9 @@
 
 class ExpMult : public BinaryExp {
   public:
-    ExpMult() : BinaryExp(), m_type(SymbolType::OP_M) {}
-    ExpMult(Expression l, Expression r) : BinaryExp(l, r), m_type(SymbolType::OP_M) {}
+    ExpMult() : BinaryExp(SymbolType::OP_M) {}
+    ExpMult(std::shared_ptr<Expression> l, std::shared_ptr<Expression> r) : BinaryExp(SymbolType::OP_M, l, r) {}
+    virtual double eval() { return m_left->eval() * m_right->eval(); }
 };
 
 #endif

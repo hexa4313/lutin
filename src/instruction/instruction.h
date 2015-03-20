@@ -7,7 +7,7 @@
 
 class Instruction : public Symbol {
   public:
-    Instruction() : Symbol(SymbolType::I) {}
+    Instruction(SymbolType t) : Symbol(t) {}
 };
 
 #endif

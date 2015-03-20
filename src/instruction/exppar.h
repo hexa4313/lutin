@@ -1,14 +1,15 @@
 #ifndef EXPPAR_H
 #define EXPPAR_H
 
+#include <memory>
 #include "expression.h"
 
 class ExpPar : public Expression {
   private:
-    Expression m_expr;
+  std::shared_ptr<Expression> m_expr;
   public:
-    ExpPar() : Expression() {}
-    ExpPar(Expression expression) : Expression(), m_expr(expression) {}
+    ExpPar() : Expression(SymbolType::E) {}
+    ExpPar(std::shared_ptr<Expression> expression) : Expression(SymbolType::E), m_expr(expression) {}
 };
 
 #endif

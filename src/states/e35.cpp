@@ -17,4 +17,6 @@ bool E35::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
   auto c = std::dynamic_pointer_cast<ConstDecList>(stateMachine.lastSymbol());
   c->addConstDec(constDec);
   stateMachine.lastState()->transition(stateMachine, stateMachine.lastSymbol());
+
+  return true;
 }

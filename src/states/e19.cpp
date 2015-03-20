@@ -10,7 +10,6 @@ bool E19::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
   auto var = std::make_shared<Variable>(boost::get<std::string>(symbols[0]->getValue()));
 
-
   stateMachine.lastState()->transition(stateMachine, var);
   return false;
 

@@ -12,4 +12,6 @@ bool E14::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
     stateMachine.popSymbols(2);
     stateMachine.lastState()->transition(stateMachine, s);
   }
+
+  return true;
 }

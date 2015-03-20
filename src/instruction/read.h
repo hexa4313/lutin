@@ -9,10 +9,11 @@ class Read : public Instruction {
   private:
     bool m_is_declared;
     bool m_has_value;
-    Variable m_destination;
+    std::shared_ptr<Variable> m_destination;
   public:
-    Read() : Instruction(), m_type(SymbolType::I_R) {}
-    Read(Variable destination) : Instruction(), m_type(SymbolType::I_R), m_destination(destination) {}
+    Read() : Instruction(SymbolType::I_R) {}
+    Read(std::shared_ptr<Variable> destination) : Instruction(SymbolType::I_R), m_destination(destination) {}
+
     Variable getRdVar() { return m_destination; };
 };
 

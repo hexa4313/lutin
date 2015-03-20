@@ -17,6 +17,7 @@ class Program : public Symbol {
     Program(std::shared_ptr<DeclarationList> dec, std::shared_ptr<InstructionList> inst) : Symbol(SymbolType::P), m_decList(dec), m_instList(inst) {}
     //checkVarDec();
     bool StaticAnalysis(void);
+    std::shared_ptr<DeclarationList> getDecList() {return m_decList;}
 };
 
 #endif

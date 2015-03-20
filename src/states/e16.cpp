@@ -11,7 +11,7 @@ bool E16::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
   auto e1 = stateMachine.lastState();
   auto il = std::dynamic_pointer_cast<InstructionList>(symbols[2]);
   auto i =  std::dynamic_pointer_cast<Instruction>(symbols[1]);
-  il->addDeclaration(i);
+  il->addInstruction(i);
 
   e1->transition(stateMachine, symbols[2]);
 

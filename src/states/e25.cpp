@@ -11,4 +11,6 @@ bool E25::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
   auto opmul = std::make_shared<ExpMult>(); // TODO SET left and right expressions, where??
 
   stateMachine.lastState()->transition(stateMachine, opmul);
+
+  return true;
 }
