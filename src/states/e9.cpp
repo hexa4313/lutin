@@ -12,20 +12,18 @@ bool E9::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
     case SymbolType::E_CNUM:
     case SymbolType::E_VAL:
       stateMachine.setState(s, std::make_shared<E17>());
-      break;
+      return true;
     case SymbolType::PO :
       stateMachine.setState(s, std::make_shared<E18>());
-      break;
+      return true;
     case SymbolType::ID :
       stateMachine.setState(s, std::make_shared<E19>());
-      break;
+      return true;
     case SymbolType::VAL :
       stateMachine.setState(s, std::make_shared<E20>());
-      break;
+      return true;
       
     default :
-    // TODO : gerer les erreurs
-      break;
+      return false;
   }
-  return false;
 }

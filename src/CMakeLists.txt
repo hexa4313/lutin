@@ -24,7 +24,6 @@ SET (root_SRCS
 
   program.h
   state.h
-  constantnum.h
 
   main.cpp
 )

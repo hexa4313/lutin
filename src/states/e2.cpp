@@ -9,7 +9,6 @@ bool E2::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
       stateMachine.setState(s, std::make_shared<E6>());
       return true;
     default :
-      // TODO : gerer les erreurs
       return false;
   }
 }

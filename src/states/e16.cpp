@@ -1,20 +1,19 @@
 #include "e16.h"
 #include "../state.h"
+#include "../instruction/instructionlist.h"
+#include "../instruction/instruction.h"
 
 bool E16::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
-  /*
-  depiler E8
-  depiler E3
-  depiler E1
-  switch(s->getType()) {
-    case SymbolType::IL :
-      stateMachine.setState(s, std::make_shared<E3>());
-      break;
-      
-    default :
-    // TODO : gerer les erreurs
-      break;
-  }*/
-  return false;
+  auto symbols = stateMachine.popSymbols(3);
+  auto states = stateMachine.popStates(3);
+
+  auto e1 = stateMachine.lastState();
+  auto il = std::dynamic_pointer_cast<InstructionList>(symbols[2]);
+  auto i =  std::dynamic_pointer_cast<Instruction>(symbols[1]);
+  il->addDeclaration(i);
+
+  e1->transition(stateMachine, symbols[2]);
+
+  return true;
 }
