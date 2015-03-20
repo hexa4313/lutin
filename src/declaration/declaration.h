@@ -6,7 +6,7 @@
 class Declaration : public Symbol {
   public:
     Declaration(SymbolType symbolType) : Symbol(symbolType) {};
-    virtual std::vector<std::shared_ptr<Symbol>> getDecList() = 0;
+    virtual std::vector<std::shared_ptr<Symbol>> getDecList() const = 0;
 };
 
 #endif

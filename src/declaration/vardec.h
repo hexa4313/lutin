@@ -2,7 +2,6 @@
 #define VARDEC_H
 
 #include <string>
-#include <pair>
 #include "../symbol.h"
 
 class VarDec : public Symbol {

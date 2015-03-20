@@ -13,7 +13,6 @@ class SymbolTable {
   public:
 //    const bool VAR = false;
 //    const bool CONST = true;
-    SymbolTable():m_table(new std::map<std::string, std::pair<int, SymbolType>>) {}
     void appendVar(const std::string name, const int value);
     void appendConst(const std::string name, const int value);
     void appendList(std::vector<std::shared_ptr<Symbol>> list);
