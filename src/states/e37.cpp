@@ -10,6 +10,7 @@
 
 bool E37::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
+
   switch(s->getType()) {
     case SymbolType::MUL :
       stateMachine.setState(s, std::make_shared<E25>());
@@ -28,9 +29,6 @@ bool E37::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
       return true;
     case SymbolType::OP_A :
       stateMachine.setState(s, std::make_shared<E30>());
-      return true;
-    case SymbolType::E : 
-      stateMachine.setState(s, std::make_shared<E9>());
       return true;
     default :
       return false;

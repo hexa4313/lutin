@@ -11,4 +11,6 @@ bool E26::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
   auto opdiv = std::make_shared<ExpDiv>();
 
   stateMachine.lastState()->transition(stateMachine, opdiv);
+
+  return true;
 }

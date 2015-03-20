@@ -6,7 +6,7 @@
 
 class Assign : public Instruction {
   public:
-    Assign() : Instruction(), m_type(SymbolType::AFF) {}
+    Assign() : Instruction(SymbolType::AFF) {}
 };
 
 #endif

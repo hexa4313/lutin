@@ -129,6 +129,7 @@ SET (instruction_SRCS
   instruction/read.h
   instruction/variable.h
   instruction/write.h
+  instruction/numericconst.h
 )
 
 SET (declaration_SRCS
@@ -136,20 +137,28 @@ SET (declaration_SRCS
   declaration/constdeclist.h
   declaration/declaration.h
   declaration/declarationlist.h
+  declaration/declarationlist.cpp
   declaration/vardec.h
   declaration/vardeclist.h
 )
 
+SET (interpreter_SRCS
+  interpreter/interpreter.cpp
+  interpreter/interpreter.h
+  interpreter/symboltable.cpp
+  interpreter/symboltable.h
+)
 
 SET (ALL_SRCS
   ${root_SRCS}
   ${states_SRCS}
   ${declaration_SRCS}
   ${instruction_SRCS}
+  ${interpreter_SRCS}
 )
 
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -pedantic")
 
 add_executable(${EXECUTABLE_NAME} ${ALL_SRCS})
 target_link_libraries(${EXECUTABLE_NAME} ${Boost_LIBRARIES})

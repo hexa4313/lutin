@@ -7,8 +7,9 @@
 
 class ExpAdd : public BinaryExp {
   public:
-    ExpAdd() : BinaryExp(), m_type(SymbolType::OP_A) {}
-    ExpAdd(Expression l, Expression r) : BinaryExp(l, r), m_type(SymbolType::OP_A) {}
+    ExpAdd() : BinaryExp(SymbolType::OP_A) {}
+    ExpAdd(std::shared_ptr<Expression> l, std::shared_ptr<Expression> r) : BinaryExp(SymbolType::OP_A, l, r) {}
+    virtual double eval() { return m_left->eval() + m_right->eval(); }
 };
 
 #endif
