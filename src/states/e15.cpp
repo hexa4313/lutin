@@ -7,11 +7,9 @@ bool E15::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
   switch(s->getType()) {
     case SymbolType::EQ :
       stateMachine.setState(s, std::make_shared<E24>());
-      break;
+      return true;
       
     default :
-    // TODO : gerer les erreurs
-      break;
+      return false;
   }
-  return false;
 }

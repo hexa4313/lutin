@@ -24,7 +24,6 @@ SET (root_SRCS
 
   program.h
   state.h
-  constantnum.h
 
   main.cpp
 )
@@ -130,6 +129,7 @@ SET (instruction_SRCS
   instruction/read.h
   instruction/variable.h
   instruction/write.h
+  instruction/numericconst.h
 )
 
 SET (declaration_SRCS
@@ -157,7 +157,7 @@ SET (ALL_SRCS
 )
 
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -pedantic")
 
 add_executable(${EXECUTABLE_NAME} ${ALL_SRCS})
 target_link_libraries(${EXECUTABLE_NAME} ${Boost_LIBRARIES})

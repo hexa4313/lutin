@@ -13,29 +13,28 @@ bool E36::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
   switch(s->getType()) {
     case SymbolType::MUL :
+
       stateMachine.setState(s, std::make_shared<E25>());
-      break;
+      return true;
     case SymbolType::DIV :
       stateMachine.setState(s, std::make_shared<E26>());
-      break;
+      return true;
     case SymbolType::SUB :
       stateMachine.setState(s, std::make_shared<E27>());
-      break;
+      return true;
     case SymbolType::ADD :
       stateMachine.setState(s, std::make_shared<E28>());
-      break;
+      return true;
     case SymbolType::OP_M :
       stateMachine.setState(s, std::make_shared<E29>());
-      break;
+      return true;
     case SymbolType::OP_A :
       stateMachine.setState(s, std::make_shared<E30>());
-      break;
+      return true;
     case SymbolType::E : 
       stateMachine.setState(s, std::make_shared<E9>());
-      break;
+      return true;
     default :
-    // TODO : gerer les erreurs
-      break;
+      return false;
   }
-  return false;
 }

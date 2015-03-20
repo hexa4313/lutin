@@ -9,11 +9,10 @@
 
 class InstructionList : public Symbol {
   private:
-    std::vector<Instruction> m_instructions;
+  std::vector<std::shared_ptr<Instruction>> m_instructions;
   public:
     InstructionList() : Symbol(SymbolType::IL) {}
-    InstructionList(std::vector<Instruction> instructions) : Symbol(SymbolType::IL), m_instructions(instructions) {}
-    void staticAnalysis(Program program);
+    InstructionList(std::vector<std::shared_ptr<Instruction>> instructions) : Symbol(SymbolType::IL), m_instructions(instructions) {}
     void addInstruction(std::shared_ptr<Instruction> i) { m_instructions.push_back(i); };
 };
 
