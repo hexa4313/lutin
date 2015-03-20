@@ -141,12 +141,19 @@ SET (declaration_SRCS
   declaration/vardeclist.h
 )
 
+SET (interpreter_SRCS
+  interpreter/interpreter.cpp
+  interpreter/interpreter.h
+  interpreter/symboltable.cpp
+  interpreter/symboltable.h
+)
 
 SET (ALL_SRCS
   ${root_SRCS}
   ${states_SRCS}
   ${declaration_SRCS}
   ${instruction_SRCS}
+  ${interpreter_SRCS}
 )
 
 

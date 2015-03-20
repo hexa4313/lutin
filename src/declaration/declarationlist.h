@@ -3,6 +3,7 @@
 
 #include <vector>
 #include "../symbol.h"
+#include "../interpreter/symboltable.h"
 #include "declaration.h"
 
 class DeclarationList : public Symbol {
@@ -10,7 +11,8 @@ class DeclarationList : public Symbol {
     std::vector<std::shared_ptr<Declaration>> m_decs;
   public:
     DeclarationList() : Symbol(SymbolType::DL) {};
-    void addDeclaration(std::shared_ptr<Declaration> d) { m_decs.push_back(d); };
+    void addDeclaration(std::shared_ptr<Declaration> d);
+    void getDeclarationTable(SymbolTable& m_table) const;
 };
 
 #endif
