@@ -14,4 +14,6 @@ bool E12::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
     stateMachine.lastState()->transition(stateMachine, s);
   }
 
+  return true;
+
 }

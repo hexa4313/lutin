@@ -15,4 +15,6 @@ bool E13::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
   v->addVarDec(varDec);
   stateMachine.lastState()->transition(stateMachine, stateMachine.lastSymbol());
 
+  return true;
+
 }
