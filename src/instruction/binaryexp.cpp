@@ -1,3 +1,4 @@
+/*
 #include "binaryexp.h"
 
 
@@ -24,3 +25,4 @@ std::vector<std::shared_ptr<Variable>> BinaryExp::getAllVar(){
 
 	return varExp;
 }
+*/
