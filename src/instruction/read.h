@@ -13,6 +13,7 @@ class Read : public Instruction {
   public:
     Read() : Instruction(), m_type(SymbolType::I_R) {}
     Read(Variable destination) : Instruction(), m_type(SymbolType::I_R), m_destination(destination) {}
+    Variable getRdVar() { return m_destination; };
 };
 
 #endif

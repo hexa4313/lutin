@@ -12,6 +12,7 @@ class ConstDecList : public Declaration {
   public:
     ConstDecList() : Declaration(SymbolType::C) {};
     void addConstDec(std::shared_ptr<ConstDec> c) { m_consts.push_back(c); };
+    std::vector<std::shared_ptr<ConstDec>> getConsts() { return m_consts; };
 };
 
 #endif
