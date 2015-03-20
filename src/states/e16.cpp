@@ -10,11 +10,11 @@ bool E16::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
   switch(s->getType()) {
     case SymbolType::IL :
       stateMachine.setState(s, std::make_shared<E3>());
-      break;
+      return true;
       
     default :
     // TODO : gerer les erreurs
-      break;
+      return false;
   }*/
   return false;
 }

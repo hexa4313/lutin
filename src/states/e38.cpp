@@ -7,10 +7,8 @@ bool E38::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
   switch(s->getType()) {
     case SymbolType::E : 
       stateMachine.setState(s, std::make_shared<E9>());
-      break;
+      return true;
     default :
-    // TODO : gerer les erreurs
-      break;
+      return false;
   }
-  return false;
 }
