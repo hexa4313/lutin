@@ -9,9 +9,9 @@
 
 class Expression : public Symbol {
   public:
-    Expression() : Symbol(SymbolType::E) {}
+    Expression(SymbolType t) : Symbol(t) {}
     virtual ~Expression() {}
-    virtual double eval(const std::map<std::string, double> & valeurs) = 0;
+    virtual double eval() = 0;
 };
 
 #endif

@@ -9,7 +9,7 @@
 
 class InstructionList : public Symbol {
   private:
-  std::vector<std::shared_ptr<Instruction>> m_instructions;
+    std::vector<std::shared_ptr<Instruction>> m_instructions;
   public:
     InstructionList() : Symbol(SymbolType::IL) {}
     InstructionList(std::vector<std::shared_ptr<Instruction>> instructions) : Symbol(SymbolType::IL), m_instructions(instructions) {}

@@ -7,8 +7,9 @@
 
 class ExpDiv : public BinaryExp {
   public:
-    ExpDiv() : BinaryExp(), m_type(SymbolType::OP_M) {}
-    ExpDiv(Expression l, Expression r) : BinaryExp(l, r), m_type(SymbolType::DIV) {}
+    ExpDiv() : BinaryExp(SymbolType::OP_M) {}
+    ExpDiv(std::shared_ptr<Expression> l, std::shared_ptr<Expression> r) : BinaryExp(SymbolType::OP_M, l, r) {}
+    virtual double eval() { return m_left->eval() / m_right->eval(); }
 };
 
 #endif

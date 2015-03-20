@@ -9,4 +9,6 @@ bool E27::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
   auto opsub = std::make_shared<ExpSub>();
 
   stateMachine.lastState()->transition(stateMachine, opsub);
+
+  return true;
 }

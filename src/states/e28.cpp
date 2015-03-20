@@ -10,4 +10,6 @@ bool E28::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
   auto opadd = std::make_shared<ExpAdd>();
 
   stateMachine.lastState()->transition(stateMachine, opadd);
+
+  return true;
 }

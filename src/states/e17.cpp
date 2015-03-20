@@ -5,6 +5,8 @@
 #include "e26.h"
 #include "e28.h"
 #include "e29.h"
+#include "../instruction/instructionlist.h"
+#include "../instruction/write.h"
 
 bool E17::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
@@ -27,10 +29,11 @@ bool E17::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
       
     default :
       stateMachine.popStates(2);
-      stateMachine.popSymbols(2);
+      auto symbols = stateMachine.popSymbols(2);
       auto il = std::dynamic_pointer_cast<InstructionList>(stateMachine.lastSymbol());
 
-      auto write = std::make_shared<Write>(symbols[0]);
+      auto expr = std::dynamic_pointer_cast<Expression>(symbols[0]);
+      auto write = std::make_shared<Write>(expr);
       il->addInstruction(write);
 
       stateMachine.lastState()->transition(stateMachine, write);
