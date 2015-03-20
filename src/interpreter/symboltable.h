@@ -1,6 +1,7 @@
 #ifndef SYMBOLTABLE_H
 #define SYMBOLTABLE_H
 
+#include <memory>
 #include <map>
 #include <string>
 #include <vector>

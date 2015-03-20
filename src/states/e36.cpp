@@ -1,5 +1,6 @@
 #include "e36.h"
-#include "../state.h"
+
+#include "e17.h"
 #include "e25.h"
 #include "e26.h"
 #include "e27.h"
@@ -8,7 +9,7 @@
 #include "e30.h"
 #include "e9.h"
 #include "../instruction/expression.h"
-#include "../instruction"
+#include "../instruction/binaryexp.h"
 
 
 bool E36::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
@@ -18,7 +19,7 @@ bool E36::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
   auto expL = std::dynamic_pointer_cast<Expression>(symbols[2]);
   auto expR = std::dynamic_pointer_cast<Expression>(symbols[0]);
-  auto expmul =  std::dynamic_pointer_cast<Expression>(symbols[1]); // really an ExprMul or ExprDiv
+  auto expmul =  std::dynamic_pointer_cast<BinaryExp>(symbols[1]);
   expmul->setExpressions(expL, expR);
 
   stateMachine.setState(expmul, std::make_shared<E17>());
