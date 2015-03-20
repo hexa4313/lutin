@@ -10,7 +10,6 @@ class NumericConst : public Expression {
     NumericConst() : Expression(SymbolType::E_CNUM) {}
     NumericConst(int value) : Expression(SymbolType::E_CNUM), m_value(value) {}
     virtual double eval() { return m_value; }
-    std::vector<std::shared_ptr<Variable>> getAllVar();
 };
 
 #endif

@@ -10,7 +10,6 @@ class ExpPar : public Expression {
   public:
     ExpPar() : Expression(SymbolType::E) {}
     ExpPar(std::shared_ptr<Expression> expression) : Expression(SymbolType::E), m_expr(expression) {}
-    std::vector<std::shared_ptr<Variable>> getAllVar() { return m_expr.getAllVar(); }
 };
 
 #endif

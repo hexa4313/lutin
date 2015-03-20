@@ -14,8 +14,6 @@ class Expression : public Symbol {
     Expression(SymbolType t) : Symbol(t) {}
     virtual ~Expression() {}
     virtual double eval() = 0;
-
-    virtual std::vector<std::shared_ptr<Variable>> getAllVar() = 0;
 };
 
 #endif

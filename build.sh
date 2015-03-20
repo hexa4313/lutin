@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
-#rm -rf bin
-
-#mkdir bin
+mkdir -p bin
 cd bin
 cmake ../src
 make

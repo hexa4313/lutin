@@ -15,8 +15,6 @@ class Variable : public Expression {
     Variable(std::string name) : Expression(SymbolType::E_VAL), m_name(name) {}
     Variable(std::string name, int value) : Expression(SymbolType::E_VAL), m_name(name), m_value(value) {}
     virtual double eval() { return m_value; }
-
-    std::vector<std::shared_ptr<Variable>> getAllVar();
 };
 
 #endif
