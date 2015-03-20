@@ -137,6 +137,7 @@ SET (declaration_SRCS
   declaration/constdeclist.h
   declaration/declaration.h
   declaration/declarationlist.h
+  declaration/declarationlist.cpp
   declaration/vardec.h
   declaration/vardeclist.h
 )

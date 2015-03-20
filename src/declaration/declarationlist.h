@@ -2,6 +2,7 @@
 #define DECLARATION_LIST_H
 
 #include <vector>
+#include <memory>
 #include "../symbol.h"
 #include "../interpreter/symboltable.h"
 #include "declaration.h"
