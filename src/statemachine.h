@@ -14,8 +14,8 @@ class State;
 class StateMachine {
 	private:
 		std::unique_ptr<Lexer> m_lexer;
-		std::vector<std::shared_ptr<Symbol>> m_symbols;
-		std::vector<std::shared_ptr<State>> m_states;
+		std::stack<std::shared_ptr<Symbol>> m_symbols;
+		std::stack<std::shared_ptr<State>> m_states;
 	public:
 		StateMachine(std::string filepath) : m_lexer(new Lexer(filepath)) {}
 		void read();
