@@ -23,6 +23,8 @@ SET (root_SRCS
   lexer.cpp
 
   program.h
+  program.cpp
+
   state.h
 
   main.cpp
@@ -134,12 +136,21 @@ SET (instruction_SRCS
 
 SET (declaration_SRCS
   declaration/constdec.h
+  declaration/constdec.cpp
+
   declaration/constdeclist.h
+  declaration/constdeclist.cpp
+
   declaration/declaration.h
+
   declaration/declarationlist.h
   declaration/declarationlist.cpp
+
   declaration/vardec.h
+  declaration/vardec.cpp
+
   declaration/vardeclist.h
+  declaration/vardeclist.cpp
 )
 
 SET (interpreter_SRCS

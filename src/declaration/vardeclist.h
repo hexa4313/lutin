@@ -2,6 +2,7 @@
 #define VARDECLIST_H
 
 #include <vector>
+#include <memory>
 #include "vardec.h"
 #include "declaration.h"
 
@@ -10,6 +11,7 @@ class VarDecList : public Declaration {
     std::vector<std::shared_ptr<VarDec>> m_vars;
   public:
     VarDecList() : Declaration(SymbolType::V) {};
+    void toString(std::ostream &o) const;
     void addVarDec(std::shared_ptr<VarDec> v) { m_vars.push_back(v); };
     std::vector<std::shared_ptr<Symbol>> getDecList() const {return std::vector<std::shared_ptr<Symbol>>(m_vars.begin(), m_vars.end());};
 

@@ -5,6 +5,7 @@
 #include "declaration/declarationlist.h"
 #include "states/e0.h"
 #include "states/e1.h"
+#include "declaration/vardeclist.h"
 
 void StateMachine::read() {
 
@@ -13,6 +14,11 @@ void StateMachine::read() {
 
   std::shared_ptr<Symbol> symbol = m_lexer->getSymbol();
   while(symbol->getType() != SymbolType::$) {
+
+    if(symbol->getType() == SymbolType::CST) {
+      auto kk = std::dynamic_pointer_cast<DeclarationList>(this->m_symbols.top());
+      std::cout << *(this->m_symbols.top()) << std::endl;
+    }
 
     std::shared_ptr<State> lastState = m_states.top();
     if(!lastState->transition(*this, symbol)) {
