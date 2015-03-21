@@ -12,6 +12,10 @@ class State {
   public:
     State(std::string name) : m_name(name) {};
     virtual ~State() {};
+    friend std::ostream& operator<<(std::ostream& o, const State& s) {
+      o << "State(" << s.m_name << ")";
+      return o;
+    }
 
     //Fonction de transitions entre les états de la transition
     //Doit set le nouvel état de l'automate

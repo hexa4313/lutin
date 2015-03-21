@@ -10,9 +10,8 @@ bool E5::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
       stateMachine.setState(s, std::make_shared<E14>());
       return true;
     case SymbolType::ID : {
-      auto e15 = std::make_shared<E15>();
-      stateMachine.setState(s, e15);
-      return e15->transition(stateMachine, nullptr);
+      stateMachine.setState(s, std::make_shared<E15>());
+      return true;
     }
     default :
       return false;

@@ -4,7 +4,7 @@
 
 bool E28::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
-  auto states = stateMachine.popStates(1);
+  stateMachine.popStates(1);
   auto symbols = stateMachine.popSymbols(1);
 
   auto opadd = std::make_shared<ExpAdd>();
