@@ -2,6 +2,8 @@
 #include "../state.h"
 
 #include "e22.h"
+#include "../declaration/vardeclist.h"
+#include "../declaration/declarationlist.h"
 
 bool E12::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
@@ -10,7 +12,12 @@ bool E12::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
   }
   else {
     stateMachine.popStates(2);
-    stateMachine.popSymbols(2);
+    auto symbols = stateMachine.popSymbols(2);
+
+    auto v = std::dynamic_pointer_cast<VarDecList>(symbols[0]);
+    auto dl = std::dynamic_pointer_cast<DeclarationList>(stateMachine.lastSymbol());
+    dl->addDeclaration(v);
+
     stateMachine.lastState()->transition(stateMachine, s);
   }
 

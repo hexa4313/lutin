@@ -46,12 +46,10 @@ boost::variant<int, std::string>  Symbol::getValue() const {
   return m_value;
 }
 
-std::ostream& operator<<(std::ostream& o, const Symbol& s) {
-  o << "Symbol(" << typeNames[s.getType()];
-  if(s.m_type == SymbolType::ID || s.m_type == SymbolType::VAL) {
-    o << ", " << s.getValue();
+void Symbol::toString(std::ostream &o) const {
+  o << "Symbol(" << typeNames[m_type];
+  if(m_type == SymbolType::ID || m_type == SymbolType::VAL) {
+    o << ", " << getValue();
   }
   o << ")";
-
-  return o;
 }

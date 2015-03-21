@@ -10,7 +10,11 @@ class Symbol {
   protected:
     SymbolType m_type;
     boost::variant<int, std::string> m_value;
-    friend std::ostream& operator<<(std::ostream&, const Symbol&);
+    virtual void toString(std::ostream& o) const;
+    friend std::ostream& operator<<(std::ostream& o, const Symbol& s) {
+      s.toString(o);
+      return o;
+    }
 
   public:
     Symbol(SymbolType type) : m_type(type) {}

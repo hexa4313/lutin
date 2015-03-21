@@ -135,12 +135,21 @@ SET (instruction_SRCS
 
 SET (declaration_SRCS
   declaration/constdec.h
+  declaration/constdec.cpp
+
   declaration/constdeclist.h
+  declaration/constdeclist.cpp
+
   declaration/declaration.h
+
   declaration/declarationlist.h
   declaration/declarationlist.cpp
+
   declaration/vardec.h
+  declaration/vardec.cpp
+
   declaration/vardeclist.h
+  declaration/vardeclist.cpp
 )
 
 SET (interpreter_SRCS
@@ -160,6 +169,7 @@ SET (ALL_SRCS
 
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -pedantic")
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g -fno-default-inline -fno-inline")
 
 add_executable(${EXECUTABLE_NAME} ${ALL_SRCS})
 target_link_libraries(${EXECUTABLE_NAME} ${Boost_LIBRARIES})
