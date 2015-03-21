@@ -23,6 +23,7 @@ SET (root_SRCS
   lexer.cpp
 
   program.h
+  program.cpp
   state.h
 
   main.cpp
