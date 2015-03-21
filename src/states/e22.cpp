@@ -5,9 +5,11 @@
 bool E22::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
   switch(s->getType()) {
-    case SymbolType::ID :
-      stateMachine.setState(s, std::make_shared<E33>());
-      return true;
+    case SymbolType::ID : {
+      auto e33 = std::make_shared<E33>();
+      stateMachine.setState(s, e33);
+      return e33->transition(stateMachine, nullptr);
+    }
     default :
       return false;
   }

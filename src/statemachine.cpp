@@ -24,6 +24,10 @@ void StateMachine::read() {
   }
 }
 
+void StateMachine::setState(std::shared_ptr<State> state) {
+  m_states.push(state);
+}
+
 void StateMachine::setState(std::shared_ptr<Symbol> symbol, std::shared_ptr<State> state) {
   m_symbols.push(symbol);
   m_states.push(state);

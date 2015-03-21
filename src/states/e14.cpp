@@ -1,6 +1,8 @@
 #include "e14.h"
 #include "../state.h"
 #include "e23.h"
+#include "../declaration/constdeclist.h"
+#include "../declaration/declarationlist.h"
 
 bool E14::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
@@ -9,7 +11,12 @@ bool E14::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
   }
   else {
     stateMachine.popStates(2);
-    stateMachine.popSymbols(2);
+    auto symbols = stateMachine.popSymbols(2);
+
+    auto c = std::dynamic_pointer_cast<ConstDecList>(symbols[0]);
+    auto dl = std::dynamic_pointer_cast<DeclarationList>(stateMachine.lastSymbol());
+    dl->addDeclaration(c);
+
     stateMachine.lastState()->transition(stateMachine, s);
   }
 

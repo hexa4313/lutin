@@ -27,6 +27,7 @@ class StateMachine {
 		void pushSymbol(std::shared_ptr<Symbol> symbol);
 		void pushState(std::shared_ptr<State> state);
 
+    void setState(std::shared_ptr<State> state);
 		void setState(std::shared_ptr<Symbol> symbol, std::shared_ptr<State> state);
 };
 
