@@ -15,7 +15,7 @@
 bool E36::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
   auto symbols = stateMachine.popSymbols(3);
-  auto states = stateMachine.popStates(3);
+  stateMachine.popStates(3);
 
   auto expL = std::dynamic_pointer_cast<Expression>(symbols[2]);
   auto expR = std::dynamic_pointer_cast<Expression>(symbols[0]);

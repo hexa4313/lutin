@@ -21,9 +21,14 @@ bool E3::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
     case SymbolType::ID :
       stateMachine.setState(s, std::make_shared<E11>());
       return true;
-    /*case "$" : 
-      stateMachine.setState(s, ??);
-      return true;*/
+    case SymbolType::$ : {
+      auto symbols = stateMachine.popSymbols(3);
+      auto dl = std::dynamic_pointer_cast<DeclarationList>(symbols[2]);
+      auto il = std::dynamic_pointer_cast<InstructionList>(symbols[1]);
+      auto p = std::make_shared<Program>(dl, il);
+      stateMachine.accept(p);
+      return true;
+    }
     default :
       return false;
   }

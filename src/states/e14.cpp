@@ -14,10 +14,14 @@ bool E14::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
     auto symbols = stateMachine.popSymbols(2);
 
     auto c = std::dynamic_pointer_cast<ConstDecList>(symbols[0]);
-    auto dl = std::dynamic_pointer_cast<DeclarationList>(stateMachine.lastSymbol());
-    dl->addDeclaration(c);
 
-    stateMachine.lastState()->transition(stateMachine, s);
+    auto e1 = stateMachine.lastState();
+
+    // reduction
+    e1->transition(stateMachine, c);
+
+    auto e2 = stateMachine.lastState();
+    e2->transition(stateMachine, s);
   }
 
   return true;

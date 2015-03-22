@@ -5,6 +5,8 @@
 #include "../state.h"
 #include "../symbol.h"
 #include "../statemachine.h"
+#include "../declaration/constdec.h"
+#include "../declaration/constdeclist.h"
 
 class E5 : public State {
   public:

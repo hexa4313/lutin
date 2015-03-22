@@ -6,7 +6,7 @@
 bool E16::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
   auto symbols = stateMachine.popSymbols(3);
-  auto states = stateMachine.popStates(3);
+  stateMachine.popStates(3);
 
   auto e1 = stateMachine.lastState();
   auto il = std::dynamic_pointer_cast<InstructionList>(symbols[2]);

@@ -9,7 +9,7 @@
 
 bool E21::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
-  auto states = stateMachine.popStates(2);
+  stateMachine.popStates(2);
   auto symbols = stateMachine.popSymbols(2);
 
   auto il = std::dynamic_pointer_cast<InstructionList>(stateMachine.lastSymbol());

@@ -4,34 +4,40 @@
 
 #include "declaration/declarationlist.h"
 #include "states/e0.h"
-#include "states/e1.h"
-#include "declaration/vardeclist.h"
+#include "instruction/instructionlist.h"
 
 void StateMachine::read() {
 
-  m_states.push(std::make_shared<E0>());
-  setState(std::make_shared<DeclarationList>(), std::make_shared<E1>());
+  auto e0 = std::make_shared<E0>();
+  m_states.push(e0);
+  e0->transition(*this, std::make_shared<DeclarationList>());
+  bool instructionBlock = false;
 
-  std::shared_ptr<Symbol> symbol = m_lexer->getSymbol();
-  while(symbol->getType() != SymbolType::$) {
+  std::shared_ptr<Symbol> symbol;
 
-    if(symbol->getType() == SymbolType::CST) {
-      auto kk = std::dynamic_pointer_cast<DeclarationList>(this->m_symbols.top());
-      std::cout << *(this->m_symbols.top()) << std::endl;
+  do {
+
+    symbol = m_lexer->getSymbol();
+    auto lastState = m_states.top();
+
+    if(symbol->isInstructionKeyword() && !instructionBlock) {
+      instructionBlock = true;
+      lastState->transition(*this, std::make_shared<InstructionList>());
     }
 
-    std::shared_ptr<State> lastState = m_states.top();
     if(!lastState->transition(*this, symbol)) {
       std::cout << "Error in transition!" << std::endl;
     }
-
     m_lexer->shift();
-    symbol = m_lexer->getSymbol();
-  }
-}
 
-void StateMachine::setState(std::shared_ptr<State> state) {
-  m_states.push(state);
+  } while(symbol->getType() != SymbolType::$);
+
+  if(m_program) {
+    std::cout << "Program accepted!" << std::endl;
+  }
+  else {
+    std::cout << "Error in program!" << std::endl;
+  }
 }
 
 void StateMachine::setState(std::shared_ptr<Symbol> symbol, std::shared_ptr<State> state) {
@@ -48,13 +54,10 @@ std::vector<std::shared_ptr<Symbol>> StateMachine::popSymbols(int count) {
   return symbols;
 }
 
-std::vector<std::shared_ptr<State>> StateMachine::popStates(int count) {
-  std::vector<std::shared_ptr<State>> states;
+void StateMachine::popStates(int count) {
   for(int i = 0; i < count; i++) {
-    states.push_back(m_states.top());
     m_states.pop();
   }
-  return states;
 }
 
 std::shared_ptr<State> StateMachine::lastState() {
