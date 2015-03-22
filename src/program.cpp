@@ -5,8 +5,8 @@
 #include "declaration/vardec.h"
 #include "declaration/constdec.h"
 
-bool StaticAnalysis(){
 /*
+bool StaticAnalysis(){
 	//Take back every declared variables
 	std::vector<std::shared_ptr<VarDec>> varDec = m_decList.getDecs().getVars();
 	//Take back every declared consts
@@ -48,5 +48,5 @@ bool StaticAnalysis(){
 
 		}
 	}
-*/
 }
+*/
