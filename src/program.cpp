@@ -5,30 +5,41 @@
 #include "declaration/vardec.h"
 #include "declaration/constdec.h"
 
-/*
-bool StaticAnalysis(){
-	//Take back every declared variables
-	std::vector<std::shared_ptr<VarDec>> varDec = m_decList.getDecs().getVars();
-	//Take back every declared consts
-	std::vector<std::shared_ptr<ConstDec>> constDec = m_decList.getDecs().getConsts();
+bool Program::StaticAnalysis(){
+	//Take back every declaration
+	std::vector<std::shared_ptr<Declaration>> decList = m_decList->getDecs();
+	//Take back declared variables and constants separated in different vectors
+	std::vector<std::shared_ptr<Symbol>> varDec;
+	std::vector<std::shared_ptr<Symbol>> constDec;
+	std::vector<std::shared_ptr<Declaration>>::iterator itDec;
+	for (itDec = decList.begin() ; itDec != decList.end() ; itDec++) {
+		if ((*itDec)->getType() == SymbolType::V) {
+			std::vector<std::shared_ptr<Symbol>> varDecTemp = (*itDec)->getDecList();
+			varDec.insert(varDec.begin(), varDecTemp.begin(), varDecTemp.end() );
+		} else if ((*itDec)->getType() == SymbolType::C) {
+			std::vector<std::shared_ptr<Symbol>> constDecTemp = (*itDec)->getDecList();
+			constDec.insert(constDec.begin(), constDecTemp.begin(), constDecTemp.end() );
+		}
+	}
+
 	//Take back every declared instructions
-	std::vector<std::shared_ptr<Instruction>> insts = m_instList.getInsts();
+	std::vector<std::shared_ptr<Instruction>> insts = m_instList->getInsts();
 
 	//Check if every instructions' variables are declared
-	for (int i = 0 ; i < insts.size() ; i++) {
+	for (unsigned int i = 0 ; i < insts.size() ; i++) {
 		std::shared_ptr<Instruction> currentInst = insts[i];
 		
 		//Verify which type of instructions we have here
-		if (currentInst.getType() == SymbolType::I_R) {
-			std::shared_ptr<Variable> currentInst.getRdVar();
+		if (currentInst->getType() == SymbolType::I_R) {
+			std::shared_ptr<Symbol> rdVar = currentInst->getInstSymb();
 			
 			//Searching in the vector of declared variables if we find the variable used for read instruction
-			std::vector<std::shared_ptr<VarDec>>::iterator itVar = varDec.begin();
-			while ( *itVar->m_name.compare(currentInst->m_name) != 0 && itVar != varDec.end() ) { itVar ++; }
+			std::vector<std::shared_ptr<Symbol>>::iterator itVar = varDec.begin();
+			//while ( std::static_pointer_cast<VarDec*> (*itVar)->m_name.compare(currentInst->m_name) != 0 && itVar != varDec.end() ) { itVar ++; }
 
 			//Searching in the vector of declared constants if we find the variable used for read instruction
-			std::vector<std::shared_ptr<ConstDec>>::iterator itConst = constDec.begin();
-			while ( *itConst->m_name.compare(currentInst->m_name) != 0 && itConst != constDec.end() ) { itConst ++; }
+			std::vector<std::shared_ptr<Symbol>>::iterator itConst = constDec.begin();
+			//while ( static_cast<ConstDec*>(*itConst)->m_name.compare(currentInst->m_name) != 0 && itConst != constDec.end() ) { itConst ++; }
 
 			if ( itVar == varDec.end() ) {
 				if ( itConst == constDec.end() ) {
@@ -42,11 +53,11 @@ bool StaticAnalysis(){
 				//Corresponding match found
 				//Nothing to do, it's allright
 			}
-		}else if (currentInst.getType() == SymbolType::I_W) {
+		}else if (currentInst->getType() == SymbolType::I_W) {
 
-		}else if (currentInst.getType() == SymbolType::AFF) {
+		}else if (currentInst->getType() == SymbolType::AFF) {
 
 		}
 	}
+	return true;
 }
-*/

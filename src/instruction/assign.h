@@ -7,6 +7,8 @@
 class Assign : public Instruction {
   public:
     Assign() : Instruction(SymbolType::AFF) {}
+
+    std::shared_ptr<Symbol> getInstSymb();
 };
 
 #endif

@@ -8,6 +8,8 @@
 class Instruction : public Symbol {
   public:
     Instruction(SymbolType t) : Symbol(t) {}
+
+    virtual std::shared_ptr<Symbol> getInstSymb() = 0;
 };
 
 #endif

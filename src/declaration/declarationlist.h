@@ -15,8 +15,7 @@ class DeclarationList : public Symbol {
     DeclarationList() : Symbol(SymbolType::DL) {};
     void addDeclaration(std::shared_ptr<Declaration> d);
     void getDeclarationTable(SymbolTable& m_table) const;
-
-    std::vector<std::shared_ptr<Declaration>> getDecs() { return  m_decs; };
+    std::vector<std::shared_ptr<Declaration>> getDecs() { return m_decs; }
 };
 
 #endif
