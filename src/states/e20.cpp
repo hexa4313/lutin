@@ -18,5 +18,5 @@ bool E20::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
   auto e17 = stateMachine.lastState();
   e17->transition(stateMachine, s);
 
-  return false;
+  return true;
 }
