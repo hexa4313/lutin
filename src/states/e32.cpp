@@ -34,7 +34,8 @@ bool E32::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
       auto symbols = stateMachine.popSymbols(3);
 
       auto id = boost::get<std::string>(symbols[2]->getValue());
-      auto I = std::make_shared<Assign>(id, symbols[0]);
+      auto E = std::dynamic_pointer_cast<Expression>(symbols[0]);
+      auto I = std::make_shared<Assign>(id, E);
 
       //reduction
       auto e3 = stateMachine.lastState();
