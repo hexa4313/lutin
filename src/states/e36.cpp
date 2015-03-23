@@ -22,31 +22,13 @@ bool E36::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
   auto expmul =  std::dynamic_pointer_cast<BinaryExp>(symbols[1]);
   expmul->setExpressions(expL, expR);
 
-  stateMachine.setState(expmul, std::make_shared<E17>());
+  auto e9 = stateMachine.lastState();
 
-  switch(s->getType()) {
-    case SymbolType::MUL :
-      stateMachine.setState(s, std::make_shared<E25>());
-      return true;
-    case SymbolType::DIV :
-      stateMachine.setState(s, std::make_shared<E26>());
-      return true;
-    case SymbolType::SUB :
-      stateMachine.setState(s, std::make_shared<E27>());
-      return true;
-    case SymbolType::ADD :
-      stateMachine.setState(s, std::make_shared<E28>());
-      return true;
-    case SymbolType::OP_M :
-      stateMachine.setState(s, std::make_shared<E29>());
-      return true;
-    case SymbolType::OP_A :
-      stateMachine.setState(s, std::make_shared<E30>());
-      return true;
-    case SymbolType::E : 
-      stateMachine.setState(s, std::make_shared<E9>());
-      return true;
-    default :
-      return false;
-  }
+  //reduction (car priorité mult)
+  e9->transition(stateMachine, expmul);
+
+  auto e17 = stateMachine.lastState();
+  e17->transition(stateMachine, s);
+
+  return true;
 }
