@@ -6,10 +6,11 @@
 
 class ExpPar : public Expression {
   private:
-  std::shared_ptr<Expression> m_expr;
+    std::shared_ptr<Expression> m_expr;
   public:
     ExpPar() : Expression(SymbolType::E) {}
     ExpPar(std::shared_ptr<Expression> expression) : Expression(SymbolType::E), m_expr(expression) {}
+    virtual double eval() { return m_expr->eval(); }
 };
 
 #endif
