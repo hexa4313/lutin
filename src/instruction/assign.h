@@ -7,13 +7,14 @@
 
 class Assign : public Instruction {
   private:
-    std::shared_ptr<Variable> m_destination;
+    std::string m_id;
     std::shared_ptr<Expression> m_expr;
   public:
     Assign() : Instruction(SymbolType::AFF) {}
-    Assign(std::shared_ptr<Variable> d, std::shared_ptr<Expression> e) : Instruction(SymbolType::AFF), m_destination(d), m_expr(e) {}
+    Assign(std::string id, std::shared_ptr<Expression> e) : Instruction(SymbolType::AFF), m_id(id), m_expr(e) {}
+    void toString(std::ostream &o) const;
 
-    std::shared_ptr<Symbol> getInstSymb() { return m_destination; }
+    std::shared_ptr<Symbol> getInstSymb() { /*return m_destination;*/ }
 };
 
 #endif

@@ -117,7 +117,10 @@ SET (states_SRCS
 )
 
 SET (instruction_SRCS
+
   instruction/assign.h
+  instruction/assign.cpp
+
   instruction/binaryexp.h
   instruction/expadd.h
   instruction/expdiv.h

@@ -8,7 +8,7 @@ bool E21::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
   auto symbols = stateMachine.popSymbols(2);
 
   auto id = boost::get<std::string>(symbols[0]->getValue());
-  auto I = std::make_shared<Read>(std::make_shared<Variable>(id));
+  auto I = std::make_shared<Read>(id);
 
   auto e3 = stateMachine.lastState();
 
