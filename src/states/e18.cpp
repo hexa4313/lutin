@@ -1,5 +1,4 @@
 #include "e18.h"
-#include "../state.h"
 #include "e31.h"
 #include "e19.h"
 #include "e20.h"
@@ -22,7 +21,6 @@ bool E18::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
       stateMachine.setState(s, std::make_shared<E20>());
       return true;
     default :
-    // TODO : gerer les erreurs
       return false;
   }
 }

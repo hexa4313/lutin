@@ -5,8 +5,6 @@
 #include "e4.h"
 #include "e5.h"
 
-#include "../instruction/instructionlist.h"
-
 
 bool E1::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 

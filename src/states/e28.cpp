@@ -5,11 +5,11 @@
 bool E28::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
   stateMachine.popStates(1);
-  auto symbols = stateMachine.popSymbols(1);
+  stateMachine.popSymbols(1);
 
-  auto opadd = std::make_shared<ExpAdd>();
+  auto OpA = std::make_shared<ExpAdd>();
 
-  stateMachine.lastState()->transition(stateMachine, opadd);
+  stateMachine.lastState()->transition(stateMachine, OpA);
 
   return true;
 }
