@@ -126,7 +126,10 @@ SET (instruction_SRCS
   instruction/expression.h
   instruction/expsub.h
   instruction/instruction.h
+
   instruction/instructionlist.h
+  instruction/instructionlist.cpp
+
   instruction/read.h
   instruction/variable.h
   instruction/write.h
