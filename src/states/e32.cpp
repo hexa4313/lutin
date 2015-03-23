@@ -5,6 +5,7 @@
 #include "e28.h"
 #include "e29.h"
 #include "e30.h"
+#include "../instruction/assign.h"
 
 
 bool E32::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
@@ -29,6 +30,18 @@ bool E32::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
       stateMachine.setState(s, std::make_shared<E30>());
       return true;
     default :
-      return false;
+      stateMachine.popStates(3);
+      auto symbols = stateMachine.popSymbols(3);
+
+      auto I = std::make_shared<Assign>(std::make_shared<Variable>(symbols[2]), symbols[0]);
+
+      //reduction
+      auto e3 = stateMachine.lastState();
+      e3->transition(stateMachine, I);
+
+      auto e1 = stateMachine.lastState();
+      e1->transition(stateMachine, s);
+
+      return true;
   }
 }
