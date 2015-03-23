@@ -9,6 +9,7 @@ class NumericConst : public Expression {
   public:
     NumericConst() : Expression(SymbolType::E_CNUM) {}
     NumericConst(int value) : Expression(SymbolType::E_CNUM), m_value(value) {}
+    void toString(std::ostream &o) const;
     virtual double eval() { return m_value; }
 };
 

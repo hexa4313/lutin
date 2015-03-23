@@ -13,8 +13,6 @@ class Assign : public Instruction {
     Assign() : Instruction(SymbolType::AFF) {}
     Assign(std::string id, std::shared_ptr<Expression> e) : Instruction(SymbolType::AFF), m_id(id), m_expr(e) {}
     void toString(std::ostream &o) const;
-
-    std::shared_ptr<Symbol> getInstSymb() { /*return m_destination;*/ }
 };
 
 #endif

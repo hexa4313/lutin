@@ -36,7 +36,7 @@ bool Program::StaticAnalysis(){
 		
 		//Verify which type of instructions we have here
 		if (currentInst->getType() == SymbolType::I_R) {
-			std::shared_ptr<Symbol> rdVar = currentInst->getInstSymb();
+			//std::shared_ptr<Symbol> rdVar = currentInst->getInstSymb();
 			
 			//Searching in the vector of declared variables if we find the variable used for read instruction
 			std::vector<std::shared_ptr<Symbol>>::iterator itVar = varDec.begin();
