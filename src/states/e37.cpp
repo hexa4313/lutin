@@ -9,14 +9,14 @@ bool E37::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
   switch(s->getType()) {
     case SymbolType::SUB :
-    case SymbolType::ADD :
+    case SymbolType::ADD : {
 
       auto symbols = stateMachine.popSymbols(3);
       stateMachine.popStates(3);
 
       auto expL = std::dynamic_pointer_cast<Expression>(symbols[2]);
       auto expR = std::dynamic_pointer_cast<Expression>(symbols[0]);
-      auto expadd =  std::dynamic_pointer_cast<BinaryExp>(symbols[1]);
+      auto expadd = std::dynamic_pointer_cast<BinaryExp>(symbols[1]);
       expadd->setExpressions(expL, expR);
 
       auto e9 = stateMachine.lastState();
@@ -28,6 +28,7 @@ bool E37::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
       e17->transition(stateMachine, s);
 
       return true;
+    }
     case SymbolType::MUL :
       stateMachine.setState(s, std::make_shared<E25>());
       return true;
