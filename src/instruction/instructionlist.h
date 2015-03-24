@@ -13,6 +13,7 @@ class InstructionList : public Symbol {
   public:
     InstructionList() : Symbol(SymbolType::IL) {}
     InstructionList(std::vector<std::shared_ptr<Instruction>> instructions) : Symbol(SymbolType::IL), m_instructions(instructions) {}
+    void toString(std::ostream &o) const;
     void addInstruction(std::shared_ptr<Instruction> i) { m_instructions.push_back(i); };
     std::vector<std::shared_ptr<Instruction>> getInsts() { return m_instructions; };
 };

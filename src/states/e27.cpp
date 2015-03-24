@@ -3,12 +3,13 @@
 #include "../instruction/expsub.h"
 
 bool E27::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
+
   stateMachine.popStates(1);
-  auto symbols = stateMachine.popSymbols(1);
+  stateMachine.popSymbols(1);
 
-  auto opsub = std::make_shared<ExpSub>();
+  auto OpA = std::make_shared<ExpSub>();
 
-  stateMachine.lastState()->transition(stateMachine, opsub);
+  stateMachine.lastState()->transition(stateMachine, OpA);
 
   return true;
 }

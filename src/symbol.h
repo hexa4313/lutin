@@ -26,7 +26,6 @@ class Symbol {
     boost::variant<int, std::string> getValue() const;
 
     operator int() const { return static_cast<int>(m_type); }
-    bool isInstructionKeyword() { return m_type == SymbolType::R || m_type == SymbolType::W || m_type == SymbolType::ID; }
 };
 
 #endif

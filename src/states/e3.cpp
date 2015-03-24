@@ -3,6 +3,7 @@
 #include "e10.h"
 #include "e9.h"
 #include "e11.h"
+#include "e7.h"
 
 bool E3::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
@@ -22,11 +23,9 @@ bool E3::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
       stateMachine.setState(s, std::make_shared<E11>());
       return true;
     case SymbolType::$ : {
-      auto symbols = stateMachine.popSymbols(3);
-      auto dl = std::dynamic_pointer_cast<DeclarationList>(symbols[2]);
-      auto il = std::dynamic_pointer_cast<InstructionList>(symbols[1]);
-      auto p = std::make_shared<Program>(dl, il);
-      stateMachine.accept(p);
+      auto e7 = std::make_shared<E7>();
+      stateMachine.setState(s, e7);
+      e7->transition(stateMachine, nullptr);
       return true;
     }
     default :

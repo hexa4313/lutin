@@ -1,7 +1,4 @@
 #include "e16.h"
-#include "../state.h"
-#include "../instruction/instructionlist.h"
-#include "../instruction/instruction.h"
 
 bool E16::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
@@ -13,7 +10,11 @@ bool E16::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
   auto i =  std::dynamic_pointer_cast<Instruction>(symbols[1]);
   il->addInstruction(i);
 
+  // reduction
   e1->transition(stateMachine, symbols[2]);
+
+  auto e3 = stateMachine.lastState();
+  e3->transition(stateMachine, s);
 
   return true;
 }

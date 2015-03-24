@@ -4,13 +4,12 @@
 
 bool E25::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
-
   stateMachine.popStates(1);
-  auto symbols = stateMachine.popSymbols(1);
+  stateMachine.popSymbols(1);
 
-  auto opmul = std::make_shared<ExpMult>(); // TODO SET left and right expressions, where??
+  auto OpM = std::make_shared<ExpMult>();
 
-  stateMachine.lastState()->transition(stateMachine, opmul);
+  stateMachine.lastState()->transition(stateMachine, OpM);
 
   return true;
 }

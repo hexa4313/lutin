@@ -26,8 +26,6 @@ class StateMachine {
 		void popStates(int count);
 		std::shared_ptr<State> lastState();
 		std::shared_ptr<Symbol> lastSymbol();
-		void pushSymbol(std::shared_ptr<Symbol> symbol);
-		void pushState(std::shared_ptr<State> state);
 
 		void setState(std::shared_ptr<Symbol> symbol, std::shared_ptr<State> state);
     void accept(std::shared_ptr<Program> p) { m_program = p; }

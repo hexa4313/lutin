@@ -6,6 +6,11 @@
 #include "declaration/constdec.h"
 #include "instruction/read.h"
 
+
+void Program::toString(std::ostream &o) const {
+	o << "Program(" << std::endl << *m_decList << ", " << std::endl << *m_instList << std::endl << ")";
+}
+
 bool Program::StaticAnalysis(){
 	//Take back every declaration
 	std::vector<std::shared_ptr<Declaration>> decList = m_decList->getDecs();

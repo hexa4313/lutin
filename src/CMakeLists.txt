@@ -117,20 +117,43 @@ SET (states_SRCS
 )
 
 SET (instruction_SRCS
-  instruction/assign.h
-  instruction/binaryexp.h
-  instruction/expadd.h
-  instruction/expdiv.h
-  instruction/expmult.h
-  instruction/exppar.h
+
   instruction/expression.h
-  instruction/expsub.h
+  instruction/binaryexp.h
   instruction/instruction.h
+
   instruction/instructionlist.h
+  instruction/instructionlist.cpp
+
+  instruction/assign.h
+  instruction/assign.cpp
+
+  instruction/expadd.h
+  instruction/expadd.cpp
+
+  instruction/expdiv.h
+  instruction/expdiv.cpp
+
+  instruction/expmult.h
+  instruction/expmult.cpp
+
+  instruction/expsub.h
+  instruction/expsub.cpp
+
+  instruction/exppar.h
+  instruction/exppar.cpp
+
   instruction/read.h
+  instruction/read.cpp
+
   instruction/variable.h
+  instruction/variable.cpp
+
   instruction/write.h
+  instruction/write.cpp
+
   instruction/numericconst.h
+  instruction/numericconst.cpp
 )
 
 SET (declaration_SRCS

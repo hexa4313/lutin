@@ -1,15 +1,18 @@
 #ifndef ASSIGN_H
 #define ASSIGN_H
 
+#include <memory>
 #include "../symboltype.h"
 #include "instruction.h"
 
 class Assign : public Instruction {
+  private:
+    std::string m_id;
+    std::shared_ptr<Expression> m_expr;
   public:
     Assign() : Instruction(SymbolType::AFF) {}
-
-//    std::shared_ptr<Expression> getInstExpr();
-//    std::shared_ptr<Variable> getInstVar();
+    Assign(std::string id, std::shared_ptr<Expression> e) : Instruction(SymbolType::AFF), m_id(id), m_expr(e) {}
+    void toString(std::ostream &o) const;
 };
 
 #endif

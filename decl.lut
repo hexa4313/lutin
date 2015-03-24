@@ -1,4 +1,2 @@
-var xq;
-var y, zc, w;
-const n=10, n2=100;
-const vv=55;
+var x;
+x := 5 + 3;
