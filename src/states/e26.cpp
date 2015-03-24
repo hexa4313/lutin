@@ -9,7 +9,13 @@ bool E26::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
   auto OpM = std::make_shared<ExpDiv>();
 
-  stateMachine.lastState()->transition(stateMachine, OpM);
+  auto e17 = stateMachine.lastState();
+
+  //reduction
+  e17->transition(stateMachine, OpM);
+
+  auto e29 = stateMachine.lastState();
+  e29->transition(stateMachine, s);
 
   return true;
 }

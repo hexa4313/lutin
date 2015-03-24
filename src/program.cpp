@@ -41,11 +41,11 @@ bool Program::StaticAnalysis(){
 			
 			//Searching in the vector of declared variables if we find the variable used for read instruction
 			std::vector<std::shared_ptr<Symbol>>::iterator itVar = varDec.begin();
-			while ( ((std::dynamic_pointer_cast<VarDec> (*itVar))->getName()) == (rdInst->getRdVarName()) && itVar != varDec.end() ) { itVar ++; }
+			while ( ((std::dynamic_pointer_cast<VarDec> (*itVar))->getName()) == (rdInst->getRdVar()) && itVar != varDec.end() ) { itVar ++; }
 
 			//Searching in the vector of declared constants if we find the variable used for read instruction
 			std::vector<std::shared_ptr<Symbol>>::iterator itConst = constDec.begin();
-			while ( ((std::dynamic_pointer_cast<ConstDec>(*itConst))->getName()) == (rdInst->getRdVarName()) && itConst != constDec.end() ) { itConst ++; }
+			while ( ((std::dynamic_pointer_cast<ConstDec>(*itConst))->getName()) == (rdInst->getRdVar()) && itConst != constDec.end() ) { itConst ++; }
 
 			if ( itVar == varDec.end() ) {
 				if ( itConst == constDec.end() ) {

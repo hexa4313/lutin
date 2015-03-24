@@ -11,6 +11,7 @@ bool E3::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
     case SymbolType::I :
     case SymbolType::I_W:
     case SymbolType::I_R:
+    case SymbolType::AFF:
       stateMachine.setState(s, std::make_shared<E8>());
       return true;
     case SymbolType::W :
