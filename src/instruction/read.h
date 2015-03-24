@@ -14,7 +14,8 @@ class Read : public Instruction {
     Read() : Instruction(SymbolType::I_R) {}
     Read(std::shared_ptr<Variable> destination) : Instruction(SymbolType::I_R), m_destination(destination) {}
 
-    std::shared_ptr<Symbol> getInstSymb() { return m_destination; };
+//    std::shared_ptr<Expression> getInstExpr();
+    std::shared_ptr<Variable> getRdVar() { return m_destination; }
 };
 
 #endif

@@ -8,7 +8,8 @@ class Assign : public Instruction {
   public:
     Assign() : Instruction(SymbolType::AFF) {}
 
-    std::shared_ptr<Symbol> getInstSymb();
+//    std::shared_ptr<Expression> getInstExpr();
+//    std::shared_ptr<Variable> getInstVar();
 };
 
 #endif

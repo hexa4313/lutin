@@ -4,6 +4,7 @@
 #include "program.h"
 #include "declaration/vardec.h"
 #include "declaration/constdec.h"
+#include "instruction/read.h"
 
 bool Program::StaticAnalysis(){
 	//Take back every declaration
@@ -31,15 +32,16 @@ bool Program::StaticAnalysis(){
 		
 		//Verify which type of instructions we have here
 		if (currentInst->getType() == SymbolType::I_R) {
-			std::shared_ptr<Symbol> rdVar = currentInst->getInstSymb();
+			std::shared_ptr<Read> rdInst = std::dynamic_pointer_cast <Read> (currentInst);
+			std::shared_ptr<Variable> rdVar = rdInst->getRdVar();
 			
 			//Searching in the vector of declared variables if we find the variable used for read instruction
 			std::vector<std::shared_ptr<Symbol>>::iterator itVar = varDec.begin();
-			//while ( (std::dynamic_pointer_cast<VarDec> (*itVar))->getName().compare((std::dynamic_pointer_cast<Variable> (rdVar))->getName()) != 0 && itVar != varDec.end() ) { itVar ++; }
+			while ( ((std::dynamic_pointer_cast<VarDec> (*itVar))->getName()) == (rdVar->getName()) && itVar != varDec.end() ) { itVar ++; }
 
 			//Searching in the vector of declared constants if we find the variable used for read instruction
 			std::vector<std::shared_ptr<Symbol>>::iterator itConst = constDec.begin();
-			//while ( (std::dynamic_pointer_cast<ConstDec>(*itConst))->getName().compare((std::dynamic_pointer_cast<Variable> (rdVar))->getName()) != 0 && itConst != constDec.end() ) { itConst ++; }
+			while ( ((std::dynamic_pointer_cast<ConstDec>(*itConst))->getName()) == (rdVar->getName()) && itConst != constDec.end() ) { itConst ++; }
 
 			if ( itVar == varDec.end() ) {
 				if ( itConst == constDec.end() ) {

@@ -9,7 +9,8 @@ class Instruction : public Symbol {
   public:
     Instruction(SymbolType t) : Symbol(t) {}
 
-    virtual std::shared_ptr<Symbol> getInstSymb() = 0;
+//    virtual std::shared_ptr<Expression> getInstExpr() = 0;
+//    virtual std::shared_ptr<Variable> getInstVar() = 0;
 };
 
 #endif
