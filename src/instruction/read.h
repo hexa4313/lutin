@@ -14,7 +14,7 @@ class Read : public Instruction {
     Read() : Instruction(SymbolType::I_R) {}
     Read(std::string id) : Instruction(SymbolType::I_R), m_id(id) {}
     void toString(std::ostream &o) const;
-    //std::shared_ptr<Variable> getRdVar() { return m_destination; }
+    std::string getRdVar() { return m_id; }
 };
 
 #endif

@@ -36,6 +36,7 @@ static std::map<SymbolType, std::string> typeNames = {
     {SymbolType::VAL, "VAL"},
     {SymbolType::E_VAL, "E_VAL"},
     {SymbolType::E_CNUM, "E_CNUM"},
+    {SymbolType::E_PAR, "E_PAR"},
 
     {SymbolType::$, "$"}
 };

@@ -29,6 +29,23 @@ bool E37::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
       stateMachine.setState(s, std::make_shared<E30>());
       return true;
     default :
-      return false;
+
+      auto symbols = stateMachine.popSymbols(3);
+      stateMachine.popStates(3);
+
+      auto expL = std::dynamic_pointer_cast<Expression>(symbols[2]);
+      auto expR = std::dynamic_pointer_cast<Expression>(symbols[0]);
+      auto expadd =  std::dynamic_pointer_cast<BinaryExp>(symbols[1]);
+      expadd->setExpressions(expL, expR);
+
+      auto e9 = stateMachine.lastState();
+
+      //reduction
+      e9->transition(stateMachine, expadd);
+
+      auto e17 = stateMachine.lastState();
+      e17->transition(stateMachine, s);
+
+      return true;
   }
 }

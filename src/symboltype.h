@@ -35,6 +35,7 @@ enum class SymbolType {
   VAL,
   E_VAL,
   E_CNUM,
+  E_PAR,
 
   $
 };
