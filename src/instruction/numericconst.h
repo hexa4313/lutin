@@ -12,7 +12,7 @@ class NumericConst : public Expression {
     void toString(std::ostream &o) const;
     virtual double eval() { return m_value; }
 
-    std::shared_ptr<Variable> getVar();
+//    std::shared_ptr<Variable> getVar();
 };
 
 #endif
