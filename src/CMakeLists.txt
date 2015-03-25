@@ -105,7 +105,10 @@ SET (states_SRCS
 SET (instruction_SRCS
 
   parsing/ast/instruction/expression.h
+
   parsing/ast/instruction/binaryexp.h
+  parsing/ast/instruction/binaryexp.cpp
+
   parsing/ast/instruction/instruction.h
 
   parsing/ast/instruction/instructionlist.h
