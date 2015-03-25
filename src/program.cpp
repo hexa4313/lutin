@@ -8,7 +8,7 @@
 
 
 void Program::toString(std::ostream &o) const {
-	o << "Program(" << std::endl << *m_decList << ", " << std::endl << *m_instList << std::endl << ")";
+	o << *m_decList << *m_instList;
 }
 
 bool Program::StaticAnalysis(){

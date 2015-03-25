@@ -11,10 +11,7 @@ void DeclarationList::getDeclarationTable(SymbolTable& m_table) const {
 }
 
 void DeclarationList::toString(std::ostream &o) const {
-  o << "  " << "DeclarationList([" << std::endl;
   for(auto dec : m_decs) {
     o << *dec << std::endl;
   }
-
-  o << "  " << "])";
 }

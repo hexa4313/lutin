@@ -1,5 +1,5 @@
 #include "read.h"
 
 void Read::toString(std::ostream &o) const {
-  o << "    " << "Read(" << m_id << ")";
+  o << "lire " << m_id << ";";
 }

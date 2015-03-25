@@ -20,7 +20,7 @@ class StateMachine {
 		std::stack<std::shared_ptr<State>> m_states;
 	public:
 		StateMachine(std::string filepath) : m_lexer(new Lexer(filepath)) {}
-		void read();
+		std::shared_ptr<Program> read();
 
 		std::vector<std::shared_ptr<Symbol>> popSymbols(int count);
 		void popStates(int count);

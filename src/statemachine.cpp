@@ -6,7 +6,7 @@
 #include "states/e0.h"
 #include "instruction/instructionlist.h"
 
-void StateMachine::read() {
+std::shared_ptr<Program> StateMachine::read() {
 
   auto e0 = std::make_shared<E0>();
   m_states.push(e0);
@@ -33,6 +33,8 @@ void StateMachine::read() {
   else {
     std::cout << "Error in program!" << std::endl;
   }
+
+  return m_program;
 }
 
 void StateMachine::setState(std::shared_ptr<Symbol> symbol, std::shared_ptr<State> state) {

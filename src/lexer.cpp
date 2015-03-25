@@ -55,7 +55,7 @@ std::shared_ptr<Symbol> Lexer::getSymbol() {
           symbol = std::make_shared<Symbol>(reg.first);
       }
 
-      std::cout << "Lecture de " << *symbol << std::endl;
+      //std::cout << "Lecture de " << *symbol << std::endl;
 
       m_curSymbol = symbol;
 
@@ -66,7 +66,7 @@ std::shared_ptr<Symbol> Lexer::getSymbol() {
   }
 
   auto eof = std::make_shared<Symbol>(SymbolType::$);
-  std::cout << "Lecture de " << *eof << std::endl;
+  //std::cout << "Lecture de " << *eof << std::endl;
   return eof;
 }
 

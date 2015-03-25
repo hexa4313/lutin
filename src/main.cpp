@@ -34,6 +34,7 @@
 #define ERROR_NOT_ENOUGH_ARGS 1
 #define ERROR_TOO_MANY_ARGS 1
 #define ERROR_BAD_INPUT 1
+#define ERROR_INCORRECT_PROGRAM 1
 
 void show_usage() {
   std::cerr << "Erreur, veuillez specifier des arguments" << std::endl;
@@ -99,27 +100,36 @@ int main(int argc, char ** argv) {
   // Check if file exists
 
   if(!file_exists(input_path)) {
-    std::cerr << "Unable to open file: " << input_path << '\n';
+    std::cerr << "Erreur a l'ouverture du fichier " << input_path << std::endl;
     exit(ERROR_BAD_INPUT);
   }
 
-  std::cout << "\n" << "                ___,@";
-  std::cout << "\n" << "             /  <";
-  std::cout << "\n" << "        ,_  /    \\  _,";
-  std::cout << "\n" << "    ?    \\`/______\\`/";
-  std::cout << "\n" << " ,_(_).  |; (e  e) ;|";
-  std::cout << "\n" << "  \\___ \\ \\/\\   7  /\\/    _\\8/_";
-  std::cout << "\n" << "      \\/\\   \\'=='/      | /| /|";
-  std::cout << "\n" << "       \\ \\___)--(_______|//|//|";
-  std::cout << "\n" << "        \\___  ()  _____/|/_|/_|";
-  std::cout << "\n" << "           /  ()  \\    `----'";
-  std::cout << "\n" << "          /   ()   \\";
-  std::cout << "\n" << "         '-.______.-'\"";
-  std::cout << "\n" << "       _    |_||_|    _";
-  std::cout << "\n" << "      (@____) || (____@)";
-  std::cout << "\n" << "       \\______||______/\n";
+  std::cout << std::endl << "                ___,@";
+  std::cout << std::endl << "             /  <";
+  std::cout << std::endl << "        ,_  /    \\  _,";
+  std::cout << std::endl << "    ?    \\`/______\\`/";
+  std::cout << std::endl << " ,_(_).  |; (e  e) ;|";
+  std::cout << std::endl << "  \\___ \\ \\/\\   7  /\\/    _\\8/_";
+  std::cout << std::endl << "      \\/\\   \\'=='/      | /| /|";
+  std::cout << std::endl << "       \\ \\___)--(_______|//|//|";
+  std::cout << std::endl << "        \\___  ()  _____/|/_|/_|";
+  std::cout << std::endl << "           /  ()  \\    `----'";
+  std::cout << std::endl << "          /   ()   \\";
+  std::cout << std::endl << "         '-.______.-'\"";
+  std::cout << std::endl << "       _    |_||_|    _";
+  std::cout << std::endl << "      (@____) || (____@)";
+  std::cout << std::endl << "       \\______||______/\n";
 
   // My little state machine
   StateMachine stateMachine = StateMachine(input_path);
-  stateMachine.read();
+  std::shared_ptr<Program> program = stateMachine.read();
+
+  if(!program) {
+    exit(ERROR_INCORRECT_PROGRAM);
+  }
+
+  if(opt_print) {
+    std::cout << program;
+  }
+
 }
