@@ -44,3 +44,9 @@ void SymbolTable::set(const std::string name, const int value) {
   assert(m_table[name].second != SymbolType::CST);
   m_table[name].first = value;
 }
+
+void SymbolTable::print() const {
+  for(auto elem : m_table) {
+    std::cout << elem.first << "\t(" << elem.second.first << ", " << elem.second.second << ")\n";
+  }
+}

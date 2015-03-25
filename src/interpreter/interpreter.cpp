@@ -2,7 +2,7 @@
 
 void Interpreter::init() {
   m_program->getDecList()->getDeclarationTable(m_table);
-
+  m_table.print();
 }
 
 bool Interpreter::step() {
