@@ -37,7 +37,7 @@ enum class SymbolType {
   E_CNUM,
   E_PAR,
 
-  EOF
+  END
 };
 
 #endif

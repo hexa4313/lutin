@@ -38,7 +38,7 @@ static std::map<SymbolType, std::string> typeNames = {
     {SymbolType::E_CNUM, "E_CNUM"},
     {SymbolType::E_PAR, "E_PAR"},
 
-    {SymbolType::EOF, "EOF"}
+    {SymbolType::END, "END"}
 };
 
 boost::variant<int, std::string>  Symbol::getValue() const {

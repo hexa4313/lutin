@@ -23,7 +23,7 @@ bool E3::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
     case SymbolType::ID :
       stateMachine.setState(s, std::make_shared<E11>());
       return true;
-    case SymbolType::EOF : {
+    case SymbolType::END : {
       auto e7 = std::make_shared<E7>();
       stateMachine.setState(s, e7);
       return e7->transition(stateMachine, nullptr);
