@@ -27,6 +27,7 @@
 #include <cstdlib>
 #include <iostream>
 #include "statemachine.h"
+#include "interpreter/interpreter.h"
 
 #define MIN_ARGS 2
 #define MAX_ARGS 4
@@ -110,6 +111,11 @@ int main(int argc, char ** argv) {
 
   if(!program) {
     exit(ERROR_INCORRECT_PROGRAM);
+  }
+
+  if(opt_execute) {
+    std::shared_ptr<Interpreter> interpreter = std::make_shared<Interpreter>(program);
+    interpreter->init();
   }
 
   if(opt_print) {

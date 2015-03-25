@@ -19,6 +19,7 @@ class SymbolTable {
     void appendList(std::vector<std::shared_ptr<Symbol>> list);
     int get(const std::string name, bool &isConst) const;
     void set(const std::string name, const int value);
+    void print() const;
 };
 
 #endif
