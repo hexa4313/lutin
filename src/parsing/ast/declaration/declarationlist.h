@@ -21,6 +21,7 @@ class DeclarationList : public Symbol {
 
     bool isDeclared(std::string id) const;
     std::shared_ptr<SimpleDec> getDec(std::string id) const;
+    std::vector<std::string> filterVariables(std::vector<std::string>) const;
 };
 
 #endif

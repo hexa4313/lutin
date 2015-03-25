@@ -135,8 +135,8 @@ SET (instruction_SRCS
   parsing/ast/instruction/read.h
   parsing/ast/instruction/read.cpp
 
-  parsing/ast/instruction/variable.h
-  parsing/ast/instruction/variable.cpp
+  parsing/ast/instruction/identifier.h
+  parsing/ast/instruction/identifier.cpp
 
   parsing/ast/instruction/write.h
   parsing/ast/instruction/write.cpp

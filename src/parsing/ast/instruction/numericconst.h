@@ -11,8 +11,7 @@ class NumericConst : public Expression {
     NumericConst(int value) : Expression(SymbolType::E_CNUM), m_value(value) {}
     void toString(std::ostream &o) const;
 
-    virtual double eval() { return m_value; }
-    std::vector<std::string> getVariables();
+    std::vector<std::string> getIdentifiers();
 };
 
 #endif

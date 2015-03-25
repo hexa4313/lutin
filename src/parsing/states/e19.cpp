@@ -1,5 +1,5 @@
 #include "e19.h"
-#include "../ast/instruction/variable.h"
+#include "../ast/instruction/identifier.h"
 
 bool E19::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
@@ -7,7 +7,7 @@ bool E19::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
   auto symbols = stateMachine.popSymbols(1);
 
   auto id = boost::get<std::string>(symbols[0]->getValue());
-  auto E = std::make_shared<Variable>(id);
+  auto E = std::make_shared<Identifier>(id);
 
   auto e9 = stateMachine.lastState();
 

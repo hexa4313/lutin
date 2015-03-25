@@ -8,8 +8,7 @@ class Expression : public Symbol {
   public:
     Expression(SymbolType t) : Symbol(t) {}
     virtual ~Expression() {}
-    virtual double eval() = 0;
-    virtual std::vector<std::string> getVariables() = 0;
+    virtual std::vector<std::string> getIdentifiers() = 0;
 };
 
 #endif

@@ -12,8 +12,7 @@ class ExpPar : public Expression {
     ExpPar(std::shared_ptr<Expression> expression) : Expression(SymbolType::E_PAR), m_expr(expression) {}
     void toString(std::ostream &o) const;
 
-    virtual double eval() { return m_expr->eval(); }
-    std::vector<std::string> getVariables();
+    std::vector<std::string> getIdentifiers();
 };
 
 #endif

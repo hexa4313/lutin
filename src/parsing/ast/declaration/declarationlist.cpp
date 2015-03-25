@@ -42,3 +42,14 @@ void DeclarationList::toString(std::ostream &o) const {
     o << *dec << std::endl;
   }
 }
+
+std::vector<std::string> DeclarationList::filterVariables(std::vector<std::string> ids) const {
+  std::vector<std::string> varsOnly;
+  for(auto id : ids) {
+    auto dec = getDec(id);
+    if(dec && dec->getType() == SymbolType::VAR) {
+      varsOnly.push_back(id);
+    }
+  }
+  return varsOnly;
+}
