@@ -24,7 +24,6 @@ bool E9::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
     case SymbolType::VAL :
       stateMachine.setState(s, std::make_shared<E20>());
       return true;
-      
     default :
       return false;
   }

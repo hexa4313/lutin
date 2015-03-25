@@ -16,10 +16,10 @@ bool E36::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
   auto e9 = stateMachine.lastState();
 
   //reduction (car priorité mult)
-  e9->transition(stateMachine, expmul);
+  if(!e9->transition(stateMachine, expmul)) {
+    return false;
+  }
 
   auto e17 = stateMachine.lastState();
-  e17->transition(stateMachine, s);
-
-  return true;
+  return e17->transition(stateMachine, s);
 }

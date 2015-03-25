@@ -8,7 +8,6 @@ bool E11::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
     case SymbolType::AFF :
       stateMachine.setState(s, std::make_shared<E41>());
       return true;
-      
     default :
       return false;
   }

@@ -26,8 +26,7 @@ bool E3::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
     case SymbolType::$ : {
       auto e7 = std::make_shared<E7>();
       stateMachine.setState(s, e7);
-      e7->transition(stateMachine, nullptr);
-      return true;
+      return e7->transition(stateMachine, nullptr);
     }
     default :
       return false;

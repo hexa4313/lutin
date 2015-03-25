@@ -29,7 +29,7 @@ bool E1::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
       auto IL = std::make_shared<InstructionList>();
       auto e3 = std::make_shared<E3>();
       stateMachine.setState(IL, e3);
-      e3->transition(stateMachine, s);
+      return e3->transition(stateMachine, s);
     }
     default :
       return false;

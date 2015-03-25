@@ -19,10 +19,10 @@ bool E35::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
   C->addConstDec(constDec);
 
   // reduction
-  e5->transition(stateMachine, C);
+  if(!e5->transition(stateMachine, C)) {
+    return false;
+  }
 
   auto e14 = stateMachine.lastState();
-  e14->transition(stateMachine, s);
-
-  return true;
+  return e14->transition(stateMachine, s);
 }

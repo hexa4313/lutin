@@ -9,6 +9,8 @@ bool E12::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
   if(s->getType() == SymbolType::VG) {
     stateMachine.setState(s, std::make_shared<E22>());
+
+    return true;
   }
   else {
     stateMachine.popStates(2);
@@ -19,12 +21,12 @@ bool E12::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
     auto e1 = stateMachine.lastState();
 
     // reduction
-    e1->transition(stateMachine, v);
+    if(!e1->transition(stateMachine, v)) {
+      return false;
+    }
 
     auto e2 = stateMachine.lastState();
-    e2->transition(stateMachine, s);
+    return e2->transition(stateMachine, s);
   }
-
-  return true;
 
 }

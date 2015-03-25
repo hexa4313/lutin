@@ -12,10 +12,10 @@ bool E27::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
   auto e17 = stateMachine.lastState();
 
   //reduction
-  e17->transition(stateMachine, OpA);
+  if(!e17->transition(stateMachine, OpA)) {
+    return false;
+  }
 
   auto e30 = stateMachine.lastState();
-  e30->transition(stateMachine, s);
-
-  return true;
+  return e30->transition(stateMachine, s);
 }
