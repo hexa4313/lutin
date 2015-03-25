@@ -24,7 +24,7 @@ std::shared_ptr<Program> StateMachine::read() {
     }
     m_lexer->shift();
 
-  } while(symbol->getType() != SymbolType::$);
+  } while(symbol->getType() != SymbolType::EOF);
 
   return m_program;
 }

@@ -65,7 +65,7 @@ std::shared_ptr<Symbol> Lexer::getSymbol() {
     }
   }
 
-  auto eof = std::make_shared<Symbol>(SymbolType::$);
+  auto eof = std::make_shared<Symbol>(SymbolType::EOF);
   //std::cout << "Lecture de " << *eof << std::endl;
   return eof;
 }
