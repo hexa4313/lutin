@@ -1,5 +1,6 @@
 #include "staticanalyzer.h"
 
+#include <algorithm>
 #include "../parsing/ast/instruction/read.h"
 #include "../parsing/ast/instruction/write.h"
 #include "../parsing/ast/instruction/assign.h"
@@ -24,11 +25,19 @@ void StaticAnalyzer::checkProgram() {
         assert(false);
     }
   }
+
+  auto allIds = m_decList->getDeclaredIds();
+  std::set<std::string> unusedIds;
+  std::set_difference(allIds.begin(), allIds.end(), m_usedIds.begin(), m_usedIds.end(),
+      std::inserter(unusedIds, unusedIds.end()));
+
+  for(auto id : unusedIds) {
+    std::cerr << "variable non utilisee : " << id << std::endl;
+  }
 }
 
 
 void StaticAnalyzer::checkReadInstruction(std::shared_ptr<Instruction> instruction) {
-
   auto read = std::dynamic_pointer_cast <Read> (instruction);
 
   auto id = read->getId();
@@ -56,6 +65,7 @@ void StaticAnalyzer::checkWriteInstruction(std::shared_ptr<Instruction> instruct
 }
 
 void StaticAnalyzer::checkLValueID(std::string id) {
+
   auto dec = m_decList->getDec(id);
   if(dec) {
     if(dec->getType() == SymbolType::CST) {
@@ -70,6 +80,8 @@ void StaticAnalyzer::checkLValueID(std::string id) {
 }
 
 void StaticAnalyzer::checkRValueVariables(std::vector<std::string> ids, std::shared_ptr<Instruction> instruction) {
+
+  std::copy(ids.begin(), ids.end(), std::inserter(m_usedIds, m_usedIds.end()));
 
   auto vars = m_decList->filterVariables(ids);
 
