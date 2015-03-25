@@ -35,7 +35,6 @@ bool E17::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
       auto E = std::dynamic_pointer_cast<Expression>(symbols[0]);
       auto I = std::make_shared<Write>(E);
-      il->addInstruction(I);
 
       auto e3 = stateMachine.lastState();
 
