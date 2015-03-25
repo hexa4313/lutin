@@ -13,7 +13,7 @@ class VarDecList : public Declaration {
     VarDecList() : Declaration(SymbolType::V) {};
     void toString(std::ostream &o) const;
     void addVarDec(std::shared_ptr<VarDec> v) { m_vars.push_back(v); };
-    std::vector<std::shared_ptr<Symbol>> getDecList() const {return std::vector<std::shared_ptr<Symbol>>(m_vars.begin(), m_vars.end());};
+    std::vector<std::shared_ptr<SimpleDec>> getDecList() const {return std::vector<std::shared_ptr<SimpleDec>>(m_vars.begin(), m_vars.end());};
 };
 
 #endif

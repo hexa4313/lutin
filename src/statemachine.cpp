@@ -21,6 +21,7 @@ std::shared_ptr<Program> StateMachine::read() {
 
     if(!lastState->transition(*this, symbol)) {
       std::cout << "Error in transition!" << std::endl;
+      return nullptr;
     }
     m_lexer->shift();
 
