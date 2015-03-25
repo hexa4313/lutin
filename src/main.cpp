@@ -104,22 +104,6 @@ int main(int argc, char ** argv) {
     exit(ERROR_BAD_INPUT);
   }
 
-  std::cout << std::endl << "                ___,@";
-  std::cout << std::endl << "             /  <";
-  std::cout << std::endl << "        ,_  /    \\  _,";
-  std::cout << std::endl << "    ?    \\`/______\\`/";
-  std::cout << std::endl << " ,_(_).  |; (e  e) ;|";
-  std::cout << std::endl << "  \\___ \\ \\/\\   7  /\\/    _\\8/_";
-  std::cout << std::endl << "      \\/\\   \\'=='/      | /| /|";
-  std::cout << std::endl << "       \\ \\___)--(_______|//|//|";
-  std::cout << std::endl << "        \\___  ()  _____/|/_|/_|";
-  std::cout << std::endl << "           /  ()  \\    `----'";
-  std::cout << std::endl << "          /   ()   \\";
-  std::cout << std::endl << "         '-.______.-'\"";
-  std::cout << std::endl << "       _    |_||_|    _";
-  std::cout << std::endl << "      (@____) || (____@)";
-  std::cout << std::endl << "       \\______||______/\n";
-
   // My little state machine
   StateMachine stateMachine = StateMachine(input_path);
   std::shared_ptr<Program> program = stateMachine.read();
@@ -129,7 +113,7 @@ int main(int argc, char ** argv) {
   }
 
   if(opt_print) {
-    std::cout << program;
+    std::cout << *program;
   }
 
 }

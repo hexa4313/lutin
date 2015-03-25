@@ -26,14 +26,6 @@ std::shared_ptr<Program> StateMachine::read() {
 
   } while(symbol->getType() != SymbolType::$);
 
-  if(m_program) {
-    std::cout << "Program accepted!" << std::endl;
-    std::cout << *m_program << std::endl;
-  }
-  else {
-    std::cout << "Error in program!" << std::endl;
-  }
-
   return m_program;
 }
 
