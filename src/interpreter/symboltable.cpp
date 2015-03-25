@@ -47,6 +47,6 @@ void SymbolTable::set(const std::string name, const int value) {
 
 void SymbolTable::print() const {
   for(auto elem : m_table) {
-    std::cout << elem.first << "\t(" << elem.second.first << ", " << elem.second.second << ")\n";
+    std::cout << elem.first << "\t(" << elem.second.first << ", " << (int)elem.second.second << ")\n";
   }
 }
