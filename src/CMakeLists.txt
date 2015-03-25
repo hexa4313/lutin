@@ -157,6 +157,9 @@ SET (instruction_SRCS
 )
 
 SET (declaration_SRCS
+
+  declaration/simpledec.h
+
   declaration/constdec.h
   declaration/constdec.cpp
 

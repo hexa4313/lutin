@@ -2,6 +2,7 @@
 #define DECLARATION_LIST_H
 
 #include <vector>
+#include <set>
 #include <memory>
 #include "../symbol.h"
 #include "../interpreter/symboltable.h"
@@ -10,12 +11,16 @@
 class DeclarationList : public Symbol {
   private:
     std::vector<std::shared_ptr<Declaration>> m_decs;
+    std::set<std::string> m_declaredIds;
   public:
     void toString(std::ostream &o) const;
     DeclarationList() : Symbol(SymbolType::DL) {};
-    void addDeclaration(std::shared_ptr<Declaration> d);
+    bool addDeclaration(std::shared_ptr<Declaration> d);
     void getDeclarationTable(SymbolTable& m_table) const;
     std::vector<std::shared_ptr<Declaration>> getDecs() { return m_decs; }
+
+    bool isDeclared(std::string id) const;
+    std::shared_ptr<SimpleDec> getDec(std::string id) const;
 };
 
 #endif

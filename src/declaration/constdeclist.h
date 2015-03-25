@@ -13,7 +13,7 @@ class ConstDecList : public Declaration {
     ConstDecList() : Declaration(SymbolType::C) {};
     void toString(std::ostream &o) const;
     void addConstDec(std::shared_ptr<ConstDec> c) { m_consts.push_back(c); };
-    std::vector<std::shared_ptr<Symbol>> getDecList() const {return std::vector<std::shared_ptr<Symbol>>(m_consts.begin(), m_consts.end());};
+    std::vector<std::shared_ptr<SimpleDec>> getDecList() const {return std::vector<std::shared_ptr<SimpleDec>>(m_consts.begin(), m_consts.end());};
 };
 
 #endif
