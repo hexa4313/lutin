@@ -17,7 +17,7 @@ class BinaryExp : public Expression {
     Expression(t), m_left(l), m_right(r) {}
     void setExpressions(std::shared_ptr<Expression> l, std::shared_ptr<Expression> r) {m_left = l; m_right = r;};
 
-    std::vector<std::shared_ptr<Variable>> getVarFromExpr(std::shared_ptr<Expression> expr);
+    std::vector<std::string> getVariables();
 };
 
 #endif

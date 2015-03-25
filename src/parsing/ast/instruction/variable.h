@@ -8,14 +8,16 @@
 class Variable : public Expression {
   private:
     std::string m_name;
-    int m_value;
+    int m_value; // TODO : a enlever surement + eval()
   public:
     Variable() : Expression(SymbolType::E_VAL) {}
     Variable(std::string name) : Expression(SymbolType::E_VAL), m_name(name) {}
     Variable(std::string name, int value) : Expression(SymbolType::E_VAL), m_name(name), m_value(value) {}
     void toString(std::ostream &o) const;
+
     std::string name() { return m_name; }
     virtual double eval() { return m_value; }
+    std::vector<std::string> getVariables();
 };
 
 #endif

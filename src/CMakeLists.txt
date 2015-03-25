@@ -198,10 +198,16 @@ SET (interpreter_SRCS
   interpreter/symboltable.h
 )
 
+SET (static_analysis_SRCS
+  static_analysis/staticanalyzer.h
+  static_analysis/staticanalyzer.cpp
+)
+
 SET (ALL_SRCS
   ${root_SRCS}
   ${parsing_SRCS}
   ${interpreter_SRCS}
+  ${static_analysis_SRCS}
 )
 
 
