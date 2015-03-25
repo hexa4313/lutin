@@ -26,14 +26,8 @@ void StaticAnalyzer::checkProgram() {
     }
   }
 
-  auto allIds = m_decList->getDeclaredIds();
-  std::set<std::string> unusedIds;
-  std::set_difference(allIds.begin(), allIds.end(), m_usedIds.begin(), m_usedIds.end(),
-      std::inserter(unusedIds, unusedIds.end()));
-
-  for(auto id : unusedIds) {
-    std::cerr << "variable non utilisee : " << id << std::endl;
-  }
+  checkUninitializedVariables();
+  checkUnusedVariables();
 }
 
 
@@ -65,6 +59,8 @@ void StaticAnalyzer::checkWriteInstruction(std::shared_ptr<Instruction> instruct
 }
 
 void StaticAnalyzer::checkLValueID(std::string id) {
+
+  m_affectedIds.insert(id);
 
   auto dec = m_decList->getDec(id);
   if(dec) {
@@ -134,4 +130,27 @@ bool StaticAnalyzer::isAssigned(std::string id, std::shared_ptr<Instruction> ins
   }
 
   return assigned;
+}
+
+void StaticAnalyzer::checkUnusedVariables() {
+  auto allIds = m_decList->getDeclaredIds();
+  std::set<std::string> unusedIds;
+  std::set_difference(allIds.begin(), allIds.end(), m_usedIds.begin(), m_usedIds.end(),
+      std::inserter(unusedIds, unusedIds.end()));
+
+  for(auto id : unusedIds) {
+    std::cerr << "variable non utilisee : " << id << std::endl;
+  }
+}
+
+void StaticAnalyzer::checkUninitializedVariables() {
+  auto varsIds = m_decList->filterVariables(m_decList->getDeclaredIds());
+
+  std::set<std::string> unusedIds;
+  std::set_difference(varsIds.begin(), varsIds.end(), m_affectedIds.begin(), m_affectedIds.end(),
+      std::inserter(unusedIds, unusedIds.end()));
+
+  for(auto id : unusedIds) {
+    std::cerr << "variable non affectee : " << id << std::endl;
+  }
 }

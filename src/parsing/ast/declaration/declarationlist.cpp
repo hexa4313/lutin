@@ -53,3 +53,14 @@ std::vector<std::string> DeclarationList::filterVariables(std::vector<std::strin
   }
   return varsOnly;
 }
+
+std::set<std::string> DeclarationList::filterVariables(std::set<std::string> ids) const {
+  std::set<std::string> varsOnly;
+  for(auto id : ids) {
+    auto dec = getDec(id);
+    if(dec && dec->getType() == SymbolType::VAR) {
+      varsOnly.insert(id);
+    }
+  }
+  return varsOnly;
+}
