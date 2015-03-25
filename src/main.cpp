@@ -32,16 +32,17 @@
 #define MAX_ARGS 4
 
 #define ERROR_NOT_ENOUGH_ARGS 1
-#define ERROR_TOO_MANY_ARGS 2
-#define ERROR_BAD_INPUT 3
+#define ERROR_TOO_MANY_ARGS 1
+#define ERROR_BAD_INPUT 1
 
 void show_usage() {
-  std::cout << "\n" << "usage: lutinc [-paeo] <input>" << '\n';
-  std::cout << "options:" << '\n';
-  std::cout << "-p :\tPrint the code memory representation." << '\n';
-  std::cout << "-a :\tStatic analysis and error extraction." << '\n';
-  std::cout << "-e :\tInteractive execution of the program." << '\n';
-  std::cout << "-o :\tOptimizes the program representation." << '\n';
+  std::cerr << "Erreur, veuillez specifier des arguments" << std::endl;
+  std::cerr << "  Utilisation :" << std::endl;
+  std::cerr << "    ../lut [-p] [-a] [-e] [-o] source.lt" << std::endl;
+  std::cerr << "      [-p] affiche le code source reconnu" << std::endl;
+  std::cerr << "      [-a] analyse le programme de maniere statique" << std::endl;
+  std::cerr << "      [-e] execute interactivement le programme" << std::endl;
+  std::cerr << "      [-o] optimise les expressions et instructions" << std::endl;
 }
 
 inline bool file_exists (const std::string& name) {
