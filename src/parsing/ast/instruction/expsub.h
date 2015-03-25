@@ -2,7 +2,6 @@
 #define EXPSUB_H
 
 #include "../symboltype.h"
-#include "expression.h"
 #include "binaryexp.h"
 
 class ExpSub : public BinaryExp {

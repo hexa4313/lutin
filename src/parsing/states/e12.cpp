@@ -1,9 +1,7 @@
 #include "e12.h"
-#include "../state.h"
 
 #include "e22.h"
-#include "../declaration/vardeclist.h"
-#include "../declaration/declarationlist.h"
+#include "../ast/declaration/vardeclist.h"
 
 bool E12::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 

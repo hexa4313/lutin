@@ -2,7 +2,6 @@
 #define EXPMULT_H
 
 #include "../symboltype.h"
-#include "expression.h"
 #include "binaryexp.h"
 
 class ExpMult : public BinaryExp {

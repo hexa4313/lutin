@@ -1,10 +1,7 @@
 #ifndef E23_H
 #define E23_H
 
-#include <string>
-#include "../state.h"
-#include "../symbol.h"
-#include "../statemachine.h"
+#include "state.h"
 
 class E23 : public State {
   public:

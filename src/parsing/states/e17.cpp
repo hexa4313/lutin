@@ -5,7 +5,8 @@
 #include "e28.h"
 #include "e29.h"
 #include "e30.h"
-#include "../instruction/write.h"
+#include "../ast/instruction/instructionlist.h"
+#include "../ast/instruction/write.h"
 
 bool E17::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 

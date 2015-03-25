@@ -1,10 +1,7 @@
 #ifndef E38_H
 #define E38_H
 
-#include <string>
-#include "../state.h"
-#include "../symbol.h"
-#include "../statemachine.h"
+#include "state.h"
 
 class E38 : public State {
   public:

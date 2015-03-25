@@ -1,10 +1,9 @@
 #ifndef INSTRUCTION_LIST_H
 #define INSTRUCTION_LIST_H
 
+#include <memory>
 #include <vector>
 #include "../symbol.h"
-#include "../symboltype.h"
-#include "../program.h"
 #include "instruction.h"
 
 class InstructionList : public Symbol {

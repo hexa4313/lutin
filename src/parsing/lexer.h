@@ -1,9 +1,9 @@
 #ifndef LEXER_H
 #define LEXER_H
 
-#include "symbol.h"
 #include <string>
 #include <memory>
+#include "ast/symbol.h"
 
 class Lexer {
   

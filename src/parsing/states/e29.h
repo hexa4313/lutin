@@ -1,10 +1,7 @@
 #ifndef E29_H
 #define E29_H
 
-#include <string>
-#include "../state.h"
-#include "../symbol.h"
-#include "../statemachine.h"
+#include "state.h"
 
 class E29 : public State {
   public:

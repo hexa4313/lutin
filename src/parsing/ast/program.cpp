@@ -1,9 +1,7 @@
-#include <iostream>
-#include <vector>
-
 #include "program.h"
-#include "instruction/read.h"
 
+#include "declaration/simpledec.h"
+#include "instruction/read.h"
 
 void Program::toString(std::ostream &o) const {
 	o << *m_decList << *m_instList;

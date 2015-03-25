@@ -1,10 +1,7 @@
 #ifndef E22_H
 #define E22_H
 
-#include <string>
-#include "../state.h"
-#include "../symbol.h"
-#include "../statemachine.h"
+#include "state.h"
 
 class E22 : public State {
   public:

@@ -1,6 +1,7 @@
 #include "e0.h"
-#include "../instruction/instructionlist.h"
+
 #include "e1.h"
+#include "../ast/symboltype.h"
 
 bool E0::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
   if(s->getType() == SymbolType::DL) {

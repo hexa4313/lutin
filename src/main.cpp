@@ -26,7 +26,7 @@
 
 #include <cstdlib>
 #include <iostream>
-#include "statemachine.h"
+#include "parsing/statemachine.h"
 #include "interpreter/interpreter.h"
 
 #define MIN_ARGS 2

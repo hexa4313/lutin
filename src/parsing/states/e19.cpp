@@ -1,6 +1,5 @@
 #include "e19.h"
-
-#include "../instruction/variable.h"
+#include "../ast/instruction/variable.h"
 
 bool E19::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 

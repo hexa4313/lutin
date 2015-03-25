@@ -1,5 +1,5 @@
 #include "e38.h"
-#include "../instruction/exppar.h"
+#include "../ast/instruction/exppar.h"
 
 bool E38::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 

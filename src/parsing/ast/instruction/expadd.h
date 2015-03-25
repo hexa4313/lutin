@@ -2,7 +2,6 @@
 #define EXPADD_H
 
 #include "../symboltype.h"
-#include "expression.h"
 #include "binaryexp.h"
 
 class ExpAdd : public BinaryExp {

@@ -1,11 +1,6 @@
 #include "e13.h"
-#include "../state.h"
-
-#include "../declaration/vardec.h"
-#include "../declaration/vardeclist.h"
 #include "e4.h"
-#include "e12.h"
-#include <boost/variant.hpp>
+#include "../ast/declaration/vardeclist.h"
 
 bool E13::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 

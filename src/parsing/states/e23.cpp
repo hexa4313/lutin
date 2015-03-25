@@ -1,5 +1,4 @@
 #include "e23.h"
-#include "../state.h"
 #include "e34.h"
 
 bool E23::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {

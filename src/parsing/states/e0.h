@@ -1,10 +1,7 @@
 #ifndef E0_H
 #define E0_H
 
-#include <string>
-#include "../state.h"
-#include "../symbol.h"
-#include "../statemachine.h"
+#include "state.h"
 
 class E0 : public State {
   public:

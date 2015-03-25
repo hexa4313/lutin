@@ -1,7 +1,6 @@
 #include "e35.h"
 
-#include "../declaration/constdec.h"
-#include "../declaration/constdeclist.h"
+#include "../ast/declaration/constdeclist.h"
 #include "e5.h"
 
 bool E35::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {

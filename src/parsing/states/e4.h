@@ -1,11 +1,7 @@
 #ifndef E4_H
 #define E4_H
 
-#include <string>
-#include "../state.h"
-#include "../symbol.h"
-#include "../statemachine.h"
-#include "../declaration/vardeclist.h"
+#include "state.h"
 
 class E4 : public State {
   public:

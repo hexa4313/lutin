@@ -1,6 +1,5 @@
 #include "e40.h"
-#include "../declaration/constdeclist.h"
-
+#include "../ast/declaration/constdeclist.h"
 
 bool E40::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 

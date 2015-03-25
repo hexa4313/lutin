@@ -2,8 +2,8 @@
 #define WRITE_H
 
 #include <memory>
-#include <string>
 #include "instruction.h"
+#include "expression.h"
 
 class Write : public Instruction {
   private:

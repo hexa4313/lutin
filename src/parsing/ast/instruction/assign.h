@@ -4,6 +4,7 @@
 #include <memory>
 #include "../symboltype.h"
 #include "instruction.h"
+#include "expression.h"
 
 class Assign : public Instruction {
   private:

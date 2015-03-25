@@ -5,10 +5,7 @@
 #ifndef _LUTIN_E6_H_
 #define _LUTIN_E6_H_
 
-#include <string>
-#include "../state.h"
-#include "../statemachine.h"
-#include "../symbol.h"
+#include "state.h"
 
 class E6 : public State {
 public:

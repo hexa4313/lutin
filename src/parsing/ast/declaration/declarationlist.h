@@ -1,12 +1,12 @@
 #ifndef DECLARATION_LIST_H
 #define DECLARATION_LIST_H
 
+#include <memory>
 #include <vector>
 #include <set>
-#include <memory>
 #include "../symbol.h"
-#include "../interpreter/symboltable.h"
 #include "declaration.h"
+#include "../../../interpreter/symboltable.h"
 
 class DeclarationList : public Symbol {
   private:

@@ -1,10 +1,7 @@
 #ifndef E32_H
 #define E32_H
 
-#include <string>
-#include "../state.h"
-#include "../symbol.h"
-#include "../statemachine.h"
+#include "state.h"
 
 class E32 : public State {
   public:

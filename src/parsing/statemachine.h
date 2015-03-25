@@ -1,25 +1,22 @@
 #ifndef STATEMACHINE_H
 #define STATEMACHINE_H
 
-#include <stack>
 #include <memory>
+#include <stack>
 #include <vector>
-
-#include "symbol.h"
-#include "state.h"
 #include "lexer.h"
-#include "program.h"
+#include "ast/program.h"
 
 class State;
 
 class StateMachine {
 	private:
+    Lexer m_lexer;
     std::shared_ptr<Program> m_program;
-		std::unique_ptr<Lexer> m_lexer;
 		std::stack<std::shared_ptr<Symbol>> m_symbols;
 		std::stack<std::shared_ptr<State>> m_states;
 	public:
-		StateMachine(std::string filepath) : m_lexer(new Lexer(filepath)) {}
+		StateMachine(std::string filepath) : m_lexer(filepath) {}
 		std::shared_ptr<Program> read();
 
 		std::vector<std::shared_ptr<Symbol>> popSymbols(int count);

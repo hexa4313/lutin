@@ -1,8 +1,5 @@
 #include "symbol.h"
-
 #include <map>
-#include <sstream>
-
 
 static std::map<SymbolType, std::string> typeNames = {
     {SymbolType::P, "P"},

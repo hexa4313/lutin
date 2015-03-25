@@ -1,10 +1,7 @@
 #ifndef E11_H
 #define E11_H
 
-#include <string>
-#include "../state.h"
-#include "../symbol.h"
-#include "../statemachine.h"
+#include "state.h"
 
 class E11 : public State {
   public:

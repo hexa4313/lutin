@@ -1,6 +1,5 @@
 #include "e33.h"
-#include "../declaration/vardec.h"
-#include "../declaration/vardeclist.h"
+#include "../ast/declaration/vardeclist.h"
 
 
 bool E33::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {

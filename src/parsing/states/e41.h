@@ -1,10 +1,7 @@
 #ifndef E41_H
 #define E41_H
 
-#include <string>
-#include "../state.h"
-#include "../symbol.h"
-#include "../statemachine.h"
+#include "state.h"
 
 class E41 : public State {
   public:

@@ -1,8 +1,6 @@
 #include "e14.h"
-#include "../state.h"
 #include "e23.h"
-#include "../declaration/constdeclist.h"
-#include "../declaration/declarationlist.h"
+#include "../ast/declaration/constdeclist.h"
 
 bool E14::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 

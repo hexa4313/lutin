@@ -1,10 +1,7 @@
 #ifndef E35_H
 #define E35_H
 
-#include <string>
-#include "../state.h"
-#include "../symbol.h"
-#include "../statemachine.h"
+#include "state.h"
 
 class E35 : public State {
   public:

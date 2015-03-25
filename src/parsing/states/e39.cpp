@@ -1,7 +1,5 @@
 #include "e39.h"
-#include "../state.h"
 #include "e40.h"
-
 
 bool E39::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 

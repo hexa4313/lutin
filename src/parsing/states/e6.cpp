@@ -1,4 +1,6 @@
 #include "e6.h"
+#include "../ast/declaration/declarationlist.h"
+#include "../ast/declaration/declaration.h"
 
 bool E6::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 

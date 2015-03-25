@@ -1,10 +1,7 @@
 #ifndef E19_H
 #define E19_H
 
-#include <string>
-#include "../state.h"
-#include "../symbol.h"
-#include "../statemachine.h"
+#include "state.h"
 
 class E19 : public State {
   public:

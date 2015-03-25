@@ -2,6 +2,7 @@
 #define SYMBOL_H
 
 #include <string>
+#include <ostream>
 #include <boost/variant.hpp>
 #include "symboltype.h"
 

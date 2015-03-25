@@ -1,9 +1,9 @@
-#include "../state.h"
 #include "e1.h"
 #include "e2.h"
 #include "e3.h"
 #include "e4.h"
 #include "e5.h"
+#include "../ast/instruction/instructionlist.h"
 
 
 bool E1::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {

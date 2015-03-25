@@ -1,6 +1,5 @@
 #include "e21.h"
-
-#include "../instruction/read.h"
+#include "../ast/instruction/read.h"
 
 bool E21::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 

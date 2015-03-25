@@ -1,10 +1,7 @@
 #ifndef E28_H
 #define E28_H
 
-#include <string>
-#include "../state.h"
-#include "../symbol.h"
-#include "../statemachine.h"
+#include "state.h"
 
 class E28 : public State {
   public:

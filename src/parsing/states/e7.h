@@ -1,10 +1,7 @@
 #ifndef E7_H
 #define E7_H
 
-#include <string>
-#include "../state.h"
-#include "../symbol.h"
-#include "../statemachine.h"
+#include "state.h"
 
 class E7 : public State {
   public:

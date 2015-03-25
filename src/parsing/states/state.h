@@ -1,12 +1,11 @@
 #ifndef STATE_H
 #define STATE_H
 
-#include <memory>
 #include <string>
-#include "statemachine.h"
-#include "symbol.h"
-
-class StateMachine;
+#include <ostream>
+#include <memory>
+#include "../ast/symbol.h"
+#include "../statemachine.h"
 
 class State {
   public:

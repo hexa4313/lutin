@@ -1,10 +1,7 @@
 #ifndef E24_H
 #define E24_H
 
-#include <string>
-#include "../state.h"
-#include "../symbol.h"
-#include "../statemachine.h"
+#include "state.h"
 
 class E24 : public State {
   public:

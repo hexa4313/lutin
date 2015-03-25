@@ -1,10 +1,7 @@
 #ifndef E37_H
 #define E37_H
 
-#include <string>
-#include "../state.h"
-#include "../symbol.h"
-#include "../statemachine.h"
+#include "state.h"
 
 class E37 : public State {
   public:

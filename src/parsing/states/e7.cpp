@@ -1,5 +1,7 @@
 #include "e7.h"
-
+#include "../ast/program.h"
+#include "../ast/declaration/declarationlist.h"
+#include "../ast/instruction/instructionlist.h"
 
 bool E7::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 

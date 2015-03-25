@@ -3,8 +3,8 @@
 
 #include <vector>
 #include <memory>
-#include "vardec.h"
 #include "declaration.h"
+#include "vardec.h"
 
 class VarDecList : public Declaration {
   private:

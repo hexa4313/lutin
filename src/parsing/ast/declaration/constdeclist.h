@@ -3,8 +3,8 @@
 
 #include <vector>
 #include <memory>
-#include "constdec.h"
 #include "declaration.h"
+#include "constdec.h"
 
 class ConstDecList : public Declaration {
   private:

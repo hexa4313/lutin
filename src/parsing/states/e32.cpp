@@ -5,7 +5,7 @@
 #include "e28.h"
 #include "e29.h"
 #include "e30.h"
-#include "../instruction/assign.h"
+#include "../ast/instruction/assign.h"
 
 
 bool E32::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {

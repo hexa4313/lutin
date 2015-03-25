@@ -1,6 +1,5 @@
 #include "e25.h"
-#include "../state.h"
-#include "../instruction/expmult.h"
+#include "../ast/instruction/expmult.h"
 
 bool E25::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 

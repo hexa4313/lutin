@@ -1,4 +1,5 @@
 #include "e16.h"
+#include "../ast/instruction/instructionlist.h"
 
 bool E16::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 

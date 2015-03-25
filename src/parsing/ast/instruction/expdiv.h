@@ -2,7 +2,6 @@
 #define EXPDIV_H
 
 #include "../symboltype.h"
-#include "expression.h"
 #include "binaryexp.h"
 
 class ExpDiv : public BinaryExp {

@@ -1,10 +1,7 @@
 #ifndef E3_H
 #define E3_H
 
-#include <string>
-#include "../state.h"
-#include "../symbol.h"
-#include "../statemachine.h"
+#include "state.h"
 
 class E3 : public State {
   public:

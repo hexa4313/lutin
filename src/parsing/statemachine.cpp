@@ -1,10 +1,6 @@
-#include <iostream>
-#include <vector>
 #include "statemachine.h"
-
-#include "declaration/declarationlist.h"
 #include "states/e0.h"
-#include "instruction/instructionlist.h"
+#include "ast/declaration/declarationlist.h"
 
 std::shared_ptr<Program> StateMachine::read() {
 
@@ -16,14 +12,14 @@ std::shared_ptr<Program> StateMachine::read() {
 
   do {
 
-    symbol = m_lexer->getSymbol();
+    symbol = m_lexer.getSymbol();
     auto lastState = m_states.top();
 
     if(!lastState->transition(*this, symbol)) {
       std::cout << "Error in transition!" << std::endl;
       return nullptr;
     }
-    m_lexer->shift();
+    m_lexer.shift();
 
   } while(symbol->getType() != SymbolType::END);
 
