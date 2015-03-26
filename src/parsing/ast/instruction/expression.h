@@ -4,7 +4,7 @@
 #include <vector>
 #include <map>
 #include "../symbol.h"
-#include "../../../interpreter/symboltable.h"
+#include "../../../interpretation/symboltable.h"
 
 class Expression : public Symbol {
   public:

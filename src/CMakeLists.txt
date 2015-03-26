@@ -192,10 +192,10 @@ SET (parsing_SRCS
 )
 
 SET (interpreter_SRCS
-  interpreter/interpreter.cpp
-  interpreter/interpreter.h
-  interpreter/symboltable.cpp
-  interpreter/symboltable.h
+  interpretation/interpreter.cpp
+  interpretation/interpreter.h
+  interpretation/symboltable.cpp
+  interpretation/symboltable.h
 )
 
 SET (static_analysis_SRCS

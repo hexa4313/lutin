@@ -2,7 +2,7 @@
 #define INSTRUCTION_H
 
 #include "../symbol.h"
-#include "../../../interpreter/symboltable.h"
+#include "../../../interpretation/symboltable.h"
 
 class Instruction : public Symbol {
   public:

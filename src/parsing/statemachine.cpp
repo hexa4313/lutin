@@ -13,7 +13,7 @@ std::shared_ptr<Program> StateMachine::read() {
   do {
 
     symbol = m_lexer.getSymbol();
-    std::cout << "Symbol lu " << symbol << std::endl;
+    //std::cout << "Symbol lu " << symbol << std::endl;
     auto lastState = m_states.top();
 
     if(!lastState->transition(*this, symbol)) {

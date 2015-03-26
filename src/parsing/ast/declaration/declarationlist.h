@@ -6,7 +6,7 @@
 #include <set>
 #include "../symbol.h"
 #include "declaration.h"
-#include "../../../interpreter/symboltable.h"
+#include "../../../interpretation/symboltable.h"
 
 class DeclarationList : public Symbol {
   private:
