@@ -15,7 +15,7 @@ class ExpPar : public Expression {
     int eval(std::shared_ptr<SymbolTable> m_table) const;
 
     std::vector<std::string> getIdentifiers();
-    std::shared_ptr<Expression> optimizeConstants(std::map<std::string, int>);
+    std::shared_ptr<Expression> optimize(std::shared_ptr<Program>);
 };
 
 #endif
