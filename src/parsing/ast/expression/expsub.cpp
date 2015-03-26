@@ -6,10 +6,10 @@ void ExpSub::toString(std::ostream &o) const {
   o << *m_left << "-" << *m_right;
 }
 
-std::shared_ptr<Expression> ExpSub::optimizeConstants(std::map<std::string, int> csts) {
+std::shared_ptr<Expression> ExpSub::optimize(std::shared_ptr<DeclarationList> declList) {
 
-  std::shared_ptr<Expression> left = m_left->optimizeConstants(csts);
-  std::shared_ptr<Expression> right = m_right->optimizeConstants(csts);
+  std::shared_ptr<Expression> left = m_left->optimize(declList);
+  std::shared_ptr<Expression> right = m_right->optimize(declList);
 
   if(left->getType() == SymbolType::E_CNUM &&
       right->getType() == SymbolType::E_CNUM) {

@@ -11,12 +11,14 @@ std::vector<std::string> Identifier::getIdentifiers() {
   return vars;
 }
 
-std::shared_ptr<Expression> Identifier::optimizeConstants(std::map<std::string, int> csts) {
+std::shared_ptr<Expression> Identifier::optimize(std::shared_ptr<DeclarationList> declList) {
 
-  auto value = csts.find(m_name);
+  std::map<std::string, int> consts = declList->getConstants();
 
-  if(value != csts.end()) {
-    return std::make_shared<NumericConst>(csts[m_name]);
+  auto value = consts.find(m_name);
+
+  if(value != consts.end()) {
+    return std::make_shared<NumericConst>(consts[m_name]);
   }
   else {
     return std::make_shared<Identifier>(m_name);
