@@ -7,6 +7,7 @@
 #include <vector>
 #include "../parsing/ast/symboltype.h"
 #include "../parsing/ast/symbol.h"
+#include "../parsing/ast/declaration/simpledec.h"
 
 class SymbolTable {
   private:
@@ -16,8 +17,9 @@ class SymbolTable {
 //    const bool CONST = true;
     void appendVar(const std::string name, const int value);
     void appendConst(const std::string name, const int value);
-    void appendList(std::vector<std::shared_ptr<Symbol>> list);
+    void appendList(std::vector<std::shared_ptr<SimpleDec>> list);
     int get(const std::string name, bool &isConst) const;
+    int get(const std::string name) const;
     void set(const std::string name, const int value);
     void print() const;
 };

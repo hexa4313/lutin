@@ -16,7 +16,7 @@ class DeclarationList : public Symbol {
     void toString(std::ostream &o) const;
     DeclarationList() : Symbol(SymbolType::DL) {};
     bool addDeclaration(std::shared_ptr<Declaration> d);
-    void getDeclarationTable(SymbolTable& m_table) const;
+    void getDeclarationTable(std::shared_ptr<SymbolTable> m_table) const;
     std::vector<std::shared_ptr<Declaration>> getDecs() { return m_decs; }
     std::set<std::string> getDeclaredIds() const { return m_declaredIds; };
 
