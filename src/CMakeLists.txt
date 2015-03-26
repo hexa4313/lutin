@@ -104,11 +104,6 @@ SET (states_SRCS
 
 SET (instruction_SRCS
 
-  parsing/ast/instruction/expression.h
-
-  parsing/ast/instruction/binaryexp.h
-  parsing/ast/instruction/binaryexp.cpp
-
   parsing/ast/instruction/instruction.h
 
   parsing/ast/instruction/instructionlist.h
@@ -117,32 +112,40 @@ SET (instruction_SRCS
   parsing/ast/instruction/assign.h
   parsing/ast/instruction/assign.cpp
 
-  parsing/ast/instruction/expadd.h
-  parsing/ast/instruction/expadd.cpp
-
-  parsing/ast/instruction/expdiv.h
-  parsing/ast/instruction/expdiv.cpp
-
-  parsing/ast/instruction/expmult.h
-  parsing/ast/instruction/expmult.cpp
-
-  parsing/ast/instruction/expsub.h
-  parsing/ast/instruction/expsub.cpp
-
-  parsing/ast/instruction/exppar.h
-  parsing/ast/instruction/exppar.cpp
-
   parsing/ast/instruction/read.h
   parsing/ast/instruction/read.cpp
 
-  parsing/ast/instruction/identifier.h
-  parsing/ast/instruction/identifier.cpp
-
   parsing/ast/instruction/write.h
   parsing/ast/instruction/write.cpp
+)
 
-  parsing/ast/instruction/numericconst.h
-  parsing/ast/instruction/numericconst.cpp
+SET (expression_SRCS
+
+  parsing/ast/expression/expression.h
+
+  parsing/ast/expression/binaryexp.h
+  parsing/ast/expression/binaryexp.cpp
+
+  parsing/ast/expression/identifier.h
+  parsing/ast/expression/identifier.cpp
+
+  parsing/ast/expression/expadd.h
+  parsing/ast/expression/expadd.cpp
+
+  parsing/ast/expression/expdiv.h
+  parsing/ast/expression/expdiv.cpp
+
+  parsing/ast/expression/expmult.h
+  parsing/ast/expression/expmult.cpp
+
+  parsing/ast/expression/expsub.h
+  parsing/ast/expression/expsub.cpp
+
+  parsing/ast/expression/exppar.h
+  parsing/ast/expression/exppar.cpp
+
+  parsing/ast/expression/numericconst.h
+  parsing/ast/expression/numericconst.cpp
 )
 
 SET (declaration_SRCS
@@ -170,6 +173,7 @@ SET (declaration_SRCS
 SET (ast_SRCS
   ${declaration_SRCS}
   ${instruction_SRCS}
+  ${expression_SRCS}
 
   parsing/ast/program.h
   parsing/ast/program.cpp
@@ -192,10 +196,10 @@ SET (parsing_SRCS
 )
 
 SET (interpreter_SRCS
-  interpreter/interpreter.cpp
-  interpreter/interpreter.h
-  interpreter/symboltable.cpp
-  interpreter/symboltable.h
+  interpretation/interpreter.cpp
+  interpretation/interpreter.h
+  interpretation/symboltable.cpp
+  interpretation/symboltable.h
 )
 
 SET (static_analysis_SRCS
@@ -203,11 +207,17 @@ SET (static_analysis_SRCS
   static_analysis/staticanalyzer.cpp
 )
 
+SET (optimization_SRCS
+  optimization/optimizer.h
+  optimization/optimizer.cpp
+)
+
 SET (ALL_SRCS
   ${root_SRCS}
   ${parsing_SRCS}
   ${interpreter_SRCS}
   ${static_analysis_SRCS}
+  ${optimization_SRCS}
 )
 
 
