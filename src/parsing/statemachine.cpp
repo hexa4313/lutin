@@ -1,6 +1,9 @@
 #include "statemachine.h"
 #include "states/e0.h"
 #include "ast/declaration/declarationlist.h"
+#include  "ast/symboltype.h"
+#include <string>
+#include <boost/lexical_cast.hpp>
 
 std::shared_ptr<Program> StateMachine::read() {
 
@@ -15,9 +18,12 @@ std::shared_ptr<Program> StateMachine::read() {
     symbol = m_lexer.getSymbol();
     auto lastState = m_states.top();
 
-    if(!lastState->transition(*this, symbol)) {
-      std::cout << "Error in transition!" << std::endl;
-      return nullptr;
+	if(symbol->getType() == SymbolType::UNKNOWN)
+	{
+	  std::cout << "Erreur lexicale caractere " << boost::lexical_cast<std::string>(symbol->getValue()) << std::endl;
+	}
+    else if(!lastState->transition(*this, symbol)) {
+      //std::cout << "Erreur lexicale caractere " << boost::lexical_cast<std::string>(symbol->getValue()) << std::endl;
     }
     m_lexer.shift();
 
