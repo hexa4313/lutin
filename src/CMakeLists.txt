@@ -203,11 +203,17 @@ SET (static_analysis_SRCS
   static_analysis/staticanalyzer.cpp
 )
 
+SET (optimization_SRCS
+  optimization/optimizer.h
+  optimization/optimizer.cpp
+)
+
 SET (ALL_SRCS
   ${root_SRCS}
   ${parsing_SRCS}
   ${interpreter_SRCS}
   ${static_analysis_SRCS}
+  ${optimization_SRCS}
 )
 
 

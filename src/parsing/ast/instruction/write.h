@@ -14,6 +14,7 @@ class Write : public Instruction {
     void toString(std::ostream &o) const;
 
     std::shared_ptr<Expression> getExpr() { return m_expr; }
+    void replaceExpr(std::shared_ptr<Expression> e) { m_expr = e; }
 };
 
 #endif

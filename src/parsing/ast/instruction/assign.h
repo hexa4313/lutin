@@ -17,6 +17,7 @@ class Assign : public Instruction {
     
     std::string getId() { return m_id; }
     std::shared_ptr<Expression> getExpr() { return m_expr; }
+    void replaceExpr(std::shared_ptr<Expression> e) { m_expr = e; }
 };
 
 #endif

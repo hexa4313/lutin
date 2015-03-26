@@ -13,6 +13,7 @@ class ExpPar : public Expression {
     void toString(std::ostream &o) const;
 
     std::vector<std::string> getIdentifiers();
+    std::shared_ptr<Expression> optimizeConstants(std::map<std::string, int>);
 };
 
 #endif
