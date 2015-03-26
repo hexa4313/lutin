@@ -22,7 +22,7 @@ std::shared_ptr<Program> StateMachine::read() {
 
 	if(symbol->getType() == SymbolType::UNKNOWN)
 	{
-	  std::cout << "Erreur lexicale caractere " << std::dynamic_pointer_cast<Unknown>(symbol)->getChar() << std::endl;
+	  std::cerr << "Erreur lexicale caractere " << std::dynamic_pointer_cast<Unknown>(symbol)->getChar() << std::endl;
 	}
    
     else if(!lastState->transition(*this, symbol)) {
