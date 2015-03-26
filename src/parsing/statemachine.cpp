@@ -2,6 +2,7 @@
 #include "states/e0.h"
 #include "ast/declaration/declarationlist.h"
 #include  "ast/symboltype.h"
+#include  "ast/unknown.h"
 #include <string>
 #include <boost/lexical_cast.hpp>
 
@@ -21,7 +22,7 @@ std::shared_ptr<Program> StateMachine::read() {
 
 	if(symbol->getType() == SymbolType::UNKNOWN)
 	{
-	  std::cout << "Erreur lexicale caractere " << boost::lexical_cast<std::string>(symbol->getValue()) << std::endl;
+	  std::cerr << "Erreur lexicale caractere " << std::dynamic_pointer_cast<Unknown>(symbol)->getChar() << std::endl;
 	}
    
     else if(!lastState->transition(*this, symbol)) {

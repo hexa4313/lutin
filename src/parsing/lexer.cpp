@@ -1,6 +1,7 @@
 #include <boost/regex.hpp>
 #include <fstream>
 #include "lexer.h"
+#include "ast/unknown.h"
 
 static std::pair<SymbolType, boost::regex> regexes[] = {
     std::make_pair(SymbolType::AFF, boost::regex("\\A\\s*(:=)\\s*")),
@@ -66,8 +67,9 @@ std::shared_ptr<Symbol> Lexer::getSymbol() {
     }
   }
 
-  auto unknown = std::make_shared<Symbol>(SymbolType::UNKNOWN);
+  auto unknown = std::make_shared<Unknown>(m_content[0]);
   m_content.erase(0, 1);
+  
   //std::cout << "Lecture de " << *unknown << std::endl;
   return unknown;
 }
