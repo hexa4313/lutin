@@ -1,14 +1,16 @@
-//
-// Created by Bernardo Rittmeyer on 3/26/15.
-//
+#ifndef _UNKNOWN_H
+#define _UNKNOWN_H
 
-#ifndef _LUTIN_UNKNOWN_H_
-#define _LUTIN_UNKNOWN_H_
+#include <string>
+#include "symbol.h"
 
-
-class unknown {
-
+class Unknown : public Symbol {
+  private:
+    std::string m_value;
+  public:
+    Unknown(std::string value): Symbol(SymbolType::UNKNOWN), m_value(value) {};
+    std::string getValue() const {return m_value;};
 };
 
 
-#endif //_LUTIN_UNKNOWN_H_
+#endif
