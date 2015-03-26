@@ -11,168 +11,184 @@ if(Boost_FOUND)
 endif()
 
 SET (root_SRCS
-  symboltype.h
-
-  statemachine.h
-  statemachine.cpp
-
-  symbol.h
-  symbol.cpp
-
-  lexer.h
-  lexer.cpp
-
-  program.h
-  program.cpp
-  state.h
-
   main.cpp
 )
 
 SET (states_SRCS
-  states/e0.h
-  states/e0.cpp
-  states/e1.h
-  states/e1.cpp
-  states/e2.h
-  states/e2.cpp
-  states/e3.h
-  states/e3.cpp
-  states/e4.h
-  states/e4.cpp
-  states/e5.h
-  states/e5.cpp
-  states/e6.h
-  states/e6.cpp
-  states/e7.h
-  states/e7.cpp
-  states/e8.h
-  states/e8.cpp
-  states/e9.h
-  states/e9.cpp
-  states/e10.h
-  states/e10.cpp
-  states/e11.h
-  states/e11.cpp
-  states/e12.h
-  states/e12.cpp
-  states/e13.h
-  states/e13.cpp
-  states/e14.h
-  states/e14.cpp
-  states/e15.h
-  states/e15.cpp
-  states/e16.h
-  states/e16.cpp
-  states/e17.h
-  states/e17.cpp
-  states/e18.h
-  states/e18.cpp
-  states/e19.h
-  states/e19.cpp
-  states/e20.h
-  states/e20.cpp
-  states/e21.h
-  states/e21.cpp
-  states/e22.h
-  states/e22.cpp
-  states/e23.h
-  states/e23.cpp
-  states/e24.h
-  states/e24.cpp
-  states/e25.h
-  states/e25.cpp
-  states/e26.h
-  states/e26.cpp
-  states/e27.h
-  states/e27.cpp
-  states/e28.h
-  states/e28.cpp
-  states/e29.h
-  states/e29.cpp
-  states/e30.h
-  states/e30.cpp
-  states/e31.h
-  states/e31.cpp
-  states/e32.h
-  states/e32.cpp
-  states/e33.h
-  states/e33.cpp
-  states/e34.h
-  states/e34.cpp
-  states/e35.h
-  states/e35.cpp
-  states/e36.h
-  states/e36.cpp
-  states/e37.h
-  states/e37.cpp
-  states/e38.h
-  states/e38.cpp
-  states/e39.h
-  states/e39.cpp
-  states/e40.h
-  states/e40.cpp
-  states/e41.h
-  states/e41.cpp
+  parsing/states/state.h
+  parsing/states/e0.h
+  parsing/states/e0.cpp
+  parsing/states/e1.h
+  parsing/states/e1.cpp
+  parsing/states/e2.h
+  parsing/states/e2.cpp
+  parsing/states/e3.h
+  parsing/states/e3.cpp
+  parsing/states/e4.h
+  parsing/states/e4.cpp
+  parsing/states/e5.h
+  parsing/states/e5.cpp
+  parsing/states/e6.h
+  parsing/states/e6.cpp
+  parsing/states/e7.h
+  parsing/states/e7.cpp
+  parsing/states/e8.h
+  parsing/states/e8.cpp
+  parsing/states/e9.h
+  parsing/states/e9.cpp
+  parsing/states/e10.h
+  parsing/states/e10.cpp
+  parsing/states/e11.h
+  parsing/states/e11.cpp
+  parsing/states/e12.h
+  parsing/states/e12.cpp
+  parsing/states/e13.h
+  parsing/states/e13.cpp
+  parsing/states/e14.h
+  parsing/states/e14.cpp
+  parsing/states/e15.h
+  parsing/states/e15.cpp
+  parsing/states/e16.h
+  parsing/states/e16.cpp
+  parsing/states/e17.h
+  parsing/states/e17.cpp
+  parsing/states/e18.h
+  parsing/states/e18.cpp
+  parsing/states/e19.h
+  parsing/states/e19.cpp
+  parsing/states/e20.h
+  parsing/states/e20.cpp
+  parsing/states/e21.h
+  parsing/states/e21.cpp
+  parsing/states/e22.h
+  parsing/states/e22.cpp
+  parsing/states/e23.h
+  parsing/states/e23.cpp
+  parsing/states/e24.h
+  parsing/states/e24.cpp
+  parsing/states/e25.h
+  parsing/states/e25.cpp
+  parsing/states/e26.h
+  parsing/states/e26.cpp
+  parsing/states/e27.h
+  parsing/states/e27.cpp
+  parsing/states/e28.h
+  parsing/states/e28.cpp
+  parsing/states/e29.h
+  parsing/states/e29.cpp
+  parsing/states/e30.h
+  parsing/states/e30.cpp
+  parsing/states/e31.h
+  parsing/states/e31.cpp
+  parsing/states/e32.h
+  parsing/states/e32.cpp
+  parsing/states/e33.h
+  parsing/states/e33.cpp
+  parsing/states/e34.h
+  parsing/states/e34.cpp
+  parsing/states/e35.h
+  parsing/states/e35.cpp
+  parsing/states/e36.h
+  parsing/states/e36.cpp
+  parsing/states/e37.h
+  parsing/states/e37.cpp
+  parsing/states/e38.h
+  parsing/states/e38.cpp
+  parsing/states/e39.h
+  parsing/states/e39.cpp
+  parsing/states/e40.h
+  parsing/states/e40.cpp
+  parsing/states/e41.h
+  parsing/states/e41.cpp
 )
 
 SET (instruction_SRCS
 
-  instruction/expression.h
-  instruction/binaryexp.h
-  instruction/instruction.h
+  parsing/ast/instruction/expression.h
 
-  instruction/instructionlist.h
-  instruction/instructionlist.cpp
+  parsing/ast/instruction/binaryexp.h
+  parsing/ast/instruction/binaryexp.cpp
 
-  instruction/assign.h
-  instruction/assign.cpp
+  parsing/ast/instruction/instruction.h
 
-  instruction/expadd.h
-  instruction/expadd.cpp
+  parsing/ast/instruction/instructionlist.h
+  parsing/ast/instruction/instructionlist.cpp
 
-  instruction/expdiv.h
-  instruction/expdiv.cpp
+  parsing/ast/instruction/assign.h
+  parsing/ast/instruction/assign.cpp
 
-  instruction/expmult.h
-  instruction/expmult.cpp
+  parsing/ast/instruction/expadd.h
+  parsing/ast/instruction/expadd.cpp
 
-  instruction/expsub.h
-  instruction/expsub.cpp
+  parsing/ast/instruction/expdiv.h
+  parsing/ast/instruction/expdiv.cpp
 
-  instruction/exppar.h
-  instruction/exppar.cpp
+  parsing/ast/instruction/expmult.h
+  parsing/ast/instruction/expmult.cpp
 
-  instruction/read.h
-  instruction/read.cpp
+  parsing/ast/instruction/expsub.h
+  parsing/ast/instruction/expsub.cpp
 
-  instruction/variable.h
-  instruction/variable.cpp
+  parsing/ast/instruction/exppar.h
+  parsing/ast/instruction/exppar.cpp
 
-  instruction/write.h
-  instruction/write.cpp
+  parsing/ast/instruction/read.h
+  parsing/ast/instruction/read.cpp
 
-  instruction/numericconst.h
-  instruction/numericconst.cpp
+  parsing/ast/instruction/identifier.h
+  parsing/ast/instruction/identifier.cpp
+
+  parsing/ast/instruction/write.h
+  parsing/ast/instruction/write.cpp
+
+  parsing/ast/instruction/numericconst.h
+  parsing/ast/instruction/numericconst.cpp
 )
 
 SET (declaration_SRCS
-  declaration/constdec.h
-  declaration/constdec.cpp
 
-  declaration/constdeclist.h
-  declaration/constdeclist.cpp
+  parsing/ast/declaration/simpledec.h
 
-  declaration/declaration.h
+  parsing/ast/declaration/constdec.h
+  parsing/ast/declaration/constdec.cpp
 
-  declaration/declarationlist.h
-  declaration/declarationlist.cpp
+  parsing/ast/declaration/constdeclist.h
+  parsing/ast/declaration/constdeclist.cpp
 
-  declaration/vardec.h
-  declaration/vardec.cpp
+  parsing/ast/declaration/declaration.h
 
-  declaration/vardeclist.h
-  declaration/vardeclist.cpp
+  parsing/ast/declaration/declarationlist.h
+  parsing/ast/declaration/declarationlist.cpp
+
+  parsing/ast/declaration/vardec.h
+  parsing/ast/declaration/vardec.cpp
+
+  parsing/ast/declaration/vardeclist.h
+  parsing/ast/declaration/vardeclist.cpp
+)
+
+SET (ast_SRCS
+  ${declaration_SRCS}
+  ${instruction_SRCS}
+
+  parsing/ast/program.h
+  parsing/ast/program.cpp
+
+  parsing/ast/symboltype.h
+
+  parsing/ast/symbol.h
+  parsing/ast/symbol.cpp
+)
+
+SET (parsing_SRCS
+  ${ast_SRCS}
+  ${states_SRCS}
+
+  parsing/statemachine.h
+  parsing/statemachine.cpp
+
+  parsing/lexer.h
+  parsing/lexer.cpp
 )
 
 SET (interpreter_SRCS
@@ -182,12 +198,16 @@ SET (interpreter_SRCS
   interpreter/symboltable.h
 )
 
+SET (static_analysis_SRCS
+  static_analysis/staticanalyzer.h
+  static_analysis/staticanalyzer.cpp
+)
+
 SET (ALL_SRCS
   ${root_SRCS}
-  ${states_SRCS}
-  ${declaration_SRCS}
-  ${instruction_SRCS}
+  ${parsing_SRCS}
   ${interpreter_SRCS}
+  ${static_analysis_SRCS}
 )
 
 

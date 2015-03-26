@@ -5,8 +5,8 @@
 #include <map>
 #include <string>
 #include <vector>
-#include "../symbol.h"
-#include "../symboltype.h"
+#include "../parsing/ast/symboltype.h"
+#include "../parsing/ast/symbol.h"
 
 class SymbolTable {
   private:

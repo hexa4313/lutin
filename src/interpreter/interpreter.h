@@ -1,8 +1,9 @@
 #ifndef INTERPRETER_H
 #define INTERPRETER_H
 
+#include <memory>
 #include "symboltable.h"
-#include "../program.h"
+#include "../parsing/ast/program.h"
 
 class Interpreter {
   private:

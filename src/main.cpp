@@ -26,8 +26,9 @@
 
 #include <cstdlib>
 #include <iostream>
-#include "statemachine.h"
+#include "parsing/statemachine.h"
 #include "interpreter/interpreter.h"
+#include "static_analysis/staticanalyzer.h"
 
 #define MIN_ARGS 2
 #define MAX_ARGS 4
@@ -58,7 +59,8 @@ inline bool file_exists (const std::string& name) {
 
 int main(int argc, char ** argv) {
 
-  bool opt_print, opt_analyse, opt_execute, opt_optimize = false;
+  bool opt_print = false, opt_analyse = false;
+  bool opt_execute = false, opt_optimize = false;
   std::string input_path;
 
   // Arguments number check
@@ -105,7 +107,6 @@ int main(int argc, char ** argv) {
     exit(ERROR_BAD_INPUT);
   }
 
-  // My little state machine
   StateMachine stateMachine = StateMachine(input_path);
   std::shared_ptr<Program> program = stateMachine.read();
 
@@ -120,6 +121,11 @@ int main(int argc, char ** argv) {
 
   if(opt_print) {
     std::cout << *program;
+  }
+
+  if(opt_analyse) {
+    StaticAnalyzer analyzer(program);
+    analyzer.checkProgram();
   }
 
 }

@@ -1,9 +1,13 @@
+# Output binaries dir
 bin
+
+# JetBrains CLion
 .idea
+
+# Mac OS X
 .DS_Store
 
-#CMake
-
+# CMake
 CMakeCache.txt
 CMakeFiles
 Makefile

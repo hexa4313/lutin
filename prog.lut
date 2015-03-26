@@ -1,2 +1,2 @@
-var x;
-x := 5 * (4 + 3);
+var c;
+ecrire c;

@@ -1,11 +1,7 @@
-#include <assert.h>
-#include <map>
-#include <memory>
-#include <vector>
-#include "../symbol.h"
-#include "../declaration/vardec.h"
-#include "../declaration/constdec.h"
 #include "symboltable.h"
+
+#include "../parsing/ast/declaration/constdec.h"
+#include "../parsing/ast/declaration/vardec.h"
 
 void SymbolTable::appendVar(const std::string name, const int value) {
   m_table[name] = std::make_pair(value, SymbolType::VAR);
