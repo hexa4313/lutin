@@ -15,7 +15,7 @@ class NumericConst : public Expression {
 
     int getValue() { return m_value; };
     std::vector<std::string> getIdentifiers();
-    std::shared_ptr<Expression> optimize(std::shared_ptr<DeclarationList>);
+    std::shared_ptr<Expression> optimize(std::shared_ptr<Program>);
 };
 
 #endif

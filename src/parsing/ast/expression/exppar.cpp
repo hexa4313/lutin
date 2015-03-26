@@ -8,9 +8,9 @@ std::vector<std::string> ExpPar::getIdentifiers() {
   return m_expr->getIdentifiers();
 }
 
-std::shared_ptr<Expression> ExpPar::optimize(std::shared_ptr<DeclarationList> declList) {
+std::shared_ptr<Expression> ExpPar::optimize(std::shared_ptr<Program> program) {
 
-  auto expr = m_expr->optimize(declList);
+  auto expr = m_expr->optimize(program);
 
   switch(expr->getType()) {
     case SymbolType::E_CNUM:

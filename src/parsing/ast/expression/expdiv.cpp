@@ -5,10 +5,10 @@ void ExpDiv::toString(std::ostream &o) const {
   o << *m_left << "/" << *m_right;
 }
 
-std::shared_ptr<Expression> ExpDiv::optimize(std::shared_ptr<DeclarationList> declList) {
+std::shared_ptr<Expression> ExpDiv::optimize(std::shared_ptr<Program> program) {
 
-  std::shared_ptr<Expression> left = m_left->optimize(declList);
-  std::shared_ptr<Expression> right = m_right->optimize(declList);
+  std::shared_ptr<Expression> left = m_left->optimize(program);
+  std::shared_ptr<Expression> right = m_right->optimize(program);
 
   if(left->getType() == SymbolType::E_CNUM &&
       right->getType() == SymbolType::E_CNUM) {

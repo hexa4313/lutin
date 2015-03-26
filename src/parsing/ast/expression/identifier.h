@@ -16,7 +16,7 @@ class Identifier : public Expression {
 
     std::string name() { return m_name; }
     std::vector<std::string> getIdentifiers();
-    std::shared_ptr<Expression> optimize(std::shared_ptr<DeclarationList>);
+    std::shared_ptr<Expression> optimize(std::shared_ptr<Program>);
 };
 
 #endif

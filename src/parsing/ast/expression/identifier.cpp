@@ -11,9 +11,9 @@ std::vector<std::string> Identifier::getIdentifiers() {
   return vars;
 }
 
-std::shared_ptr<Expression> Identifier::optimize(std::shared_ptr<DeclarationList> declList) {
+std::shared_ptr<Expression> Identifier::optimize(std::shared_ptr<Program> program) {
 
-  std::map<std::string, int> consts = declList->getConstants();
+  std::map<std::string, int> consts = program->getDecList()->getConstants();
 
   auto value = consts.find(m_name);
 
