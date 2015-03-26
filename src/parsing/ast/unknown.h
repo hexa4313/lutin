@@ -6,10 +6,10 @@
 
 class Unknown : public Symbol {
   private:
-    std::string m_value;
+    char m_value;
   public:
-    Unknown(std::string value): Symbol(SymbolType::UNKNOWN), m_value(value) {};
-    std::string getValue() const {return m_value;};
+    Unknown(char value): Symbol(SymbolType::UNKNOWN), m_value(value) {};
+    char getChar() const {return m_value;};
 };
 
 
