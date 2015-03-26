@@ -27,7 +27,7 @@
 #include <cstdlib>
 #include <iostream>
 #include "parsing/statemachine.h"
-#include "interpreter/interpreter.h"
+#include "interpretation/interpreter.h"
 #include "static_analysis/staticanalyzer.h"
 #include "optimization/optimizer.h"
 

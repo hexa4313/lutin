@@ -3,7 +3,7 @@
 
 #include <memory>
 #include "expression.h"
-#include "../../../interpreter/symboltable.h"
+#include "../../../interpretation/symboltable.h"
 
 class ExpPar : public Expression {
   private:

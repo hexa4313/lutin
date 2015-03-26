@@ -1,5 +1,5 @@
 #include "e27.h"
-#include "../ast/instruction/expsub.h"
+#include "../ast/expression/expsub.h"
 
 bool E27::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
