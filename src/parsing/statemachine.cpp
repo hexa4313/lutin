@@ -13,13 +13,13 @@ std::shared_ptr<Program> StateMachine::read() {
   do {
 
     symbol = m_lexer.getSymbol();
-    //std::cout << "Symbol lu " << symbol->getValue() << std::endl;
+//    std::cout << "Symbol lu " << symbol << std::endl;
     auto lastState = m_states.top();
 
     if(!lastState->transition(*this, symbol)) {
       bool syntaxError = checkSyntax(lastState);
 	if (!syntaxError) {
-		//std::cout << "Error in transition!" << std::endl;
+//		std::cout << "Error in transition!" << std::endl;
 	        return nullptr;
 	} 
     }else {
@@ -63,17 +63,17 @@ bool StateMachine::checkSyntax(std::shared_ptr<State> st) {
   std::string stName = st->name();
  std::cout << stName << std::endl;
   if (stName == "E12" || stName == "E14"){
-  	std::cout << "Erreur syntaxique (:) symbole , probablement attendu" << std::endl;  
+  	std::cout << "Erreur syntaxique : symbole , probablement attendu" << std::endl;  
 	st->transition(*this, std::make_shared<Symbol>(Symbol(SymbolType::VG)));
 	return true;
   }
   if (stName == "E2" || stName == "E8"){
-	std::cout << "Erreur syntaxique (:) symbole ; attendu" << std::endl;  	
+	std::cout << "Erreur syntaxique : symbole ; attendu" << std::endl;  	
 	st->transition(*this, std::make_shared<Symbol>(Symbol(SymbolType::PV)));
 	return true;
   }
   if (stName == "E11"){
-	std::cout << "Erreur syntaxique (:) opérateur :=  attendu" << std::endl;  	
+	std::cout << "Erreur syntaxique : opérateur :=  attendu" << std::endl;  	
 	st->transition(*this, std::make_shared<Symbol>(Symbol(SymbolType::AFF)));
 	return true;	
   }
