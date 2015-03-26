@@ -18,7 +18,6 @@ class StaticAnalyzer {
     void checkRValueVariables(std::vector<std::string> ids, std::shared_ptr<Instruction> instruction);
     void checkUnusedVariables();
     void checkUninitializedVariables();
-    bool isAssigned(std::string id, std::shared_ptr<Instruction> instruction);
 
   public:
     StaticAnalyzer(std::shared_ptr<Program> p) : m_program(p), m_decList(p->getDecList()), m_instList(p->getInstList()) {}

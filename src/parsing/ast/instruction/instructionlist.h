@@ -15,6 +15,8 @@ class InstructionList : public Symbol {
     void toString(std::ostream &o) const;
     void addInstruction(std::shared_ptr<Instruction> i) { m_instructions.push_back(i); };
     std::vector<std::shared_ptr<Instruction>> getInsts() { return m_instructions; };
+
+    std::shared_ptr<Instruction> lastAssignation(std::string id, std::shared_ptr<Instruction> instruction);
 };
 
 #endif

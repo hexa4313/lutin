@@ -90,7 +90,7 @@ void StaticAnalyzer::checkRValueVariables(std::vector<std::string> ids, std::sha
     }
 
     // Check for missing assignation
-    if(!isAssigned(id, instruction)) {
+    if(!m_instList->lastAssignation(id, instruction)) {
       std::shared_ptr<Expression> expr;
 
       if(instruction->getType() == SymbolType::AFF) {
@@ -106,30 +106,6 @@ void StaticAnalyzer::checkRValueVariables(std::vector<std::string> ids, std::sha
       std::cerr << "une valeur dans l'expression " << *expr << " n'est pas connue." << std::endl;
     }
   }
-}
-
-bool StaticAnalyzer::isAssigned(std::string id, std::shared_ptr<Instruction> instruction) {
-  bool assigned = false;
-  auto allInst = m_instList->getInsts();
-
-  // Search in previous instructions for an assignation or a read instruction
-  for(auto it = allInst.begin(); *it != instruction; ++it) {
-    auto prevInstruction = *it;
-    if(prevInstruction->getType() == SymbolType::I_R) {
-      auto r = std::dynamic_pointer_cast <Read> (prevInstruction);
-      if(r->getId() == id) {
-        assigned = true;
-      }
-    }
-    else if(prevInstruction->getType() == SymbolType::AFF) {
-      auto aff = std::dynamic_pointer_cast <Assign> (prevInstruction);
-      if(aff->getId() == id) {
-        assigned = true;
-      }
-    }
-  }
-
-  return assigned;
 }
 
 void StaticAnalyzer::checkUnusedVariables() {
