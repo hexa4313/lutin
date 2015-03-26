@@ -14,5 +14,5 @@ int NumericConst::eval(std::shared_ptr<SymbolTable> m_table) const {
 }
 
 std::shared_ptr<Expression> NumericConst::optimize(std::shared_ptr<Program>, std::shared_ptr<Instruction>) {
-  return std::make_shared<NumericConst>(m_value);
+  return shared_from_this();
 }

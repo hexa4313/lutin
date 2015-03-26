@@ -4,7 +4,7 @@
 #include <memory>
 #include "expression.h"
 
-class NumericConst : public Expression {
+class NumericConst : public Expression, public std::enable_shared_from_this<NumericConst> {
   private:
     int m_value;
   public:
