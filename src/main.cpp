@@ -91,7 +91,7 @@ int main(int argc, char ** argv) {
       opt_execute = true;
     }
     else if (arg == "-a") {
-      opt_analyse = true;
+      opt_optimize = true;
     }
     else {
       input_path = arg;
