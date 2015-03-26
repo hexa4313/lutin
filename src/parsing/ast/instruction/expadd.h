@@ -11,6 +11,7 @@ class ExpAdd : public BinaryExp {
     void toString(std::ostream &o) const;
 
     std::shared_ptr<Expression> optimizeConstants(std::map<std::string, int>);
+    int eval(std::shared_ptr<SymbolTable> m_table) const;
 };
 
 #endif

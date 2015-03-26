@@ -130,8 +130,9 @@ int main(int argc, char ** argv) {
   }
 
   if(opt_execute) {
-    std::shared_ptr<Interpreter> interpreter = std::make_shared<Interpreter>(program);
-    interpreter->init();
+    Interpreter interpreter(program);
+    interpreter.init();
+    interpreter.run();
   }
 
 }

@@ -41,3 +41,7 @@ std::shared_ptr<Expression> ExpDiv::optimizeConstants(std::map<std::string, int>
     return std::make_shared<ExpDiv>(left, right);
   }
 }
+
+int ExpDiv::eval(std::shared_ptr<SymbolTable> m_table) const {
+  return m_left->eval(m_table) / m_right->eval(m_table);
+}

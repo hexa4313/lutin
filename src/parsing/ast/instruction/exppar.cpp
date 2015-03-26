@@ -1,6 +1,4 @@
 #include "exppar.h"
-#include "identifier.h"
-#include "numericconst.h"
 
 void ExpPar::toString(std::ostream &o) const {
   o << "(" << *m_expr << ")";
@@ -22,4 +20,8 @@ std::shared_ptr<Expression> ExpPar::optimizeConstants(std::map<std::string, int>
     default:
       return std::make_shared<ExpPar>(expr);
   }
+}
+
+int ExpPar::eval(std::shared_ptr<SymbolTable> m_table) const {
+  return m_expr->eval(m_table);
 }

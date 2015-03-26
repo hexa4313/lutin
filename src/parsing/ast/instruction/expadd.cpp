@@ -34,3 +34,7 @@ std::shared_ptr<Expression> ExpAdd::optimizeConstants(std::map<std::string, int>
     return std::make_shared<ExpAdd>(left, right);
   }
 }
+
+int ExpAdd::eval(std::shared_ptr<SymbolTable> m_table) const {
+  return m_left->eval(m_table) + m_right->eval(m_table);
+}

@@ -1,5 +1,4 @@
 #include "binaryexp.h"
-#include "numericconst.h"
 
 std::vector<std::string> BinaryExp::getIdentifiers() {
   std::vector<std::string> vars;

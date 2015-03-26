@@ -22,3 +22,7 @@ std::shared_ptr<Expression> Identifier::optimizeConstants(std::map<std::string, 
     return std::make_shared<Identifier>(m_name);
   }
 }
+
+int Identifier::eval(std::shared_ptr<SymbolTable> m_table) const {
+  return m_table->get(m_name);
+}

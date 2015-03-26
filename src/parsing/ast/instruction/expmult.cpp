@@ -40,3 +40,7 @@ std::shared_ptr<Expression> ExpMult::optimizeConstants(std::map<std::string, int
     return std::make_shared<ExpMult>(left, right);
   }
 }
+
+int ExpMult::eval(std::shared_ptr<SymbolTable> m_table) const {
+  return m_left->eval(m_table) * m_right->eval(m_table);
+}

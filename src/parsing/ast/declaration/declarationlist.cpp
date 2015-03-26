@@ -34,10 +34,10 @@ bool DeclarationList::isDeclared(std::string id) const {
   return m_declaredIds.find(id) != m_declaredIds.end();
 }
 
-void DeclarationList::getDeclarationTable(SymbolTable& m_table) const {
-  /*for(auto it = m_decs.begin(); it != m_decs.end(); ++it) {
-    m_table.appendList(*it->getDecList());
-  }*/
+void DeclarationList::getDeclarationTable(std::shared_ptr<SymbolTable> m_table) const {
+  for(auto elem : m_decs) {
+    m_table->appendList(elem->getDecList());
+  }
 }
 
 void DeclarationList::toString(std::ostream &o) const {
