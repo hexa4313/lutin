@@ -1,4 +1,7 @@
 #include "declarationlist.h"
+#include "constdeclist.h"
+
+#include <algorithm>
 
 bool DeclarationList::addDeclaration(std::shared_ptr<Declaration> d) {
 
@@ -63,4 +66,21 @@ std::set<std::string> DeclarationList::filterVariables(std::set<std::string> ids
     }
   }
   return varsOnly;
+}
+
+std::map<std::string, int> DeclarationList::getConstants() {
+  std::map<std::string, int> constants;
+
+  for(auto declaration : m_decs) {
+    if(declaration->getType() == SymbolType::C) {
+      auto constDecList = std::dynamic_pointer_cast<ConstDecList>(declaration);
+      auto decs = constDecList->getDecList();
+      for(auto dec : decs) {
+        auto constDec = std::dynamic_pointer_cast<ConstDec>(dec);
+        constants[constDec->getName()] = constDec->getValue();
+      }
+    }
+  }
+
+  return constants;
 }

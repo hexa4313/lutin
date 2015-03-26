@@ -6,4 +6,5 @@ void Write::toString(std::ostream &o) const {
 
 int Write::eval(std::shared_ptr<SymbolTable> m_table) const {
   std::cout << m_expr->eval(m_table) << "\n";
+  return 0;
 }

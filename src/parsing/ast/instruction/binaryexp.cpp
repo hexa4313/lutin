@@ -1,5 +1,4 @@
 #include "binaryexp.h"
-#include "../../../interpreter/symboltable.h"
 
 std::vector<std::string> BinaryExp::getIdentifiers() {
   std::vector<std::string> vars;
