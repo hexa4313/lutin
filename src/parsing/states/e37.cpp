@@ -5,7 +5,7 @@
 #include "e30.h"
 #include "e27.h"
 #include "e28.h"
-#include "../ast/instruction/binaryexp.h"
+#include "../ast/expression/binaryexp.h"
 
 bool E37::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 

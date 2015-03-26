@@ -3,7 +3,7 @@
 
 #include <memory>
 #include "instruction.h"
-#include "expression.h"
+#include "../expression/expression.h"
 
 class Write : public Instruction {
   private:

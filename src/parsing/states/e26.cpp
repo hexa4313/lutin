@@ -1,5 +1,5 @@
 #include "e26.h"
-#include "../ast/instruction/expdiv.h"
+#include "../ast/expression/expdiv.h"
 
 bool E26::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 

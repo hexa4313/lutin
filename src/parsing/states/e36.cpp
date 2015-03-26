@@ -1,6 +1,6 @@
 #include "e36.h"
 
-#include "../ast/instruction/binaryexp.h"
+#include "../ast/expression/binaryexp.h"
 
 
 bool E36::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {

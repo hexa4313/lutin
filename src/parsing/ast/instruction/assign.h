@@ -5,7 +5,7 @@
 #include "../../../interpretation/symboltable.h"
 #include "../symboltype.h"
 #include "instruction.h"
-#include "expression.h"
+#include "../expression/expression.h"
 
 class Assign : public Instruction {
   private:

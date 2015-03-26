@@ -1,5 +1,5 @@
 #include "e20.h"
-#include "../ast/instruction/numericconst.h"
+#include "../ast/expression/numericconst.h"
 
 bool E20::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
