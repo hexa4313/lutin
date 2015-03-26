@@ -92,7 +92,7 @@ int main(int argc, char ** argv) {
     else if (arg == "-e") {
       opt_execute = true;
     }
-    else if (arg == "-a") {
+    else if (arg == "-o") {
       opt_optimize = true;
     }
     else {
