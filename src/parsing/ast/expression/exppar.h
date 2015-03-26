@@ -3,7 +3,7 @@
 
 #include <memory>
 #include "expression.h"
-#include "../../../interpreter/symboltable.h"
+#include "../../../interpretation/symboltable.h"
 
 class ExpPar : public Expression {
   private:
@@ -15,6 +15,7 @@ class ExpPar : public Expression {
     int eval(std::shared_ptr<SymbolTable> m_table) const;
 
     std::vector<std::string> getIdentifiers();
+    std::shared_ptr<Expression> optimizeConstants(std::map<std::string, int>);
 };
 
 #endif

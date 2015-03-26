@@ -9,6 +9,8 @@ class ExpMult : public BinaryExp {
     ExpMult() : BinaryExp(SymbolType::OP_M) {}
     ExpMult(std::shared_ptr<Expression> l, std::shared_ptr<Expression> r) : BinaryExp(SymbolType::OP_M, l, r) {}
     void toString(std::ostream &o) const;
+
+    std::shared_ptr<Expression> optimizeConstants(std::map<std::string, int>);
     int eval(std::shared_ptr<SymbolTable> m_table) const;
 };
 

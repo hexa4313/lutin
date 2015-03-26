@@ -6,7 +6,7 @@
 #include <set>
 #include "../symbol.h"
 #include "declaration.h"
-#include "../../../interpreter/symboltable.h"
+#include "../../../interpretation/symboltable.h"
 
 class DeclarationList : public Symbol {
   private:
@@ -21,10 +21,10 @@ class DeclarationList : public Symbol {
     std::set<std::string> getDeclaredIds() const { return m_declaredIds; };
 
     bool isDeclared(std::string id) const;
+    std::map<std::string, int> getConstants();
     std::shared_ptr<SimpleDec> getDec(std::string id) const;
     std::vector<std::string> filterVariables(std::vector<std::string>) const;
     std::set<std::string> filterVariables(std::set<std::string> ids) const;
-
 };
 
 #endif

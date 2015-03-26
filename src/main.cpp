@@ -27,8 +27,9 @@
 #include <cstdlib>
 #include <iostream>
 #include "parsing/statemachine.h"
-#include "interpreter/interpreter.h"
+#include "interpretation/interpreter.h"
 #include "static_analysis/staticanalyzer.h"
+#include "optimization/optimizer.h"
 
 #define MIN_ARGS 2
 #define MAX_ARGS 4
@@ -114,19 +115,24 @@ int main(int argc, char ** argv) {
     exit(ERROR_INCORRECT_PROGRAM);
   }
 
-  if(opt_execute) {
-    std::shared_ptr<Interpreter> interpreter = std::make_shared<Interpreter>(program);
-    interpreter->init();
-    interpreter->run();
+  if(opt_analyse) {
+    StaticAnalyzer analyzer(program);
+    analyzer.checkProgram();
+  }
+
+  if(opt_optimize) {
+    Optimizer optimizer(program);
+    optimizer.optimizeProgram();
   }
 
   if(opt_print) {
     std::cout << *program;
   }
 
-  if(opt_analyse) {
-    StaticAnalyzer analyzer(program);
-    analyzer.checkProgram();
+  if(opt_execute) {
+    Interpreter interpreter(program);
+    interpreter.init();
+    interpreter.run();
   }
 
 }

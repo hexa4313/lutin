@@ -2,10 +2,10 @@
 #define ASSIGN_H
 
 #include <memory>
-#include "../../../interpreter/symboltable.h"
+#include "../../../interpretation/symboltable.h"
 #include "../symboltype.h"
 #include "instruction.h"
-#include "expression.h"
+#include "../expression/expression.h"
 
 class Assign : public Instruction {
   private:
@@ -19,6 +19,7 @@ class Assign : public Instruction {
     
     std::string getId() { return m_id; }
     std::shared_ptr<Expression> getExpr() { return m_expr; }
+    void replaceExpr(std::shared_ptr<Expression> e) { m_expr = e; }
 };
 
 #endif
