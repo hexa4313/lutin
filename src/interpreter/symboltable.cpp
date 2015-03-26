@@ -11,7 +11,7 @@ void SymbolTable::appendConst(const std::string name, const int value) {
   m_table[name] = std::make_pair(value, SymbolType::CST);
 }
 
-void SymbolTable::appendList(std::vector<std::shared_ptr<Symbol>> decsList) {
+void SymbolTable::appendList(std::vector<std::shared_ptr<SimpleDec>> decsList) {
   for(auto symbol : decsList) {
     switch(symbol->getType()) {
       case SymbolType::CST: {
@@ -21,7 +21,7 @@ void SymbolTable::appendList(std::vector<std::shared_ptr<Symbol>> decsList) {
       }
       case SymbolType::VAR: {
         auto v = std::dynamic_pointer_cast<VarDec>(symbol);
-        appendVar(v->getName(), v->getValue());
+        appendVar(v->getName(), 0);
         break;
       }
       default:
@@ -34,6 +34,10 @@ int SymbolTable::get(const std::string name, bool &isConst) const {
   std::pair<int, SymbolType> entry = m_table.at(name);
   isConst = entry.second == SymbolType::CST;
   return entry.first;
+}
+
+int SymbolTable::get(const std::string name) const {
+  return m_table.at(name).first;
 }
 
 void SymbolTable::set(const std::string name, const int value) {

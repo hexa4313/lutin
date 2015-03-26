@@ -9,3 +9,7 @@ std::vector<std::string> Identifier::getIdentifiers() {
   vars.push_back(m_name);
   return vars;
 }
+
+int Identifier::eval(std::shared_ptr<SymbolTable> m_table) const {
+  return m_table->get(m_name);
+}

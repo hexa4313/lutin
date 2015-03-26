@@ -8,10 +8,11 @@
 class Interpreter {
   private:
     std::shared_ptr<Program> m_program;
-    SymbolTable m_table;
+    std::shared_ptr<SymbolTable> m_table;
+    std::vector<std::shared_ptr<Instruction>> m_instructions;
   public:
     Interpreter() {}
-    Interpreter(std::shared_ptr<Program> prog) : m_program(prog) {}
+    Interpreter(std::shared_ptr<Program> prog) : m_program(prog), m_table(std::make_shared<SymbolTable>()) {}
 
     void init();
     bool step();

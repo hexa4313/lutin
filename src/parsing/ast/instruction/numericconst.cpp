@@ -8,3 +8,7 @@ std::vector<std::string> NumericConst::getIdentifiers() {
   std::vector<std::string> vars; // empty vector
   return vars;
 }
+
+int NumericConst::eval(std::shared_ptr<SymbolTable> m_table) const {
+  return m_value;
+}
