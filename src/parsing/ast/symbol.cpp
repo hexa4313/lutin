@@ -35,11 +35,13 @@ static std::map<SymbolType, std::string> typeNames = {
     {SymbolType::E_CNUM, "E_CNUM"},
     {SymbolType::E_PAR, "E_PAR"},
 
-    {SymbolType::END, "END"}
+    {SymbolType::END, "END"},
+    {SymbolType::UNKNOWN, "UNKNOWN"}
+    
 };
 
 boost::variant<int, std::string>  Symbol::getValue() const {
-  assert(m_type == SymbolType::ID || m_type == SymbolType::VAL);
+  //assert(m_type == SymbolType::ID || m_type == SymbolType::VAL);
 
   return m_value;
 }

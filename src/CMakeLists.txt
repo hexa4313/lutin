@@ -175,6 +175,8 @@ SET (ast_SRCS
   ${instruction_SRCS}
   ${expression_SRCS}
 
+  parsing/ast/unknown.h
+
   parsing/ast/program.h
   parsing/ast/program.cpp
 

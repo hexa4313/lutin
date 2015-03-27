@@ -4,7 +4,7 @@
 #include <memory>
 #include "expression.h"
 
-class NumericConst : public Expression {
+class NumericConst : public Expression, public std::enable_shared_from_this<NumericConst> {
   private:
     int m_value;
   public:
@@ -15,7 +15,7 @@ class NumericConst : public Expression {
 
     int getValue() { return m_value; };
     std::vector<std::string> getIdentifiers();
-    std::shared_ptr<Expression> optimizeConstants(std::map<std::string, int>);
+    std::shared_ptr<Expression> optimize(std::shared_ptr<Program>, std::shared_ptr<Instruction>);
 };
 
 #endif

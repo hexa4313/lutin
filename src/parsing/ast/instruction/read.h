@@ -13,6 +13,7 @@ class Read : public Instruction {
     Read(std::string id) : Instruction(SymbolType::I_R), m_id(id) {}
     void toString(std::ostream &o) const;
     int eval(std::shared_ptr<SymbolTable> m_table) const;
+    void optimize(std::shared_ptr<Program>) {}
 
     std::string getId() { return m_id; }
 };
