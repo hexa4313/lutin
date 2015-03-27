@@ -8,6 +8,8 @@ bool E11::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
       stateMachine.setState(s, std::make_shared<E41>());
       return true;
     default :
+      //Error case : Assign symbol forgotten -> implicitly added
+      stateMachine.setState(std::make_shared<Symbol>(Symbol(SymbolType::AFF)), std::make_shared<E41>());
       return false;
   }
 }

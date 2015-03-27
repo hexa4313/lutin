@@ -26,7 +26,7 @@ class StateMachine {
 
 		void setState(std::shared_ptr<Symbol> symbol, std::shared_ptr<State> state);
 	        void accept(std::shared_ptr<Program> p) { m_program = p; }
-		bool checkSyntax(std::shared_ptr<State> stm);
+		bool checkSyntax(std::shared_ptr<State> st, std::shared_ptr<Symbol> s );
 };
 
 #endif

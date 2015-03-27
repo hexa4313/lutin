@@ -10,6 +10,12 @@ bool E12::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
     return true;
   }
+  else if(s->getType() != SymbolType::PV){
+    //Error case : coma forgotten -> Implicitly added
+    stateMachine.setState(std::make_shared<Symbol>(Symbol(SymbolType::VG)), std::make_shared<E22>());
+
+    return false;
+  }
   else {
     stateMachine.popStates(2);
     auto symbols = stateMachine.popSymbols(2);

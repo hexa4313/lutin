@@ -1,5 +1,6 @@
 #include "statemachine.h"
 #include "states/e0.h"
+#include "states/e1.h"
 #include "ast/declaration/declarationlist.h"
 
 std::shared_ptr<Program> StateMachine::read() {
@@ -11,20 +12,19 @@ std::shared_ptr<Program> StateMachine::read() {
   std::shared_ptr<Symbol> symbol;
 
   do {
-
     symbol = m_lexer.getSymbol();
-//    std::cout << "Symbol lu " << symbol << std::endl;
+    //std::cout << "Symbol lu " << *symbol << std::endl;
     auto lastState = m_states.top();
-
+    //std::cout << "Etat traite " << lastState -> name() << std::endl;
     if(!lastState->transition(*this, symbol)) {
-      bool syntaxError = checkSyntax(lastState);
+        lastState = m_states.top();
+    	bool syntaxError = checkSyntax(lastState, symbol);
 	if (!syntaxError) {
-//		std::cout << "Error in transition!" << std::endl;
+		std::cout << "Error in transition!" << std::endl;
 	        return nullptr;
 	} 
-    }else {
-    	m_lexer.shift();
     }
+    m_lexer.shift();
 
   } while(symbol->getType() != SymbolType::END);
 
@@ -59,12 +59,12 @@ std::shared_ptr<Symbol> StateMachine::lastSymbol() {
   return m_symbols.top();
 }
 
-bool StateMachine::checkSyntax(std::shared_ptr<State> st) {
+bool StateMachine::checkSyntax(std::shared_ptr<State> st, std::shared_ptr<Symbol> s ) {
   std::string stName = st->name();
- std::cout << stName << std::endl;
-  if (stName == "E12" || stName == "E14"){
-  	std::cout << "Erreur syntaxique : symbole , probablement attendu" << std::endl;  
-	st->transition(*this, std::make_shared<Symbol>(Symbol(SymbolType::VG)));
+  //std::cout << "Check State syntax error : " << stName << std::endl;
+  if (stName == "E22" || stName == "E23"){
+	std::cout << "Erreur syntaxique : symbole , attendu" << std::endl;  	
+	st->transition(*this, s);
 	return true;
   }
   if (stName == "E2" || stName == "E8"){
@@ -72,9 +72,9 @@ bool StateMachine::checkSyntax(std::shared_ptr<State> st) {
 	st->transition(*this, std::make_shared<Symbol>(Symbol(SymbolType::PV)));
 	return true;
   }
-  if (stName == "E11"){
+  if (stName == "E41"){
 	std::cout << "Erreur syntaxique : opérateur :=  attendu" << std::endl;  	
-	st->transition(*this, std::make_shared<Symbol>(Symbol(SymbolType::AFF)));
+	st->transition(*this, s);
 	return true;	
   }
   return false;
