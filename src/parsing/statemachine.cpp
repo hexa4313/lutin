@@ -30,7 +30,7 @@ std::shared_ptr<Program> StateMachine::read() {
     	bool syntaxError = checkSyntax(lastState, symbol);
 	if (!syntaxError) 
     	{
-		std::cout << "Error in transition!" << std::endl;
+		std::cerr << "Error in transition!" << std::endl;
 	        return nullptr;
 	} 
     }
@@ -73,17 +73,18 @@ bool StateMachine::checkSyntax(std::shared_ptr<State> st, std::shared_ptr<Symbol
   std::string stName = st->name();
   //std::cout << "Check State syntax error : " << stName << std::endl;
   if (stName == "E22" || stName == "E23"){
-	std::cout << "Erreur syntaxique : symbole , attendu" << std::endl;  	
+	std::cerr << "Erreur syntaxique : symbole , attendu" << std::endl;  	
 	st->transition(*this, s);
 	return true;
   }
   if (stName == "E2" || stName == "E8"){
-	std::cout << "Erreur syntaxique : symbole ; attendu" << std::endl;  	
+	// Non fonctionnel encore -- En attente de la récupération de fin de ligne
+	std::cerr << "Erreur syntaxique : symbole ; attendu" << std::endl;  	
 	st->transition(*this, std::make_shared<Symbol>(Symbol(SymbolType::PV)));
 	return true;
   }
   if (stName == "E41"){
-	std::cout << "Erreur syntaxique : opérateur :=  attendu" << std::endl;  	
+	std::cerr << "Erreur syntaxique : opérateur :=  attendu" << std::endl;  	
 	st->transition(*this, s);
 	return true;	
   }

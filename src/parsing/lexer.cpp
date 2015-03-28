@@ -20,7 +20,8 @@ static std::pair<SymbolType, boost::regex> regexes[] = {
     std::make_pair(SymbolType::R,   boost::regex("\\A\\s*(lire)\\s+")),
     std::make_pair(SymbolType::ID,  boost::regex("\\A\\s*([a-zA-Z][a-zA-Z0-9]*)\\s*")),
     std::make_pair(SymbolType::VAL, boost::regex("\\A\\s*([0-9]+)\\s*")),
-    std::make_pair(SymbolType::END, boost::regex("\\A\\s*\\z"))
+    std::make_pair(SymbolType::END, boost::regex("\\A\\s*\\z")),
+    std::make_pair(SymbolType::EOL, boost::regex("\\s+$"))
 };
 
 Lexer::Lexer(std::string path) {
@@ -57,7 +58,7 @@ std::shared_ptr<Symbol> Lexer::getSymbol() {
           symbol = std::make_shared<Symbol>(reg.first);
       }
 
-     // std::cout << "Lecture de " << *symbol << std::endl;
+      //std::cout << "Lecture de " << *symbol << std::endl;
 
       m_curSymbol = symbol;
 
