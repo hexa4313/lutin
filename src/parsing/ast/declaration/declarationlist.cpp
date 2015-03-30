@@ -8,7 +8,7 @@ bool DeclarationList::addDeclaration(std::shared_ptr<Declaration> d) {
   for(auto dec : d->getDecList()) {
     std::string id = dec->getName();
     if(isDeclared(id)) {
-      std::cerr << "la variable " << id << " est deja declaree";
+      std::cerr << "la variable " << id << " est deja declaree" << std::endl;
     }
     m_declaredIds.insert(id);
   }
