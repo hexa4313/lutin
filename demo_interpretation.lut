@@ -1,0 +1,4 @@
+var a, b;
+lire a;
+lire b;
+ecrire a + b;
