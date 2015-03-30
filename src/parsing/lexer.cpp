@@ -4,25 +4,26 @@
 #include "ast/unknown.h"
 
 static std::pair<SymbolType, boost::regex> regexes[] = {
-    std::make_pair(SymbolType::AFF, boost::regex("\\A\\s*(:=)\\s*")),
-    std::make_pair(SymbolType::PV,  boost::regex("\\A\\s*(;)\\s*")),
-    std::make_pair(SymbolType::VG,  boost::regex("\\A\\s*(,)\\s*")),
-    std::make_pair(SymbolType::EQ,  boost::regex("\\A\\s*(=)\\s*")),
-    std::make_pair(SymbolType::ADD, boost::regex("\\A\\s*(\\+)\\s*")),
-    std::make_pair(SymbolType::SUB, boost::regex("\\A\\s*(-)\\s*")),
-    std::make_pair(SymbolType::MUL, boost::regex("\\A\\s*(\\*)\\s*")),
-    std::make_pair(SymbolType::DIV, boost::regex("\\A\\s*(/)\\s*")),
-    std::make_pair(SymbolType::PO,  boost::regex("\\A\\s*(\\()\\s*")),
-    std::make_pair(SymbolType::PF,  boost::regex("\\A\\s*(\\))\\s*")),
-    std::make_pair(SymbolType::VAR, boost::regex("\\A\\s*(var)\\s+")),
-    std::make_pair(SymbolType::CST, boost::regex("\\A\\s*(const)\\s+")),
-    std::make_pair(SymbolType::W,   boost::regex("\\A\\s*(ecrire)\\s+")),
-    std::make_pair(SymbolType::R,   boost::regex("\\A\\s*(lire)\\s+")),
-    std::make_pair(SymbolType::ID,  boost::regex("\\A\\s*([a-zA-Z][a-zA-Z0-9]*)\\s*")),
-    std::make_pair(SymbolType::VAL, boost::regex("\\A\\s*([0-9]+)\\s*")),
-    std::make_pair(SymbolType::END, boost::regex("\\A\\s*\\z")),
-    std::make_pair(SymbolType::EOL, boost::regex("\\s+$"))
+    std::make_pair(SymbolType::AFF, boost::regex("\\A(:=)")),
+    std::make_pair(SymbolType::PV,  boost::regex("\\A(;)")),
+    std::make_pair(SymbolType::VG,  boost::regex("\\A(,)")),
+    std::make_pair(SymbolType::EQ,  boost::regex("\\A(=)")),
+    std::make_pair(SymbolType::ADD, boost::regex("\\A(\\+)")),
+    std::make_pair(SymbolType::SUB, boost::regex("\\A(-)")),
+    std::make_pair(SymbolType::MUL, boost::regex("\\A(\\*)")),
+    std::make_pair(SymbolType::DIV, boost::regex("\\A(/)")),
+    std::make_pair(SymbolType::PO,  boost::regex("\\A(\\()")),
+    std::make_pair(SymbolType::PF,  boost::regex("\\A(\\))")),
+    std::make_pair(SymbolType::VAR, boost::regex("\\A(var)\\s+")),
+    std::make_pair(SymbolType::CST, boost::regex("\\A(const)\\s+")),
+    std::make_pair(SymbolType::W,   boost::regex("\\A(ecrire)\\s+")),
+    std::make_pair(SymbolType::R,   boost::regex("\\A(lire)\\s+")),
+    std::make_pair(SymbolType::ID,  boost::regex("\\A([a-zA-Z][a-zA-Z0-9]*)")),
+    std::make_pair(SymbolType::VAL, boost::regex("\\A([0-9]+)")),
+    std::make_pair(SymbolType::END, boost::regex("\\A\\z"))
 };
+
+static boost::regex whitespace("\\A(\\s)");
 
 Lexer::Lexer(std::string path) {
   std::ifstream f;
@@ -33,6 +34,9 @@ Lexer::Lexer(std::string path) {
   m_content = stream.str();
 
   f.close();
+
+  m_line = 1;
+  m_char = 1;
 }
 
 std::shared_ptr<Symbol> Lexer::getSymbol() {
@@ -41,12 +45,14 @@ std::shared_ptr<Symbol> Lexer::getSymbol() {
     return m_curSymbol;
   }
 
-  boost::smatch sm;
+  trim();
 
   for(const auto& reg: regexes) {
+    boost::smatch sm;
     if(boost::regex_search(m_content, sm, reg.second)) {
 
       std::shared_ptr<Symbol> symbol;
+
       switch(reg.first) {
         case SymbolType::ID:
           symbol = std::make_shared<Symbol>(reg.first, sm[1]);
@@ -57,24 +63,39 @@ std::shared_ptr<Symbol> Lexer::getSymbol() {
         default:
           symbol = std::make_shared<Symbol>(reg.first);
       }
-
-      //std::cout << "Lecture de " << *symbol << std::endl;
-
+      symbol->setPosition(m_line, m_char);
       m_curSymbol = symbol;
 
-      m_content.erase(0, sm[0].length());
+      auto matchlen = sm[1].length();
+      m_char += matchlen;
+      m_content.erase(0, matchlen);
 
       return m_curSymbol;
     }
   }
 
   auto unknown = std::make_shared<Unknown>(m_content[0]);
+  unknown->setPosition(m_line, m_char);
   m_content.erase(0, 1);
-  
-  //std::cout << "Lecture de " << *unknown << std::endl;
   return unknown;
 }
 
 void Lexer::shift() {
   m_curSymbol = nullptr;
+}
+
+void Lexer::trim() {
+  boost::smatch sm;
+  while(boost::regex_search(m_content, sm, whitespace)) {
+    for (int i = 0; i < sm.length(); ++i) {
+      if (sm[i] == "\n") {
+        m_line++;
+        m_char = 1;
+      }
+      else {
+        m_char++;
+      }
+      m_content.erase(0, sm[i].length());
+    }
+  }
 }

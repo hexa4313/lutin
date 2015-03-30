@@ -11,14 +11,14 @@ bool E33::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
   auto v = std::dynamic_pointer_cast<VarDecList>(symbols[2]);
   v->addVarDec(varDec);
 
-  auto e4 = stateMachine.lastState();
+  auto e4 = stateMachine.curState();
 
   // reduction
   if(!e4->transition(stateMachine, v)) {
     return false;
   }
 
-  auto e12 = stateMachine.lastState();
+  auto e12 = stateMachine.curState();
   return e12->transition(stateMachine, s);
 
 }

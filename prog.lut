@@ -1,5 +1,4 @@
-const d = 5, a = 3;
-var c;
-c := 5;
-lire c;
-ecrire 10 - c;
+const c = 4;
+const d = 6
+var e;
+lire e;

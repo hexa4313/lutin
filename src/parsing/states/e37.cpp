@@ -38,14 +38,14 @@ bool E37::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
       auto expadd =  std::dynamic_pointer_cast<BinaryExp>(symbols[1]);
       expadd->setExpressions(expL, expR);
 
-      auto e9 = stateMachine.lastState();
+      auto e9 = stateMachine.curState();
 
       //reduction
       if(!e9->transition(stateMachine, expadd)) {
         return false;
       }
 
-      auto e17 = stateMachine.lastState();
+      auto e17 = stateMachine.curState();
       return e17->transition(stateMachine, s);
   }
 }

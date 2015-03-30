@@ -8,6 +8,8 @@ bool E23::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
       stateMachine.setState(s, std::make_shared<E34>());
       return true;
     default :
+      std::cerr << "Erreur syntaxique (" << s->getLine() << ":";
+      std::cerr << s->getCol() << ") symbole identifiant attendu" << std::endl;
       return false;
   }
 }

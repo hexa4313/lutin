@@ -32,19 +32,18 @@ bool E17::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
     default :
       stateMachine.popStates(2);
       auto symbols = stateMachine.popSymbols(2);
-      auto il = std::dynamic_pointer_cast<InstructionList>(stateMachine.lastSymbol());
 
       auto E = std::dynamic_pointer_cast<Expression>(symbols[0]);
       auto I = std::make_shared<Write>(E);
 
-      auto e3 = stateMachine.lastState();
+      auto e3 = stateMachine.curState();
 
       //reduction
       if(!e3->transition(stateMachine, I)) {
         return false;
       }
 
-      auto e8 = stateMachine.lastState();
+      auto e8 = stateMachine.curState();
       return e8->transition(stateMachine, s);
   }
 }

@@ -8,13 +8,13 @@ bool E25::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
   auto OpM = std::make_shared<ExpMult>();
 
-  auto e17 = stateMachine.lastState();
+  auto e17 = stateMachine.curState();
 
   //reduction
   if(!e17->transition(stateMachine, OpM)) {
     return false;
   }
 
-  auto e29 = stateMachine.lastState();
+  auto e29 = stateMachine.curState();
   return e29->transition(stateMachine, s);
 }

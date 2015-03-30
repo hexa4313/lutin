@@ -12,16 +12,15 @@ bool E35::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
   auto value = boost::get<int>(symbols[0]->getValue());
   auto constDec = std::make_shared<ConstDec>(id, value);
 
-  auto e5 = std::dynamic_pointer_cast<E5>(stateMachine.lastState());
-
   auto C = std::make_shared<ConstDecList>();
   C->addConstDec(constDec);
 
   // reduction
+  auto e5 = std::dynamic_pointer_cast<E5>(stateMachine.curState());
   if(!e5->transition(stateMachine, C)) {
     return false;
   }
 
-  auto e14 = stateMachine.lastState();
+  auto e14 = stateMachine.curState();
   return e14->transition(stateMachine, s);
 }

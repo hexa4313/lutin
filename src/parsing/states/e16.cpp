@@ -6,7 +6,7 @@ bool E16::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
   auto symbols = stateMachine.popSymbols(3);
   stateMachine.popStates(3);
 
-  auto e1 = stateMachine.lastState();
+  auto e1 = stateMachine.curState();
   auto il = std::dynamic_pointer_cast<InstructionList>(symbols[2]);
   auto i =  std::dynamic_pointer_cast<Instruction>(symbols[1]);
   il->addInstruction(i);
@@ -16,6 +16,6 @@ bool E16::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
     return false;
   }
 
-  auto e3 = stateMachine.lastState();
+  auto e3 = stateMachine.curState();
   return e3->transition(stateMachine, s);
 }

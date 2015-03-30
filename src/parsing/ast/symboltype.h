@@ -38,8 +38,7 @@ enum class SymbolType {
   E_PAR,
 
   END,
-  UNKNOWN,
-  EOL
+  UNKNOWN
 };
 
 #endif

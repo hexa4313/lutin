@@ -9,14 +9,14 @@ bool E19::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
   auto id = boost::get<std::string>(symbols[0]->getValue());
   auto E = std::make_shared<Identifier>(id);
 
-  auto e9 = stateMachine.lastState();
+  auto e9 = stateMachine.curState();
 
   //reduction
   if(!e9->transition(stateMachine, E)) {
     return false;
   }
 
-  auto e17 = stateMachine.lastState();
+  auto e17 = stateMachine.curState();
   return e17->transition(stateMachine, s);
 
 }

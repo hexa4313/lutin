@@ -38,12 +38,12 @@ bool E32::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
       auto I = std::make_shared<Assign>(id, E);
 
       //reduction
-      auto e3 = stateMachine.lastState();
+      auto e3 = stateMachine.curState();
       if(!e3->transition(stateMachine, I)) {
         return false;
       }
 
-      auto e1 = stateMachine.lastState();
+      auto e1 = stateMachine.curState();
       return e1->transition(stateMachine, s);
   }
 }

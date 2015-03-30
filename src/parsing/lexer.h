@@ -8,8 +8,12 @@
 class Lexer {
   
   private:
+    int m_line;
+    int m_char;
     std::string m_content;
     std::shared_ptr<Symbol> m_curSymbol;
+
+    void trim();
 
   public:
     Lexer(std::string path);
