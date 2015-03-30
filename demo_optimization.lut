@@ -1,0 +1,7 @@
+const trois = 3, cinq = 5;
+const zero = 0, un = 1;
+var inconnu;
+var dix;
+dix := 10;
+ecrire (trois * cinq) + dix;
+ecrire (inconnu * 10) + zero * cinq;
