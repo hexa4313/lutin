@@ -1,6 +1,7 @@
 #include "declarationlist.h"
 #include "constdeclist.h"
 
+#include <iostream>
 #include <algorithm>
 
 bool DeclarationList::addDeclaration(std::shared_ptr<Declaration> d) {

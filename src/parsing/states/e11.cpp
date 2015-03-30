@@ -1,6 +1,8 @@
 #include "e11.h"
 #include "e41.h"
 
+#include <iostream>
+
 bool E11::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
   auto e41 = std::make_shared<E41>();

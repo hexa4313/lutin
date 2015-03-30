@@ -1,6 +1,8 @@
 #include "e22.h"
 #include "e33.h"
 
+#include <iostream>
+
 bool E22::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
   switch(s->getType()) {

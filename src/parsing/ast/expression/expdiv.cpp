@@ -1,6 +1,8 @@
 #include "expdiv.h"
 #include "numericconst.h"
 
+#include <iostream>
+
 void ExpDiv::toString(std::ostream &o) const {
   o << *m_left << "/" << *m_right;
 }

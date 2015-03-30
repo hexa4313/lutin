@@ -2,6 +2,8 @@
 
 #include "e39.h"
 
+#include <iostream>
+
 bool E34::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
   auto e39 = std::make_shared<E39>();

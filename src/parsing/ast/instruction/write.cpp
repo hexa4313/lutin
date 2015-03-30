@@ -1,5 +1,7 @@
 #include "write.h"
 
+#include <iostream>
+
 void Write::toString(std::ostream &o) const {
   o << "ecrire " << *m_expr << ";";
 }

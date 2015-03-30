@@ -1,5 +1,6 @@
 #include "symboltable.h"
 
+#include <iostream>
 #include "../parsing/ast/declaration/constdec.h"
 #include "../parsing/ast/declaration/vardec.h"
 

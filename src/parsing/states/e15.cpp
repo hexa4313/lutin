@@ -2,6 +2,8 @@
 
 #include "e24.h"
 
+#include <iostream>
+
 bool E15::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
   auto e24 = std::make_shared<E24>();

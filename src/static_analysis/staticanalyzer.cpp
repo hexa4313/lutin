@@ -1,6 +1,7 @@
 #include "staticanalyzer.h"
 
 #include <algorithm>
+#include <iostream>
 #include "../parsing/ast/instruction/read.h"
 #include "../parsing/ast/instruction/write.h"
 #include "../parsing/ast/instruction/assign.h"

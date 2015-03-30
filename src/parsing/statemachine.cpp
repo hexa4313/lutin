@@ -3,6 +3,8 @@
 #include  "ast/unknown.h"
 #include <boost/lexical_cast.hpp>
 
+#include <iostream>
+
 std::shared_ptr<Program> StateMachine::read() {
 
   auto e0 = std::make_shared<E0>();

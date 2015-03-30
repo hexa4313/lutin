@@ -3,6 +3,8 @@
 #include "e23.h"
 #include "../ast/declaration/constdeclist.h"
 
+#include <iostream>
+
 bool E14::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
   if(s->getType() == SymbolType::VG) {

@@ -1,6 +1,8 @@
 #include "e2.h"
 #include "e6.h"
 
+#include <iostream>
+
 bool E2::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
   auto e6 = std::make_shared<E6>();

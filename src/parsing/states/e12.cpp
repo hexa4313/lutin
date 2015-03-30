@@ -3,6 +3,8 @@
 #include "e22.h"
 #include "../ast/declaration/vardeclist.h"
 
+#include <iostream>
+
 bool E12::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
 
   if(s->getType() == SymbolType::VG) {
