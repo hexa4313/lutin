@@ -10,7 +10,8 @@ bool E8::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
       stateMachine.setState(s, e16);
       return true;
     default :
-      std::cerr << "Erreur syntaxique symbole ; attendu" << std::endl;
+      std::cerr << "Erreur syntaxique (" << s->getLine() << ":";
+      std::cerr << s->getCol() << ") symbole ; attendu" << std::endl;
 
       stateMachine.setState(std::make_shared<Symbol>(SymbolType::PV), e16);
 

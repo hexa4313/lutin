@@ -11,7 +11,8 @@ bool E34::transition (StateMachine & stateMachine, std::shared_ptr<Symbol> s) {
       stateMachine.setState(s, e39);
       return true;
     default :
-      std::cerr << "Erreur syntaxique operateur = attendu" << std::endl;
+      std::cerr << "Erreur syntaxique (" << s->getLine() << ":";
+      std::cerr << s->getCol() << ") operateur = attendu" << std::endl;
 
       stateMachine.setState(std::make_shared<Symbol>(SymbolType::AFF), e39);
 
