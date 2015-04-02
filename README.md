@@ -40,12 +40,12 @@ Organisation du code
 
 Nous avons organisé le code selon les différents aspects de la compilation :
 
-* *src/parsing* contient le nécessaire à l'analyse lexicale et syntaxique des fichiers passés en entrée
-  * *src/parsing/ast* contient les classes constituant l'AST (Abstract Syntax Tree) d'un programme
-  * *src/parsing/states* contient les états de l'automate de l'analyseur syntaxique
-* *src/static_analysis* contient l'analyseur statique
-* *src/optimization* contient l'optimiseur
-* *src/interpretation* contient l'interpréteur
+* *src/parsing* contient le nécessaire à l'analyse lexicale et syntaxique des fichiers passés en entrée.
+  * *src/parsing/ast* contient les classes constituant l'AST (Abstract Syntax Tree) d'un programme.
+  * *src/parsing/states* contient les états de l'automate de l'analyseur syntaxique.
+* *src/static_analysis* contient l'analyseur statique.
+* *src/optimization* contient l'optimiseur.
+* *src/interpretation* contient l'interpréteur.
 
 Construction de l'exécutable
 ---------
