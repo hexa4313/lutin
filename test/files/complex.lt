@@ -1,0 +1,12 @@
+var a, b, c, d;
+const z=100, y=20, x=2, w=30;
+lire a;
+b := a * z;
+c := 10 * (5 + 10) - y;
+c := c + 10;
+d := c;
+ecrire d;
+d := 20;
+ecrire d;
+b := 8*4+(a*(4+7)-x)*c;
+ecrire b;
