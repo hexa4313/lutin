@@ -1,0 +1,5 @@
+var x, y;
+x := 20/ (10*2);
+y := 20/ 10*2;
+ecrire x;
+ecrire y;
