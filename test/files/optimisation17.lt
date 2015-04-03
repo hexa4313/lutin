@@ -1,0 +1,9 @@
+var x,y;
+const c = 4
+const d = 16;
+var z;
+lire x;
+ecrire (x+0)*1-0;
+y := (d-c)*5;
+lire z;
+ecrire y/z
