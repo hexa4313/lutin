@@ -1,4 +1,0 @@
-var x;
-const A = -10;
-x:=5 + A;
-ecrire x;
