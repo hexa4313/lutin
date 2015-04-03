@@ -13,20 +13,20 @@ static std::map<SymbolType, std::string> typeNames = {
     {SymbolType::OP_A, "OP_A"},
     {SymbolType::OP_M, "OP_M"},
 
-    {SymbolType::AFF, "AFF"},
-    {SymbolType::PV, "PV"},
-    {SymbolType::VG, "VG"},
-    {SymbolType::EQ, "EQ"},
-    {SymbolType::ADD, "ADD"},
-    {SymbolType::SUB, "SUB"},
-    {SymbolType::MUL, "MUL"},
-    {SymbolType::DIV, "DIV"},
-    {SymbolType::PO, "PO"},
-    {SymbolType::PF, "PF"},
-    {SymbolType::VAR, "VAR"},
-    {SymbolType::CST, "CST"},
-    {SymbolType::W, "W"},
-    {SymbolType::R, "R"},
+    {SymbolType::AFF, ":="},
+    {SymbolType::PV, ";"},
+    {SymbolType::VG, ","},
+    {SymbolType::EQ, "="},
+    {SymbolType::ADD, "+"},
+    {SymbolType::SUB, "-"},
+    {SymbolType::MUL, "*"},
+    {SymbolType::DIV, "/"},
+    {SymbolType::PO, "("},
+    {SymbolType::PF, ")"},
+    {SymbolType::VAR, "var"},
+    {SymbolType::CST, "const"},
+    {SymbolType::W, "ecrire"},
+    {SymbolType::R, "lire"},
     {SymbolType::I_R, "I_R"},
     {SymbolType::I_W, "I_W"},
     {SymbolType::ID, "ID"},
@@ -47,9 +47,9 @@ boost::variant<int, std::string>  Symbol::getValue() const {
 }
 
 void Symbol::toString(std::ostream &o) const {
-  o << "Symbol(" << typeNames[m_type];
+  o << typeNames[m_type];
   if(m_type == SymbolType::ID || m_type == SymbolType::VAL) {
     o << ", " << getValue();
   }
-  o << ")";
+  //o << ")";
 }

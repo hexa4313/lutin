@@ -23,6 +23,7 @@ std::shared_ptr<Program> StateMachine::read() {
       std::cerr << unknown->getChar() << std::endl;
     }
     else if(!curState->transition(*this, symbol)) {
+      std::cerr << "Erreur syntaxique. Symbole non attendu: " << *symbol << std::endl;
       return nullptr;
     }
     m_lastSymbol = symbol;
