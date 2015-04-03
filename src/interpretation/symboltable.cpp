@@ -42,7 +42,10 @@ int SymbolTable::get(const std::string name) const {
 }
 
 void SymbolTable::set(const std::string name, const int value) {
-  assert(m_table[name].second != SymbolType::CST);
+  if(m_table[name].second == SymbolType::CST) {
+    std::cerr << "Reaffectation de la constante " << name << " impossible." << std::endl;
+    exit(1);
+  }
   m_table[name].first = value;
 }
 

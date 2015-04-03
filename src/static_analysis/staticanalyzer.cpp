@@ -67,7 +67,7 @@ void StaticAnalyzer::checkLValueID(std::string id) {
   if(dec) {
     if(dec->getType() == SymbolType::CST) {
       //Variable of read instruction found as a constant
-      std::cerr << "affectation : la variable " << id << " est une constante" << std::endl;
+      std::cerr << "Reaffectation de la constante " << id << " impossible." << std::endl;
     }
   }
   else {

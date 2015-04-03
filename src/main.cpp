@@ -40,7 +40,6 @@
 #define ERROR_INCORRECT_PROGRAM 1
 
 void show_usage() {
-  std::cerr << "Erreur, veuillez specifier des arguments" << std::endl;
   std::cerr << "  Utilisation :" << std::endl;
   std::cerr << "    ../lut [-p] [-a] [-e] [-o] source.lt" << std::endl;
   std::cerr << "      [-p] affiche le code source reconnu" << std::endl;
@@ -67,6 +66,7 @@ int main(int argc, char ** argv) {
   // Arguments number check
 
   if (argc < MIN_ARGS) {
+    std::cerr << "Erreur, veuillez specifier des arguments" << std::endl;
     show_usage();
     exit(ERROR_NOT_ENOUGH_ARGS);
   }
@@ -95,6 +95,11 @@ int main(int argc, char ** argv) {
     }
     else if (arg == "-o") {
       opt_optimize = true;
+    }
+    else if (arg[0] == '-') {
+      std::cerr << "Argument invalide." << std::endl;
+      show_usage();
+      exit(1);
     }
     else {
       input_path = arg;
