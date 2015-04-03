@@ -45,5 +45,11 @@ std::shared_ptr<Expression> ExpDiv::optimize(std::shared_ptr<Program> program, s
 }
 
 int ExpDiv::eval(std::shared_ptr<SymbolTable> m_table) const {
-  return m_left->eval(m_table) / m_right->eval(m_table);
+  auto l = m_left->eval(m_table);
+  auto r = m_right->eval(m_table);
+  if(r == 0) {
+    std::cerr << "Division par 0!" << std::endl;
+    exit(1);
+  }
+  return l / r;
 }
